@@ -174,11 +174,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\external\idangerous.swiper.css" />
-    <Content Include="Content\css\external\jquery.selectbox.css" />
+    <Content Include="Content\jquery.selectbox.css" />
     <Content Include="Content\css\external\magnific-popup.css" />
-    <Content Include="Content\css\gozha-nav.css" />
+    <Content Include="Content\gozha-nav.css" />
     <Content Include="Content\css\img\select-icons.png" />
-    <Content Include="Content\css\style.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\css\touch.css" />
     <Content Include="Content\images\ajax-loader.GIF" />
     <Content Include="Content\images\apple-store.svg" />
