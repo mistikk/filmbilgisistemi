@@ -398,7 +398,7 @@
     <Content Include="Scripts\js\external\min\count.down.min.js" />
     <Content Include="Scripts\js\external\min\jquery.knob.min.js" />
     <Content Include="Scripts\js\external\min\twitterfeed.min.js" />
-    <Content Include="Scripts\js\external\modernizr.custom.js" />
+    <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\js\external\twitterfeed.js" />
     <Content Include="Scripts\js\form.js" />
     <Content Include="Scripts\js\jquery.mobile.menu.js" />
