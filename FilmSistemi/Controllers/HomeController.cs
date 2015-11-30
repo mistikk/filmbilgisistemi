@@ -26,5 +26,15 @@ namespace FilmSistemi.Controllers
 
             return View();
         }
+        public ActionResult moviepage()
+        {
+
+            return View();
+        }
+        public ActionResult movielist()
+        {
+
+            return View();
+        }
     }
 }
