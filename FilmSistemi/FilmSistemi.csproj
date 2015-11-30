@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -178,6 +179,9 @@
     <Content Include="Content\css\external\magnific-popup.css" />
     <Content Include="Content\gozha-nav.css" />
     <Content Include="Content\css\img\select-icons.png" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="Content\style.css" />
     <Content Include="Content\css\touch.css" />
     <Content Include="Content\images\ajax-loader.GIF" />
@@ -323,6 +327,7 @@
     <Content Include="Content\rs-plugin\js\jquery.themepunch.plugins.min.js" />
     <Content Include="Content\rs-plugin\js\jquery.themepunch.revolution.js" />
     <Content Include="Content\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\video\53170154.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\aleo-bold.svg" />
     <Content Include="fonts\aleo-bolditalic.svg" />
@@ -373,11 +378,26 @@
     <Content Include="Content\rs-plugin\font\revicons.eot" />
     <Content Include="Content\rs-plugin\font\revicons.ttf" />
     <Content Include="Content\rs-plugin\font\revicons.woff" />
+    <None Include="bundleconfig.json" />
+    <Content Include="Content\video\53170154.ogv" />
+    <Content Include="Content\video\53170154.webm" />
+    <None Include="Properties\PublishProfiles\filmbilgi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\filmbilgi - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\filmsistemi - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\filmsistemi - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\filmsistemi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\filmsistemi - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\filmsistemi - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\filmsistemi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js">
+      <DependentUpon>jquery-1.10.2.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -423,7 +443,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />

@@ -21,12 +21,7 @@
     
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content2/css")
-    <link rel="stylesheet" type="text/css" href="Content/rs-plugin/css/settings.css" media="screen" />
-
-    <!-- Scripts   -->
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <link rel="stylesheet" type="text/css" href="/Content/rs-plugin/css/settings.css" media="screen" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -239,11 +234,31 @@
             </div>
         </section>
     </footer>
-
-
-
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/rs-plugin")
     @RenderSection("scripts", required: false)
+
+    <!-- Stars rate -->
+    <script src="/Scripts/js/external/jquery.raty.js"></script>
+
+    <!-- Form element -->
+    <script src="/Scripts/js/external/form-element.js"></script>
+    <!-- Form validation -->
+    <script src="/Scripts/js/form.js"></script>
+
+    <!-- Twitter feed -->
+    <script src="/Scripts/js/external/twitterfeed.js"></script>
+
+    <!-- Custom -->
+    <script src="/Scripts/js/custom.js"></script>
+
+    <script type="text/javascript">
+              $(document).ready(function() {
+                init_Home();
+              });
+    </script>
+
 </body>
 </html>

@@ -18,7 +18,7 @@ $(document).ready(function () {
 	var loadingHTML = '';
 	
 	headerHTML += '<p class="twitter__head">Tweets</p><a href="'+ followaddres +'" target="_blank" class="twitter-follow-button twitter__follow" data-show-count="false" data-show-screen-name="false">Follow</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>';
-	loadingHTML += '<div id="loading-container"><img src="images/ajax-loader.GIF" width="32" height="32"/></div>';
+	loadingHTML += '<div id="loading-container"><img src="/Content/images/ajax-loader.GIF" width="32" height="32"/></div>';
 
 	
 	$('#twitter-feed').html(headerHTML + loadingHTML);
@@ -68,7 +68,7 @@ $(document).ready(function () {
 						
 								 
 						feedHTML += '<div class="twitter-article" id="tw'+displayCounter+'">';										                 
-						feedHTML += '<div class="twitter-pic"><a href="https://twitter.com/'+tweetusername+'" target="_blank"><img src="'+profileimage+'"images/twitter-feed-icon.png" width="42" height="42" alt="twitter icon" /></a></div>';
+						feedHTML += '<div class="twitter-pic"><a href="https://twitter.com/'+tweetusername+'" target="_blank"><img src="'+profileimage+'"/Content/images/twitter-feed-icon.png" width="42" height="42" alt="twitter icon" /></a></div>';
 						feedHTML += '<p class="twitter-author">'+screenname+'</p>';
 						feedHTML += '<p><span class="tweetprofilelink"><a href="https://twitter.com/'+tweetusername+'" target="_blank">@'+tweetusername+'</a></span></p>'
 						feedHTML += '<div class="twitter-text"><p><span  class="tweet-time"><a href="https://twitter.com/'+tweetusername+'/status/'+tweetid+'" target="_blank">'+relative_time(feeds[i].created_at)+'</a></span>'+status+'</p>';

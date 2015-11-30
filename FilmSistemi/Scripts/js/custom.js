@@ -358,7 +358,7 @@ function init_Home() {
     $('.score').raty({
         width:130, 
         score: 0,
-        path: 'images/rate/',
+        path: '/Content/images/rate/',
         starOff : 'star-off.svg',
         starOn  : 'star-on.svg' 
     });
@@ -939,7 +939,7 @@ function init_Contact () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false
@@ -1062,7 +1062,7 @@ function init_MovieList () {
     $('.score').raty({
         width:130, 
         score: 0,
-        path: 'images/rate/',
+        path: '/Content/images/rate/',
         starOff : 'star-off.svg',
         starOn  : 'star-on.svg' 
     });
@@ -1114,7 +1114,7 @@ function init_MoviePage () {
     $('.score').raty({
         width:130, 
         score: 5,
-        path: 'images/rate/',
+        path: '/Content/images/rate/',
         starOff : 'star-off.svg',
         starOn  : 'star-on.svg' 
     });
@@ -1423,7 +1423,7 @@ function init_MoviePage () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false
@@ -1471,7 +1471,7 @@ function init_MoviePage () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false
@@ -1518,7 +1518,7 @@ function init_MoviePage () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false
@@ -1564,7 +1564,7 @@ function init_MoviePage () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false
@@ -1612,7 +1612,7 @@ function init_MoviePage () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false
@@ -1755,7 +1755,7 @@ function init_Rates () {
                 $('.score').raty({
                     width:130, 
                     score: 0,
-                    path: 'images/rate/',
+                    path: '/Content/images/rate/',
                     starOff : 'star-off.svg',
                     starOn  : 'star-on.svg' 
                 });
@@ -1932,7 +1932,7 @@ function init_Cinema () {
                      }
                      ,closeBoxMargin: "6px 2px 2px 2px"
                      ,infoBoxClearance: new google.maps.Size(1, 1)
-                     ,closeBoxURL: "images/components/close.svg"
+                     ,closeBoxURL: "/Content/images/components/close.svg"
                      ,isHidden: false
                      ,pane: "floatPane"
                      ,enableEventPropagation: false

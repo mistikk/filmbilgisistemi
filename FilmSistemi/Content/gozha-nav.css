@@ -46,7 +46,7 @@ font-family:Helvetica, sans-serif;
 
 .menu-icon {
 	display: block;
-	background: url(../images/close-open-menu-icon.png) 0 0 no-repeat;
+	background: url(../Content/images/close-open-menu-icon.png) 0 0 no-repeat;
 	width: 20px;
 	height: 22px;
 	margin: 15px auto 0;
@@ -57,7 +57,7 @@ font-family:Helvetica, sans-serif;
 }
 
 .open-menu .menu-icon {
-	background: url(../images/close-open-menu-icon.png) 0 100% no-repeat;;
+	background: url(../Content/images/close-open-menu-icon.png) 0 100% no-repeat;;
 }
 
 
@@ -239,7 +239,7 @@ ul#navigation li:hover ul.showen-c {
 	width:36px;
 	height:34px;	
 	cursor:pointer;
-	background:transparent url(../images/components/plus-minus-icon.png) center -34px no-repeat;
+	background:transparent url(../Content/images/components/plus-minus-icon.png) center -34px no-repeat;
 	-o-transition: all 500ms ease-in;
 	-webkit-transition: all 500ms ease-in;
 	-moz-transition: all 500ms ease-in;
@@ -248,7 +248,7 @@ ul#navigation li:hover ul.showen-c {
 }
 
 .sub-nav-toggle.plus {
-	background:transparent url(../images/components/plus-minus-icon.png) center 10px no-repeat;
+	background:transparent url(../Content/images/components/plus-minus-icon.png) center 10px no-repeat;
 }
 
 }

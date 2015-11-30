@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "/Content/Site.css",
+    "inputFiles": [
+      "/Content/Site.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-1.10.2.js",
+    "inputFiles": [
+      "Scripts/jquery-1.10.2.js"
+    ]
+  }
+]
