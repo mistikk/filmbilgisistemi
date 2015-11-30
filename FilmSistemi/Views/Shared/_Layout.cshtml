@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-   
-     <!-- Basic Page Needs -->
+
+    <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <title>AMovie</title>
     <meta name="description" content="Amovie Template">
@@ -18,7 +18,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
     <!-- Open Sans -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
-    
+
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content2/css")
     <link rel="stylesheet" type="text/css" href="/Content/rs-plugin/css/settings.css" media="screen" />
@@ -35,8 +35,9 @@
     <header class="header-wrapper header-wrapper--home">
         <div class="container">
             <!-- Logo link-->
-            <a href='index.html' class="logo">
-                <img alt='logo' src="Content/images/logo.png">
+            <a href='index' class="logo">
+
+                <img src="~/Content/images/logo.png" />
             </a>
 
             <!-- Main website navigation-->
@@ -56,65 +57,65 @@
                         <span class="sub-nav-toggle plus"></span>
                         <a href="#">Pages</a>
                         <ul>
-                            <li class="menu__nav-item"><a href="movie-page-left.html">Single movie (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="movie-page-right.html">Single movie (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="movie-page-full.html">Single movie (full widht)</a></li>
-                            <li class="menu__nav-item"><a href="movie-list-left.html">Movies list (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="movie-list-right.html">Movies list (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="movie-list-full.html">Movies list (full widht)</a></li>
-                            <li class="menu__nav-item"><a href="single-cinema.html">Single cinema</a></li>
-                            <li class="menu__nav-item"><a href="cinema-list.html">Cinemas list</a></li>
-                            <li class="menu__nav-item"><a href="trailer.html">Trailers</a></li>
-                            <li class="menu__nav-item"><a href="rates-left.html">Rates (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="rates-right.html">Rates (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="rates-full.html">Rates (full widht)</a></li>
-                            <li class="menu__nav-item"><a href="offers.html">Offers</a></li>
-                            <li class="menu__nav-item"><a href="contact.html">Contact us</a></li>
-                            <li class="menu__nav-item"><a href="404.html">404 error</a></li>
-                            <li class="menu__nav-item"><a href="coming-soon.html">Coming soon</a></li>
-                            <li class="menu__nav-item"><a href="login.html">Login/Registration</a></li>
+                            <li class="menu__nav-item"><a href="movie-page-left">Single movie (rigth sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="movie-page-right">Single movie (left sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="movie-page-full">Single movie (full widht)</a></li>
+                            <li class="menu__nav-item"><a href="movie-list-left">Movies list (rigth sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="movie-list-right">Movies list (left sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="movielist">Movies list (full widht)</a></li>
+                            <li class="menu__nav-item"><a href="single-cinema">Single cinema</a></li>
+                            <li class="menu__nav-item"><a href="cinema-list">Cinemas list</a></li>
+                            <li class="menu__nav-item"><a href="trailer">Trailers</a></li>
+                            <li class="menu__nav-item"><a href="rates-left">Rates (rigth sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="rates-right">Rates (left sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="rates-full">Rates (full widht)</a></li>
+                            <li class="menu__nav-item"><a href="offers">Offers</a></li>
+                            <li class="menu__nav-item"><a href="contact">Contact us</a></li>
+                            <li class="menu__nav-item"><a href="404">404 error</a></li>
+                            <li class="menu__nav-item"><a href="coming-soon">Coming soon</a></li>
+                            <li class="menu__nav-item"><a href="login">Login/Registration</a></li>
                         </ul>
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="page-elements.html">Features</a>
+                        <a href="page-elements">Features</a>
                         <ul>
-                            <li class="menu__nav-item"><a href="typography.html">Typography</a></li>
-                            <li class="menu__nav-item"><a href="page-elements.html">Shortcodes</a></li>
-                            <li class="menu__nav-item"><a href="column.html">Columns</a></li>
-                            <li class="menu__nav-item"><a href="icon-font.html">Icons</a></li>
+                            <li class="menu__nav-item"><a href="typography">Typography</a></li>
+                            <li class="menu__nav-item"><a href="page-elements">Shortcodes</a></li>
+                            <li class="menu__nav-item"><a href="column">Columns</a></li>
+                            <li class="menu__nav-item"><a href="icon-font">Icons</a></li>
                         </ul>
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="page-elements.html">Booking steps</a>
+                        <a href="page-elements">Booking steps</a>
                         <ul>
-                            <li class="menu__nav-item"><a href="book1.html">Booking step 1</a></li>
-                            <li class="menu__nav-item"><a href="book2.html">Booking step 2</a></li>
-                            <li class="menu__nav-item"><a href="book3-buy.html">Booking step 3 (buy)</a></li>
-                            <li class="menu__nav-item"><a href="book3-reserve.html">Booking step 3 (reserve)</a></li>
-                            <li class="menu__nav-item"><a href="book-final.html">Final ticket view</a></li>
+                            <li class="menu__nav-item"><a href="book1">Booking step 1</a></li>
+                            <li class="menu__nav-item"><a href="book2">Booking step 2</a></li>
+                            <li class="menu__nav-item"><a href="book3-buy">Booking step 3 (buy)</a></li>
+                            <li class="menu__nav-item"><a href="book3-reserve">Booking step 3 (reserve)</a></li>
+                            <li class="menu__nav-item"><a href="book-final">Final ticket view</a></li>
                         </ul>
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="gallery-four.html">Gallery</a>
+                        <a href="gallery-four">Gallery</a>
                         <ul>
-                            <li class="menu__nav-item"><a href="gallery-four.html">4 col gallery</a></li>
-                            <li class="menu__nav-item"><a href="gallery-three.html">3 col gallery</a></li>
-                            <li class="menu__nav-item"><a href="gallery-two.html">2 col gallery</a></li>
+                            <li class="menu__nav-item"><a href="gallery-four">4 col gallery</a></li>
+                            <li class="menu__nav-item"><a href="gallery-three">3 col gallery</a></li>
+                            <li class="menu__nav-item"><a href="gallery-two">2 col gallery</a></li>
                         </ul>
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="news-left.html">News</a>
+                        <a href="news-left">News</a>
                         <ul>
-                            <li class="menu__nav-item"><a href="news-left.html">News (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="news-right.html">News (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="news-full.html">News (full widht)</a></li>
-                            <li class="menu__nav-item"><a href="single-page-left.html">Single post (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="single-page-right.html">Single post (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="single-page-full.html">Single post (full widht)</a></li>
+                            <li class="menu__nav-item"><a href="news-left">News (rigth sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="news-right">News (left sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="news-full">News (full widht)</a></li>
+                            <li class="menu__nav-item"><a href="single-page-left">Single post (rigth sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="single-page-right">Single post (left sidebar)</a></li>
+                            <li class="menu__nav-item"><a href="single-page-full">Single post (full widht)</a></li>
                         </ul>
                     </li>
                     <li>
@@ -194,25 +195,25 @@
             <div class="col-xs-4 col-md-2 footer-nav">
                 <ul class="nav-link">
                     <li><a href="#" class="nav-link__item">Cities</a></li>
-                    <li><a href="movie-list-left.html" class="nav-link__item">Movies</a></li>
-                    <li><a href="trailer.html" class="nav-link__item">Trailers</a></li>
-                    <li><a href="rates-left.html" class="nav-link__item">Rates</a></li>
+                    <li><a href="movie-list-left" class="nav-link__item">Movies</a></li>
+                    <li><a href="trailer" class="nav-link__item">Trailers</a></li>
+                    <li><a href="rates-left" class="nav-link__item">Rates</a></li>
                 </ul>
             </div>
             <div class="col-xs-4 col-md-2 footer-nav">
                 <ul class="nav-link">
-                    <li><a href="coming-soon.html" class="nav-link__item">Coming soon</a></li>
-                    <li><a href="cinema-list.html" class="nav-link__item">Cinemas</a></li>
-                    <li><a href="offers.html" class="nav-link__item">Best offers</a></li>
-                    <li><a href="news-left.html" class="nav-link__item">News</a></li>
+                    <li><a href="coming-soon" class="nav-link__item">Coming soon</a></li>
+                    <li><a href="cinema-list" class="nav-link__item">Cinemas</a></li>
+                    <li><a href="offers" class="nav-link__item">Best offers</a></li>
+                    <li><a href="news-left" class="nav-link__item">News</a></li>
                 </ul>
             </div>
             <div class="col-xs-4 col-md-2 footer-nav">
                 <ul class="nav-link">
                     <li><a href="#" class="nav-link__item">Terms of use</a></li>
-                    <li><a href="gallery-four.html" class="nav-link__item">Gallery</a></li>
-                    <li><a href="contact.html" class="nav-link__item">Contacts</a></li>
-                    <li><a href="page-elements.html" class="nav-link__item">Shortcodes</a></li>
+                    <li><a href="gallery-four" class="nav-link__item">Gallery</a></li>
+                    <li><a href="contact" class="nav-link__item">Contacts</a></li>
+                    <li><a href="page-elements" class="nav-link__item">Shortcodes</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-md-6">
