@@ -12,6 +12,11 @@ namespace FilmSistemi.Controllers
         {
             return View();
         }
+        [ChildActionOnly]
+        public ActionResult _Slider()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {

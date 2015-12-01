@@ -23,8 +23,9 @@ namespace FilmSistemi
             bundles.IgnoreList.Clear();
             AddDefaultIgnorePatterns(bundles.IgnoreList);
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/js/external/jquery-migrate-1.2.1.min.js",
+                        "~/Scripts/jquery-2.1.4.js",
+                        "~/Scripts/jquery-migrate-{version}.js",
+                        "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/js/jquery.mobile.menu.js",
                         "~/Scripts/js/external/jquery.selectbox-0.2.min.js"));
 
@@ -36,6 +37,12 @@ namespace FilmSistemi
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*",
                         "~/Scripts/modernizr.custom.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(
+                        "~/Scripts/js/external/jquery.raty.js",
+                        "~/Scripts/js/external/form-element.js",
+                        "~/Scripts/js/form.js",
+                        "~/Scripts/js/custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
@@ -53,6 +60,7 @@ namespace FilmSistemi
             bundles.Add(new StyleBundle("~/Content2/css").Include(
                     "~/Content/gozha-nav.css",
                     "~/Content/jquery.selectbox.css",
+                    "~/Content/rs-plugin/css/settings.css",
                     "~/Content/style.css"
                 ));
         }
