@@ -612,7 +612,7 @@ $.extend($.validator, {
 					}
 					dependencyMismatch = false;
 					
-					if ( result == "pending" ) {
+					if (result == "pending") {
 						this.toHide = this.toHide.not( this.errorsFor(element) );
 						return;
 					}
