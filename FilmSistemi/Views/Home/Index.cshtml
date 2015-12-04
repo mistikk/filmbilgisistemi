@@ -5,21 +5,23 @@
 <body>
     <div class="wrapper">
         <!-- Slider -->
-        
+
         @{ Html.RenderAction("_Slider", "Home");}
 
         <!--end slider -->
         <!-- Main content -->
         <section class="container">
             <div class="movie-best">
-                <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Today Best choice</div>
+                <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Günün en iyileri</div>
                 <div class="col-sm-12 change--col">
                     <div class="movie-beta__item ">
                         <img alt='' src="http://placehold.it/380x600">
                         <span class="best-rate">5.0</span>
 
                         <ul class="movie-beta__info">
-                            <li><span class="best-voted">71 people voted today</span></li>
+                            <li>
+                                <span class="best-voted">71 people voted today</span>
+                            </li>
                             <li>
                                 <p class="movie__time">169 min</p>
                                 <p>Adventure | Drama | Fantasy </p>
@@ -35,7 +37,9 @@
                         <span class="best-rate">5.0</span>
 
                         <ul class="movie-beta__info">
-                            <li><span class="best-voted">71 people voted today</span></li>
+                            <li>
+                                <span class="best-voted">71 people voted today</span>
+                            </li>
                             <li>
                                 <p class="movie__time">169 min</p>
                                 <p>Adventure | Drama | Fantasy </p>
@@ -51,7 +55,9 @@
                         <span class="best-rate">5.0</span>
 
                         <ul class="movie-beta__info">
-                            <li><span class="best-voted">71 people voted today</span></li>
+                            <li>
+                                <span class="best-voted">71 people voted today</span>
+                            </li>
                             <li>
                                 <p class="movie__time">169 min</p>
                                 <p>Adventure | Drama | Fantasy </p>
@@ -67,7 +73,9 @@
                         <span class="best-rate">5.0</span>
 
                         <ul class="movie-beta__info">
-                            <li><span class="best-voted">71 people voted today</span></li>
+                            <li>
+                                <span class="best-voted">71 people voted today</span>
+                            </li>
                             <li>
                                 <p class="movie__time">169 min</p>
                                 <p>Adventure | Drama | Fantasy </p>
@@ -83,7 +91,9 @@
                         <span class="best-rate">5.0</span>
 
                         <ul class="movie-beta__info">
-                            <li><span class="best-voted">71 people voted today</span></li>
+                            <li>
+                                <span class="best-voted">71 people voted today</span>
+                            </li>
                             <li>
                                 <p class="movie__time">169 min</p>
                                 <p>Adventure | Drama | Fantasy </p>
@@ -99,7 +109,9 @@
                         <span class="best-rate">5.0</span>
 
                         <ul class="movie-beta__info">
-                            <li><span class="best-voted">71 people voted today</span></li>
+                            <li>
+                                <span class="best-voted">71 people voted today</span>
+                            </li>
                             <li>
                                 <p class="movie__time">169 min</p>
                                 <p>Adventure | Drama | Fantasy </p>
@@ -118,39 +130,69 @@
                 <div class="mega-select-present mega-select-top mega-select--full">
                     <div class="mega-select-marker">
                         <div class="marker-indecator location">
-                            <p class="select-marker"><span>movie to watch now</span> <br>in your city</p>
+                            <p class="select-marker">
+                                <span>movie to watch now</span>
+                                <br>in your city
+                            </p>
                         </div>
 
                         <div class="marker-indecator cinema">
-                            <p class="select-marker"><span>find your </span> <br>cinema</p>
+                            <p class="select-marker">
+                                <span>find your </span>
+                                <br>cinema
+                            </p>
                         </div>
 
                         <div class="marker-indecator film-category">
-                            <p class="select-marker"><span>find movie due to </span> <br> your mood</p>
+                            <p class="select-marker">
+                                <span>find movie due to </span>
+                                <br> your mood
+                            </p>
                         </div>
 
                         <div class="marker-indecator actors">
-                            <p class="select-marker"><span> like particular stars</span> <br>find them</p>
+                            <p class="select-marker">
+                                <span> like particular stars</span>
+                                <br>find them
+                            </p>
                         </div>
 
                         <div class="marker-indecator director">
-                            <p class="select-marker"><span>admire personalities - find </span> <br>by director</p>
+                            <p class="select-marker">
+                                <span>admire personalities - find </span>
+                                <br>by director
+                            </p>
                         </div>
 
                         <div class="marker-indecator country">
-                            <p class="select-marker"><span>search for movie from certain </span> <br>country?</p>
+                            <p class="select-marker">
+                                <span>search for movie from certain </span>
+                                <br>country?
+                            </p>
                         </div>
                     </div>
 
                     <div class="mega-select pull-right">
                         <span class="mega-select__point">Search by</span>
                         <ul class="mega-select__sort">
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter filter--active" data-filter='location'>Location</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='cinema'>Cinema</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='film-category'>Category</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='actors'>Actors</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='director'>Director</a></li>
-                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='country'>Country</a></li>
+                            <li class="filter-wrap">
+                                <a href="#" class="mega-select__filter filter--active" data-filter='location'>Location</a>
+                            </li>
+                            <li class="filter-wrap">
+                                <a href="#" class="mega-select__filter" data-filter='cinema'>Cinema</a>
+                            </li>
+                            <li class="filter-wrap">
+                                <a href="#" class="mega-select__filter" data-filter='film-category'>Category</a>
+                            </li>
+                            <li class="filter-wrap">
+                                <a href="#" class="mega-select__filter" data-filter='actors'>Actors</a>
+                            </li>
+                            <li class="filter-wrap">
+                                <a href="#" class="mega-select__filter" data-filter='director'>Director</a>
+                            </li>
+                            <li class="filter-wrap">
+                                <a href="#" class="mega-select__filter" data-filter='country'>Country</a>
+                            </li>
                         </ul>
 
                         <input name="search-input" type='text' class="select__field">
@@ -230,7 +272,7 @@
 
             <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-8 col-md-9">
+                    <div class="col-sm-10 col-sm-offset-1 ">
                         <!-- Movie variant with time -->
                         <div class="movie movie--test movie--test--dark movie--test--left">
                             <div class="movie__images">
@@ -244,7 +286,11 @@
 
                                 <p class="movie__time">91 min</p>
 
-                                <p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a href="#">Drama</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Sci-Fi</a> |
+                                    <a href="#">Thriller</a> |
+                                    <a href="#">Drama</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -252,6 +298,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- Movie variant with time -->
                         <!-- Movie variant with time -->
                         <div class="movie movie--test movie--test--light movie--test--left">
@@ -266,7 +313,11 @@
 
                                 <p class="movie__time">169 min</p>
 
-                                <p class="movie__option"><a href="#">Adventure</a> | <a href="#">Fantasy</a> | <a href="#">Drama</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Adventure</a> |
+                                    <a href="#">Fantasy</a> |
+                                    <a href="#">Drama</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -288,7 +339,11 @@
 
                                 <p class="movie__time">146 min</p>
 
-                                <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Sci-Fi</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Action</a> |
+                                    <a href="#">Adventure</a> |
+                                    <a href="#">Sci-Fi</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -310,7 +365,11 @@
 
                                 <p class="movie__time">112 min</p>
 
-                                <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Fantasy</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Action</a> |
+                                    <a href="#">Adventure</a> |
+                                    <a href="#">Fantasy</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -332,7 +391,11 @@
 
                                 <p class="movie__time">116 min</p>
 
-                                <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Horror</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Action</a> |
+                                    <a href="#">Adventure</a> |
+                                    <a href="#">Horror</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -354,7 +417,11 @@
 
                                 <p class="movie__time">153 min</p>
 
-                                <p class="movie__option"><a href="#">Crime</a> | <a href="#">Thriller</a> | <a href="#">Drama</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Crime</a> |
+                                    <a href="#">Thriller</a> |
+                                    <a href="#">Drama</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -375,8 +442,11 @@
                                 <a href='moviepage' class="movie__title">This Is the End (2013)   </a>
 
                                 <p class="movie__time">107 min</p>
-
-                                <p class="movie__option"><a href="#">Comedy</a> | <a href="#">Fantasy</a></p>
+                                
+                                <p class="movie__option">
+                                    <a href="#">Comedy</a> |
+                                    <a href="#">Fantasy</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -398,7 +468,9 @@
 
                                 <p class="movie__time">112 min</p>
 
-                                <p class="movie__option"><a href="#">Comedy</a></p>
+                                <p class="movie__option">
+                                    <a href="#">Comedy</a>
+                                </p>
 
                                 <div class="movie__rate">
                                     <div class="score"></div>
@@ -412,8 +484,15 @@
                         <div class="row">
                             <div class="social-group">
                                 <div class="col-sm-6 col-md-4 col-sm-push-6 col-md-push-4">
-                                    <div class="social-group__head">Join <br>our social groups</div>
-                                    <div class="social-group__content">A lot of fun, discussions, queezes and contests among members. <br class="hidden-xs"><br>Always be first to know about best offers from cinemas and our partners</div>
+                                    <div class="social-group__head">
+                                        Join
+                                        <br>our social groups
+                                    </div>
+                                    <div class="social-group__content">
+                                        A lot of fun, discussions, queezes and contests among members.
+                                        <br class="hidden-xs">
+                                        <br>Always be first to know about best offers from cinemas and our partners
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4">
@@ -433,34 +512,7 @@
                         </div>
                     </div>
 
-                    <aside class="col-sm-4 col-md-3">
-                        <div class="sitebar first-banner--left">
-                            <div class="banner-wrap first-banner--left">
-                                <img alt='banner' src="http://placehold.it/500x500">
-                            </div>
 
-                            <div class="banner-wrap">
-                                <img alt='banner' src="http://placehold.it/500x500">
-                            </div>
-
-                            <div class="banner-wrap banner-wrap--last">
-                                <img alt='banner' src="http://placehold.it/500x500">
-                            </div>
-
-                            <div class="promo marginb-sm">
-                                <div class="promo__head">A.Movie app</div>
-                                <div class="promo__describe">for all smartphones<br> and tablets</div>
-                                <div class="promo__content">
-                                    <ul>
-                                        <li class="store-variant"><a href="#"><img alt='' src="/Content/images/apple-store.svg"></a></li>
-                                        <li class="store-variant"><a href="#"><img alt='' src="/Content/images/google-play.svg"></a></li>
-                                        <li class="store-variant"><a href="#"><img alt='' src="/Content/images/windows-store.svg"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </aside>
                 </div>
             </div>
 
@@ -532,7 +584,11 @@
             <div class="col-sm-4 col-sm-offset-4">
                 <button type="button" class="overlay-close">Close</button>
                 <form id="login-form" class="login" method='get' novalidate=''>
-                    <p class="login__title">sign in <br><span class="login-edition">welcome to A.Movie</span></p>
+                    <p class="login__title">
+                        sign in
+                        <br>
+                        <span class="login-edition">welcome to A.Movie</span>
+                    </p>
 
                     <div class="social social--colored">
                         <a href='#' class="social__variant fa fa-facebook"></a>
