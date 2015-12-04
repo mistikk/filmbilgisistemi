@@ -46,6 +46,11 @@ namespace FilmSistemi.Controllers
 
             return View();
         }
+        public ActionResult singlenews()
+        {
+
+            return View();
+        }
 
 
     }
