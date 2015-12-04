@@ -19,6 +19,7 @@
     <!-- Open Sans -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
 
+    @RenderSection("importCss", required: false)
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content2/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -239,6 +240,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/rs-plugin")
+    @RenderSection("libraries", required: false)
     @Scripts.Render("~/bundles/script")
     @RenderSection("scripts", required: false)
 
