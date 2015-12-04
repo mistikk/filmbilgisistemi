@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FilmBilgiSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActorMovie">
+          <Key>
+            <PropertyRef Name="MAId" />
+          </Key>
+          <Property Name="MAId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActorId" Type="int" />
+          <Property Name="MovieId" Type="int" />
+        </EntityType>
+        <EntityType Name="Actors">
+          <Key>
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="ActorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActorName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CContent" Type="nvarchar(max)" />
+          <Property Name="CDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="CMessage" Type="nvarchar(max)" />
+          <Property Name="CDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MovieCategory">
+          <Key>
+            <PropertyRef Name="MCId" />
+          </Key>
+          <Property Name="MCId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MName" Type="nvarchar" MaxLength="100" />
+          <Property Name="MDescription" Type="nvarchar(max)" />
+          <Property Name="MMinute" Type="int" />
+          <Property Name="MReleaseDate" Type="datetime" />
+          <Property Name="MCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="MDirector" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="NContent" Type="nvarchar(max)" />
+          <Property Name="NDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NewsPicture">
+          <Key>
+            <PropertyRef Name="NPId" />
+          </Key>
+          <Property Name="NPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsId" Type="int" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="NPDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pictures">
+          <Key>
+            <PropertyRef Name="PictureId" />
+          </Key>
+          <Property Name="PictureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="PDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Stars">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Star" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="VLink" Type="nvarchar" MaxLength="500" />
+          <Property Name="VDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WatchLists">
+          <Key>
+            <PropertyRef Name="WatchListId" />
+          </Key>
+          <Property Name="WatchListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="MovieId" Type="int" />
+        </EntityType>
+        <Association Name="FK_ActorMovie_Actors">
+          <End Role="Actors" Type="Self.Actors" Multiplicity="0..1" />
+          <End Role="ActorMovie" Type="Self.ActorMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actors">
+              <PropertyRef Name="ActorId" />
+            </Principal>
+            <Dependent Role="ActorMovie">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorMovie_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="ActorMovie" Type="Self.ActorMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="ActorMovie">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovieCategory_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="MovieCategory" Type="Self.MovieCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="MovieCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovieCategory_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="MovieCategory" Type="Self.MovieCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieCategory">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsPicture_News">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="NewsPicture" Type="Self.NewsPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="NewsPicture">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pictures_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Pictures">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stars_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Stars" Type="Self.Stars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Stars">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WatchLists_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="WatchLists" Type="Self.WatchLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="WatchLists">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmBilgiSistemiModelStoreContainer">
+          <EntitySet Name="ActorMovie" EntityType="Self.ActorMovie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Actors" EntityType="Self.Actors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieCategory" EntityType="Self.MovieCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsPicture" EntityType="Self.NewsPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stars" EntityType="Self.Stars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WatchLists" EntityType="Self.WatchLists" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ActorMovie_Actors" Association="Self.FK_ActorMovie_Actors">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="ActorMovie" EntitySet="ActorMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorMovie_Movies" Association="Self.FK_ActorMovie_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="ActorMovie" EntitySet="ActorMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Movies" Association="Self.FK_Comments_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovieCategory_Categories" Association="Self.FK_MovieCategory_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="MovieCategory" EntitySet="MovieCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovieCategory_Movies" Association="Self.FK_MovieCategory_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MovieCategory" EntitySet="MovieCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsPicture_News" Association="Self.FK_NewsPicture_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsPicture" EntitySet="NewsPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pictures_Movies" Association="Self.FK_Pictures_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Pictures" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stars_Movies" Association="Self.FK_Stars_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Stars" EntitySet="Stars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_Movies" Association="Self.FK_Videos_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WatchLists_Movies" Association="Self.FK_WatchLists_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="WatchLists" EntitySet="WatchLists" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FilmBilgiSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActorMovie">
+          <Key>
+            <PropertyRef Name="MAId" />
+          </Key>
+          <Property Name="MAId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActorId" Type="Int32" />
+          <Property Name="MovieId" Type="Int32" />
+          <NavigationProperty Name="Actors" Relationship="Self.FK_ActorMovie_Actors" FromRole="ActorMovie" ToRole="Actors" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_ActorMovie_Movies" FromRole="ActorMovie" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="Actors">
+          <Key>
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="ActorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ActorMovie" Relationship="Self.FK_ActorMovie_Actors" FromRole="Actors" ToRole="ActorMovie" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MovieCategory" Relationship="Self.FK_MovieCategory_Categories" FromRole="Categories" ToRole="MovieCategory" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Comments_Movies" FromRole="Comments" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MovieCategory">
+          <Key>
+            <PropertyRef Name="MCId" />
+          </Key>
+          <Property Name="MCId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_MovieCategory_Categories" FromRole="MovieCategory" ToRole="Categories" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_MovieCategory_Movies" FromRole="MovieCategory" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MMinute" Type="Int32" />
+          <Property Name="MReleaseDate" Type="DateTime" Precision="3" />
+          <Property Name="MCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MDirector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ActorMovie" Relationship="Self.FK_ActorMovie_Movies" FromRole="Movies" ToRole="ActorMovie" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Movies" FromRole="Movies" ToRole="Comments" />
+          <NavigationProperty Name="MovieCategory" Relationship="Self.FK_MovieCategory_Movies" FromRole="Movies" ToRole="MovieCategory" />
+          <NavigationProperty Name="Pictures" Relationship="Self.FK_Pictures_Movies" FromRole="Movies" ToRole="Pictures" />
+          <NavigationProperty Name="Stars" Relationship="Self.FK_Stars_Movies" FromRole="Movies" ToRole="Stars" />
+          <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Movies" FromRole="Movies" ToRole="Videos" />
+          <NavigationProperty Name="WatchLists" Relationship="Self.FK_WatchLists_Movies" FromRole="Movies" ToRole="WatchLists" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NewsPicture" Relationship="Self.FK_NewsPicture_News" FromRole="News" ToRole="NewsPicture" />
+        </EntityType>
+        <EntityType Name="NewsPicture">
+          <Key>
+            <PropertyRef Name="NPId" />
+          </Key>
+          <Property Name="NPId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsId" Type="Int32" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NPDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="News" Relationship="Self.FK_NewsPicture_News" FromRole="NewsPicture" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Pictures">
+          <Key>
+            <PropertyRef Name="PictureId" />
+          </Key>
+          <Property Name="PictureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Pictures_Movies" FromRole="Pictures" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="Stars">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Star" Type="Int32" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Stars_Movies" FromRole="Stars" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="VLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Videos_Movies" FromRole="Videos" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="WatchLists">
+          <Key>
+            <PropertyRef Name="WatchListId" />
+          </Key>
+          <Property Name="WatchListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="MovieId" Type="Int32" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_WatchLists_Movies" FromRole="WatchLists" ToRole="Movies" />
+        </EntityType>
+        <Association Name="FK_ActorMovie_Actors">
+          <End Role="Actors" Type="Self.Actors" Multiplicity="0..1" />
+          <End Role="ActorMovie" Type="Self.ActorMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actors">
+              <PropertyRef Name="ActorId" />
+            </Principal>
+            <Dependent Role="ActorMovie">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorMovie_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="ActorMovie" Type="Self.ActorMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="ActorMovie">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovieCategory_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="MovieCategory" Type="Self.MovieCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="MovieCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovieCategory_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="MovieCategory" Type="Self.MovieCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieCategory">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pictures_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Pictures">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stars_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Stars" Type="Self.Stars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Stars">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WatchLists_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="WatchLists" Type="Self.WatchLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="WatchLists">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsPicture_News">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="NewsPicture" Type="Self.NewsPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="NewsPicture">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmBilgiSistemiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActorMovie" EntityType="Self.ActorMovie" />
+          <EntitySet Name="Actors" EntityType="Self.Actors" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" />
+          <EntitySet Name="MovieCategory" EntityType="Self.MovieCategory" />
+          <EntitySet Name="Movies" EntityType="Self.Movies" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="NewsPicture" EntityType="Self.NewsPicture" />
+          <EntitySet Name="Pictures" EntityType="Self.Pictures" />
+          <EntitySet Name="Stars" EntityType="Self.Stars" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" />
+          <EntitySet Name="WatchLists" EntityType="Self.WatchLists" />
+          <AssociationSet Name="FK_ActorMovie_Actors" Association="Self.FK_ActorMovie_Actors">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="ActorMovie" EntitySet="ActorMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorMovie_Movies" Association="Self.FK_ActorMovie_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="ActorMovie" EntitySet="ActorMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovieCategory_Categories" Association="Self.FK_MovieCategory_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="MovieCategory" EntitySet="MovieCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Movies" Association="Self.FK_Comments_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovieCategory_Movies" Association="Self.FK_MovieCategory_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MovieCategory" EntitySet="MovieCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pictures_Movies" Association="Self.FK_Pictures_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Pictures" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stars_Movies" Association="Self.FK_Stars_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Stars" EntitySet="Stars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_Movies" Association="Self.FK_Videos_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WatchLists_Movies" Association="Self.FK_WatchLists_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="WatchLists" EntitySet="WatchLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsPicture_News" Association="Self.FK_NewsPicture_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsPicture" EntitySet="NewsPicture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FilmBilgiSistemiModelStoreContainer" CdmEntityContainer="FilmBilgiSistemiEntities">
+          <EntitySetMapping Name="ActorMovie">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.ActorMovie">
+              <MappingFragment StoreEntitySet="ActorMovie">
+                <ScalarProperty Name="MAId" ColumnName="MAId" />
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actors">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Actors">
+              <MappingFragment StoreEntitySet="Actors">
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="ActorName" ColumnName="ActorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CContent" ColumnName="CContent" />
+                <ScalarProperty Name="CDate" ColumnName="CDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Contacts">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="CMail" ColumnName="CMail" />
+                <ScalarProperty Name="CMessage" ColumnName="CMessage" />
+                <ScalarProperty Name="CDate" ColumnName="CDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieCategory">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.MovieCategory">
+              <MappingFragment StoreEntitySet="MovieCategory">
+                <ScalarProperty Name="MCId" ColumnName="MCId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Movies">
+              <MappingFragment StoreEntitySet="Movies">
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="MDescription" ColumnName="MDescription" />
+                <ScalarProperty Name="MMinute" ColumnName="MMinute" />
+                <ScalarProperty Name="MReleaseDate" ColumnName="MReleaseDate" />
+                <ScalarProperty Name="MCountry" ColumnName="MCountry" />
+                <ScalarProperty Name="MDirector" ColumnName="MDirector" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NTitle" ColumnName="NTitle" />
+                <ScalarProperty Name="NContent" ColumnName="NContent" />
+                <ScalarProperty Name="NDate" ColumnName="NDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsPicture">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.NewsPicture">
+              <MappingFragment StoreEntitySet="NewsPicture">
+                <ScalarProperty Name="NPId" ColumnName="NPId" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="NPDate" ColumnName="NPDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Pictures">
+              <MappingFragment StoreEntitySet="Pictures">
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="PDate" ColumnName="PDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stars">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Stars">
+              <MappingFragment StoreEntitySet="Stars">
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Star" ColumnName="Star" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.Videos">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="VLink" ColumnName="VLink" />
+                <ScalarProperty Name="VDate" ColumnName="VDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WatchLists">
+            <EntityTypeMapping TypeName="FilmBilgiSistemiModel.WatchLists">
+              <MappingFragment StoreEntitySet="WatchLists">
+                <ScalarProperty Name="WatchListId" ColumnName="WatchListId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

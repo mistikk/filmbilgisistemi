@@ -40,10 +40,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -107,12 +117,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -166,8 +170,65 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ActorMovie.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actors.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Categories.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comments.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contacts.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FilmBilgiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FilmBilgiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FilmBilgiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FilmBilgiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MovieCategory.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movies.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsPicture.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pictures.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stars.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Videos.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WatchLists.cs">
+      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -415,6 +476,23 @@
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />
     <Content Include="get-tweets1.1.php" />
+    <EntityDeploy Include="Models\FilmBilgiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FilmBilgiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FilmBilgiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
+      <LastGenOutput>FilmBilgiModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FilmBilgiModel.edmx.diagram">
+      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\FilmBilgiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
+      <LastGenOutput>FilmBilgiModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\filmbilgi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\filmbilgi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\filmsistemi - FTP %282%29.pubxml" />
@@ -526,6 +604,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

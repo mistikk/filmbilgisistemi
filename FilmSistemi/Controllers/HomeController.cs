@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FilmSistemi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,10 @@ namespace FilmSistemi.Controllers
 {
     public class HomeController : Controller
     {
+        FilmBilgiSistemiEntities db = new FilmBilgiSistemiEntities();
         public ActionResult Index()
         {
+            
             return View();
         }
         [ChildActionOnly]
