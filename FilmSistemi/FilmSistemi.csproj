@@ -504,6 +504,7 @@
     <Content Include="Views\Home\moviepage.cshtml" />
     <Content Include="Views\Home\MovieList.cshtml" />
     <Content Include="Views\Home\_Slider.cshtml" />
+    <Content Include="Views\Home\news.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
