@@ -187,12 +187,48 @@
                     </ul>
 
                 </div>
-                <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
+
+                <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Giris</a>
             </div>
 
         </div>
     </header>
     @RenderBody()
+
+    <div class="overlay overlay-hugeinc">
+
+        <section class="container">
+
+            <div class="col-sm-4 col-sm-offset-4">
+                <button type="button" class="overlay-close">Close</button>
+                <form id="login-form" class="login" method='get' novalidate=''>
+                    <p class="login__title">Giris <br><span class="login-edition">flimlerhakkinda.com'a hosgeldiniz</span></p>
+
+                    <div class="social social--colored">
+                        <a href='#' class="social__variant fa fa-facebook"></a>
+                        <a href='#' class="social__variant fa fa-twitter"></a>
+                        <a href='#' class="social__variant fa fa-tumblr"></a>
+                    </div>
+
+                    <p class="login__tracker">yada</p>
+
+                    <div class="field-wrap">
+                        <input type='email' placeholder='Email' name='user-email' class="login__input">
+                        <input type='password' placeholder='Şifre' name='user-password' class="login__input">
+
+                        <input type='checkbox' id='#informed' class='login__check styled'>
+                        <label for='#informed' class='login__check-info'>Beni hatırla</label>
+                    </div>
+
+                    <div class="login__control">
+                        <button type='submit' class="btn btn-md btn--warning btn--wider">Giris</button>
+                        <a href="#" class="login__tracker form__tracker">Şifrenizimi unuttunuz</a>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </div>
     <footer class="footer-wrapper">
         <section class="container">
             <div class="col-xs-4 col-md-2 footer-nav">
