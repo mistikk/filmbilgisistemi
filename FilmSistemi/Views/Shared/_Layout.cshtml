@@ -13,6 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="telephone=no" name="format-detection">
     <!-- Stylesheets -->
+    <!--bu assagıdaki swipper.min.css sadece moviepagede kullanılıyor simdilik-->
+
+    <link href="~/Content/css/external/idangerous.swiper.css" rel="stylesheet" />
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Roboto -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
@@ -56,7 +59,7 @@
                 <ul id="navigation">
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="#">Pages</a>
+                        <a href="#">Sayfalar</a>
                         <ul>
                             <li class="menu__nav-item"><a href="movie-page-left">Single movie (rigth sidebar)</a></li>
                             <li class="menu__nav-item"><a href="movie-page-right">Single movie (left sidebar)</a></li>
@@ -77,16 +80,7 @@
                             <li class="menu__nav-item"><a href="login">Login/Registration</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <span class="sub-nav-toggle plus"></span>
-                        <a href="page-elements">Features</a>
-                        <ul>
-                            <li class="menu__nav-item"><a href="typography">Typography</a></li>
-                            <li class="menu__nav-item"><a href="page-elements">Shortcodes</a></li>
-                            <li class="menu__nav-item"><a href="column">Columns</a></li>
-                            <li class="menu__nav-item"><a href="icon-font">Icons</a></li>
-                        </ul>
-                    </li>
+
                     <li>
                         <span class="sub-nav-toggle plus"></span>
                         <a href="page-elements">Booking steps</a>
@@ -109,15 +103,8 @@
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
-                        <a href="news-left">News</a>
-                        <ul>
-                            <li class="menu__nav-item"><a href="news-left">News (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="news-right">News (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="news-full">News (full widht)</a></li>
-                            <li class="menu__nav-item"><a href="single-page-left">Single post (rigth sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="single-page-right">Single post (left sidebar)</a></li>
-                            <li class="menu__nav-item"><a href="single-page-full">Single post (full widht)</a></li>
-                        </ul>
+                        <a href="News">Haberler</a>
+    
                     </li>
                     <li>
                         <span class="sub-nav-toggle plus"></span>
@@ -185,12 +172,48 @@
                     </ul>
 
                 </div>
-                <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
+
+                <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Giris</a>
             </div>
 
         </div>
     </header>
     @RenderBody()
+
+    <div class="overlay overlay-hugeinc">
+
+        <section class="container">
+
+            <div class="col-sm-4 col-sm-offset-4">
+                <button type="button" class="overlay-close">Close</button>
+                <form id="login-form" class="login" method='get' novalidate=''>
+                    <p class="login__title">Giris <br><span class="login-edition">flimlerhakkinda.com'a hosgeldiniz</span></p>
+
+                    <div class="social social--colored">
+                        <a href='#' class="social__variant fa fa-facebook"></a>
+                        <a href='#' class="social__variant fa fa-twitter"></a>
+                        <a href='#' class="social__variant fa fa-tumblr"></a>
+                    </div>
+
+                    <p class="login__tracker">yada</p>
+
+                    <div class="field-wrap">
+                        <input type='email' placeholder='Email' name='user-email' class="login__input">
+                        <input type='password' placeholder='Şifre' name='user-password' class="login__input">
+
+                        <input type='checkbox' id='#informed' class='login__check styled'>
+                        <label for='#informed' class='login__check-info'>Beni hatırla</label>
+                    </div>
+
+                    <div class="login__control">
+                        <button type='submit' class="btn btn-md btn--warning btn--wider">Giris</button>
+                        <a href="#" class="login__tracker form__tracker">Şifrenizimi unuttunuz</a>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </div>
     <footer class="footer-wrapper">
         <section class="container">
             <div class="col-xs-4 col-md-2 footer-nav">
@@ -236,7 +259,9 @@
             </div>
         </section>
     </footer>
-    
+
+    <!--bu assagıdaki swipper.min.js sadece moviepagede kullanılıyor simdilik-->
+    <script src="~/Scripts/js/external/idangerous.swiper.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/rs-plugin")
