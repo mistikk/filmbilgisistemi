@@ -12,6 +12,7 @@ namespace FilmSistemi.Controllers
         FilmSistemiEntities db = new FilmSistemiEntities();
         public ActionResult Index()
         {
+            
             return View();
         }
         [ChildActionOnly]

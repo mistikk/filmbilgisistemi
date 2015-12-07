@@ -24,7 +24,7 @@ namespace FilmSistemi.Models
         public string NTitle { get; set; }
         public string NContent { get; set; }
         public Nullable<System.DateTime> NDate { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NewsPicture> NewsPicture { get; set; }
     }
