@@ -163,6 +163,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -472,6 +474,7 @@
     <Content Include="Content\rs-plugin\font\revicons.eot" />
     <Content Include="Content\rs-plugin\font\revicons.ttf" />
     <Content Include="Content\rs-plugin\font\revicons.woff" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />
@@ -587,6 +590,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\images\banners\" />
     <Folder Include="Content\images\cinema\" />
     <Folder Include="Content\images\client-photo\" />
