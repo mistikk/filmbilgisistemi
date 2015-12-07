@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5931882e66834f26980f20fe466b1089" Name="Diagram1" ZoomLevel="100">
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.ActorMovie" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Actors" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Categories" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Comments" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Contacts" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.MovieCategory" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Movies" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.News" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.NewsPicture" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.ActorMovie" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Actors" Width="1.5" PointX="5.875" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Categories" Width="1.5" PointX="5.875" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Comments" Width="1.5" PointX="5.875" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Contacts" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.MovieCategory" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.Movies" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.News" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.NewsPicture" Width="1.5" PointX="3.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmBilgiSistemiModel.Pictures" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmBilgiSistemiModel.Stars" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmBilgiSistemiModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmBilgiSistemiModel.sysdiagrams" Width="1.5" PointX="3.25" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmBilgiSistemiModel.Videos" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmBilgiSistemiModel.WatchLists" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
         <AssociationConnector Association="FilmBilgiSistemiModel.FK_ActorMovie_Actors" ManuallyRouted="false" />
