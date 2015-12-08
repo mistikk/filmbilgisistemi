@@ -9,7 +9,7 @@ namespace FilmSistemi.Controllers
 {
     public class HomeController : Controller
     {
-        FilmBilgiSistemiEntities db = new FilmBilgiSistemiEntities();
+        FilmSistemiEntities db = new FilmSistemiEntities();
         public ActionResult Index()
         {
             

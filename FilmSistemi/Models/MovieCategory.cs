@@ -14,7 +14,7 @@ namespace FilmSistemi.Models
     
     public partial class MovieCategory
     {
-        public int MCId { get; set; }
+        public int MovieCategoryId { get; set; }
         public Nullable<int> MovieId { get; set; }
         public Nullable<int> CategoryId { get; set; }
     

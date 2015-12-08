@@ -173,63 +173,63 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ActorMovie.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Actors.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Categories.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Comments.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Contacts.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FilmBilgiModel.Context.cs">
+    <Compile Include="Models\FilmSistemiModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FilmBilgiModel.Context.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FilmBilgiModel.cs">
+    <Compile Include="Models\FilmSistemiModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FilmBilgiModel.Designer.cs">
+    <Compile Include="Models\FilmSistemiModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
+      <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MovieCategory.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MoviePicture.cs">
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Movies.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NewsPicture.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pictures.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Stars.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Videos.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WatchLists.cs">
-      <DependentUpon>FilmBilgiModel.tt</DependentUpon>
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -433,6 +433,16 @@
     <Content Include="fonts\MuseoSans_500-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\FilmSistemiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
+      <LastGenOutput>FilmSistemiModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FilmSistemiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
+      <LastGenOutput>FilmSistemiModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\css\less\base\base.less" />
@@ -494,22 +504,12 @@
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />
     <Content Include="get-tweets1.1.php" />
-    <EntityDeploy Include="Models\FilmBilgiModel.edmx">
+    <EntityDeploy Include="Models\FilmSistemiModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FilmBilgiModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>FilmSistemiModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FilmBilgiModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
-      <LastGenOutput>FilmBilgiModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\FilmBilgiModel.edmx.diagram">
-      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\FilmBilgiModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FilmBilgiModel.edmx</DependentUpon>
-      <LastGenOutput>FilmBilgiModel.cs</LastGenOutput>
+    <Content Include="Models\FilmSistemiModel.edmx.diagram">
+      <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\filmbilgi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\filmbilgi - Web Deploy.pubxml" />

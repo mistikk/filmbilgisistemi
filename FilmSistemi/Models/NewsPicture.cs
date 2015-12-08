@@ -14,7 +14,7 @@ namespace FilmSistemi.Models
     
     public partial class NewsPicture
     {
-        public int NPId { get; set; }
+        public int NewsPictureId { get; set; }
         public Nullable<int> NewsId { get; set; }
         public byte[] Picture { get; set; }
         public Nullable<System.DateTime> NPDate { get; set; }

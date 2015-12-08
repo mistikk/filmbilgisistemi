@@ -14,12 +14,13 @@ namespace FilmSistemi.Models
     
     public partial class Movies
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Movies()
         {
             this.ActorMovie = new HashSet<ActorMovie>();
             this.Comments = new HashSet<Comments>();
             this.MovieCategory = new HashSet<MovieCategory>();
-            this.Pictures = new HashSet<Pictures>();
+            this.MoviePicture = new HashSet<MoviePicture>();
             this.Stars = new HashSet<Stars>();
             this.Videos = new HashSet<Videos>();
             this.WatchLists = new HashSet<WatchLists>();
@@ -33,12 +34,19 @@ namespace FilmSistemi.Models
         public string MCountry { get; set; }
         public string MDirector { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActorMovie> ActorMovie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieCategory> MovieCategory { get; set; }
-        public virtual ICollection<Pictures> Pictures { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MoviePicture> MoviePicture { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stars> Stars { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Videos> Videos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WatchLists> WatchLists { get; set; }
     }
 }

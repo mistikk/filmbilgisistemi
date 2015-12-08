@@ -14,6 +14,7 @@ namespace FilmSistemi.Models
     
     public partial class Categories
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categories()
         {
             this.MovieCategory = new HashSet<MovieCategory>();
@@ -22,6 +23,7 @@ namespace FilmSistemi.Models
         public int CategoryId { get; set; }
         public string CName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieCategory> MovieCategory { get; set; }
     }
 }

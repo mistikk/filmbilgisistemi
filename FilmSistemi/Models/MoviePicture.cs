@@ -12,13 +12,13 @@ namespace FilmSistemi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ActorMovie
+    public partial class MoviePicture
     {
-        public int ActorMovieId { get; set; }
-        public Nullable<int> ActorId { get; set; }
+        public int MoviePictureId { get; set; }
         public Nullable<int> MovieId { get; set; }
+        public byte[] Picture { get; set; }
+        public Nullable<System.DateTime> MPDate { get; set; }
     
-        public virtual Actors Actors { get; set; }
         public virtual Movies Movies { get; set; }
     }
 }
