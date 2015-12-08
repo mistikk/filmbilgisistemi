@@ -13,5 +13,9 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult FilmEkle()
+        {
+            return View();
+        }
     }
 }
