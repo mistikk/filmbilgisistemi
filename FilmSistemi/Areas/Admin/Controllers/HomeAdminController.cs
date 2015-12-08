@@ -25,5 +25,17 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult HaberEkle()
+        {
+            return View();
+        }
+        public ActionResult HaberSil()
+        {
+            return View();
+        }
+        public ActionResult HaberDuzenle()
+        {
+            return View();
+        }
     }
 }
