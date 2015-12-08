@@ -21,5 +21,9 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Haberler()
+        {
+            return View();
+        }
     }
 }
