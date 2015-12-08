@@ -49,5 +49,21 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Yorumlar()
+        {
+            return View();
+        }
+        public ActionResult YorumOnayla()
+        {
+            return View();
+        }
+        public ActionResult YorumSil()
+        {
+            return View();
+        }
+        public ActionResult YorumDuzenle()
+        {
+            return View();
+        }
     }
 }
