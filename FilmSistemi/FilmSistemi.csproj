@@ -208,6 +208,7 @@
     <Compile Include="Models\MovieCategory.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MoviePageModel.cs" />
     <Compile Include="Models\MoviePicture.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
