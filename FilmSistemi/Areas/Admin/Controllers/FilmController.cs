@@ -20,9 +20,21 @@ namespace FilmSistemi.Areas.Admin.Controllers
            var model = db.Movies.OrderByDescending(x => x.MovieId).ToList();
             return View(model);
         }
+
         public ActionResult FilmEkle()
         {
             return View();
+        }
+        public ActionResult FilmEkleYeni (Movies model)
+        {
+            //validation eklendi basic modal
+            if (true)
+            {
+                db.Movies.Add(model);
+                db.SaveChanges();
+            }
+           return RedirectToAction("Listele");
+
         }
     }
 }

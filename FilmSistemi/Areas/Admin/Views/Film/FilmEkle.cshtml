@@ -33,7 +33,9 @@
         </div>
     </div>
     <div class="panel-body">
-        <form action="#" role="form" class="smart-wizard form-horizontal" id="form">
+ @using (Html.BeginForm("FilmEkleYeni", "Film", FormMethod.Post, new { @class = "smart-wizard form-horizontal" }))
+ { 
+
             <div id="wizard" class="swMain">
                 <ul>
                     <li>
@@ -91,38 +93,99 @@
                     </div>
                 </div>
                 <div id="step-1">
-                    <h2 class="StepTitle">Step 1 Content</h2>
+                    <h2 class="StepTitle">Film Bilgileri</h2>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">
-                            Username <span class="symbol required"></span>
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Text Field">
+                        @Html.LabelFor(m => m.MName, new { @class = "col-sm-3 control-label" })
 
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.MName, new { @class = "form-control", placeholder = "Film Adı" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MDirector, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.MDirector, new { @class = "form-control", placeholder = "Yönetmen" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MMinute, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.MMinute, new { @class = "form-control", placeholder = "Süre" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MCountry, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.MCountry, new { @class = "form-control", placeholder = "Ülke" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MReleaseDate, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.MReleaseDate, new { @class = "form-control", placeholder = "Tarihi" })
+                        </div>
+                    </div>
+
+                    <button type="submit">EKLE</button>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Yönetmen <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="email" name="email" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            Email <span class="symbol required"></span>
+                            Süre <span class="symbol required"></span>
                         </label>
                         <div class="col-sm-7">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Text Field">
+                            <input type="number" class="form-control" id="password" name="password" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            Password <span class="symbol required"></span>
+                            Ülke <span class="symbol required"></span>
                         </label>
                         <div class="col-sm-7">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Text Field">
+                            <input type="text" class="form-control" id="password_again" name="password_again" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            Confirm Password <span class="symbol required"></span>
+                            Yıl (MM/YYYY) <span class="symbol required"></span>
                         </label>
-                        <div class="col-sm-7">
-                            <input type="password" class="form-control" id="password_again" name="password_again" placeholder="Text Field">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <select class="form-control" id="card_expiry_mm" name="card_expiry_mm">
+                                        <option value="">MM</option>
+                                        <option value="01">1</option>
+                                        <option value="02">2</option>
+                                        <option value="03">3</option>
+                                        <option value="04">4</option>
+                                        <option value="05">5</option>
+                                        <option value="06">6</option>
+                                        <option value="07">7</option>
+                                        <option value="08">8</option>
+                                        <option value="09">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="MReleaseDate" id="card_expiry_yyyy" placeholder="YYYY">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -134,65 +197,14 @@
                     </div>
                 </div>
                 <div id="step-2">
-                    <h2 class="StepTitle">Step 2 Content</h2>
+                    <h2 class="StepTitle">Film Acıklaması</h2>
+                   
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            full_name <span class="symbol required"></span>
+                            Açıklama <span class="symbol required"></span>
                         </label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Text Field">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">
-                            Phone Number <span class="symbol required"></span>
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Text Field">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">
-                            Gender <span class="symbol required"></span>
-                        </label>
-                        <div class="col-sm-7">
-                            <label class="radio-inline">
-                                <input type="radio" class="grey" value="f" name="gender" id="gender_female">
-                                Female
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" class="grey" value="m" name="gender" id="gender_male">
-                                Male
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">
-                            Address <span class="symbol required"></span>
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Text Field">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">
-                            Country <span class="symbol required"></span>
-                        </label>
-                        <div class="col-sm-7">
-                            <select class="form-control" id="country" name="country">
-                                <option value="">&nbsp;</option>
-                                <option value="Country 1">Country 1</option>
-                                <option value="Country 2">Country 2</option>
-                                <option value="Country 3">Country 3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">
-                            City <span class="symbol required"></span>
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="Text Field">
+                            <textarea  rows="10" placeholder="Text" id="form-field-22" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -215,7 +227,7 @@
                             Card Holder Name <span class="symbol required"></span>
                         </label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="card_name" name="card_name" placeholder="Text Field">
+                            <input type="text" class="form-control" id="card_name" name="card_name" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -223,7 +235,7 @@
                             Card Number <span class="symbol required"></span>
                         </label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Text Field">
+                            <input type="text" class="form-control" id="card_number" name="card_number" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -231,7 +243,7 @@
                             CVC <span class="symbol required"></span>
                         </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="card_cvc" name="card_cvc" placeholder="Text Field">
+                            <input type="text" class="form-control" id="card_cvc" name="card_cvc" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -300,7 +312,7 @@
                     <h3>Account</h3>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">
-                            Username:
+                            Film adı:   
                         </label>
                         <div class="col-sm-7">
                             <p class="form-control-static display-value" data-display="username"></p>
@@ -413,25 +425,17 @@
                     </div>
                 </div>
             </div>
-        </form>
+
+        }
     </div>
 </div>
+
+
+
 <!-- end: FORM WIZARD PANEL -->
 
 <script src="~/assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
 <!--<![endif]-->
-<script src="~/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
-<script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="~/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
-<script src="~/assets/plugins/blockUI/jquery.blockUI.js"></script>
-<script src="~/assets/plugins/iCheck/jquery.icheck.min.js"></script>
-<script src="~/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
-<script src="~/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
-<script src="~/assets/plugins/less/less-1.5.0.min.js"></script>
-<script src="~/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-<script src="~/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
-<script src="~/assets/js/main.js"></script>
-<!-- end: MAIN JAVASCRIPTS -->
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script src="~/assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/assets/plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
