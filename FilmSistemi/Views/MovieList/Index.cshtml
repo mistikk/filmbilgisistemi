@@ -1,10 +1,9 @@
-﻿@{
+﻿@model FilmSistemi.Models.MovieListModel
+
+@{
     ViewBag.Title = "movielist";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using FilmSistemi.Models
-
-@model IEnumerable<Movies>
 
 <body>
     <!-- Main content -->
@@ -67,7 +66,7 @@
                 </div>
             </div>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Movies)
             {
                     <!-- Movie preview item -->
                 <div class="movie movie--preview movie--full release">
