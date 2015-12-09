@@ -29,28 +29,25 @@
                             <th>İd</th>
                             <th>Ad</th>
                             <th class="hidden-xs">Acıklama</th>
-                            <th class="hidden-xs">Süre</th>
+                            <th>Süre</th>
                             <th>Tarih</th>
                             <th class="hidden-xs">Ülke</th>
-                            <th>Yönetmen</th>
+                            <th class="hidden-xs">Yönetmen</th>
                         </tr>
                     </thead>
                     <tbody>
-      @foreach (var item in Model)
-      {
-
-      
-                        <tr>
-                            <td>@item.MovieId</td>
-                            <td>@item.MName</td>
-                            <td class="hidden-xs">@item.MDescription</td>
-                            <td class="hidden-xs">@item.MMinute</td>
-                            <td>@item.MReleaseDate</td>
-                            <td class="hidden-xs">@item.MCountry</td>
-                            <td class="hidden-xs">@item.MDirector</td>
-                        </tr>
-
-      }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MovieId</td>
+                                <td>@item.MName</td>
+                                <td class="hidden-xs">@item.MDescription</td>
+                                <td>@item.MMinute</td>
+                                <td>@item.MReleaseDate</td>
+                                <td class="hidden-xs">@item.MCountry</td>
+                                <td class="hidden-xs">@item.MDirector</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
