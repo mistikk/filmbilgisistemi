@@ -7,7 +7,12 @@ namespace FilmSistemi.Models
 {
     public class MoviePageModel
     {
-        public String Movies { get; set; }
-        public IEnumerable<Actors> Actors { get; set; }
+        public Movies Movies { get; set; }
+        public List<Actors> Actors { get; set; }
+        public List<Categories> Categories { get; set; }
+        public double Star { get; set; }
+        public List<Comments> Comments { get; set; }
+        public List<Videos> Videos { get; set; }
+
     }
 }

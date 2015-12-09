@@ -14,20 +14,44 @@ namespace FilmSistemi.Controllers
         [HttpGet]
         public ActionResult Index(int id)
         {
+            //Yeni Model dan bi nesne oluşturuluyor
             Models.MoviePageModel dto = new MoviePageModel();
-            List<Object> list = new List<Object>();
-            //db.Movies.Find(id);
+
+            List<Actors> ActorList = new List<Actors>();
+            List<Categories> CategoryList = new List<Categories>();
+
+            //Veritabanından filmleri çeker
             dto.Movies = db.Movies.FirstOrDefault(x => x.MovieId == id);
-            var model = db.ActorMovie.Where(x => x.MovieId == movie.MovieId);
-            foreach (var item in model)
+
+            //Veritabanından aktörleri çeker
+            var actors = db.ActorMovie.Where(x => x.MovieId == dto.Movies.MovieId);
+            foreach (var item in actors)
             {
-                list.Add(db.Actors.FirstOrDefault(x => x.ActorId == item.ActorId));
+                ActorList.Add(db.Actors.FirstOrDefault(x => x.ActorId == item.ActorId));
             }
-            
-            return View(new {
-                movie = movie,
-                actors = list
-            });
+            dto.Actors = ActorList;
+
+            //Veritabanından kategorileri çeker
+            var categories = db.MovieCategory.Where(x => x.MovieId == dto.Movies.MovieId);
+            foreach (var item in categories)
+            {
+                CategoryList.Add(db.Categories.FirstOrDefault(x => x.CategoryId == item.CategoryId));
+            }
+            dto.Categories = CategoryList;
+
+            //Veritabanından verilen ortalama yıldızı çeker
+            if (db.Stars.Where(x => x.MovieId == dto.Movies.MovieId).Count() != 0)
+            {
+                dto.Star = (double)db.Stars.Where(x => x.MovieId == dto.Movies.MovieId).Average(x => x.Star);
+            }
+
+            //Veritabanından film için yapılan yorumları çeker
+            dto.Comments = db.Comments.Where(x => x.MovieId == dto.Movies.MovieId).ToList();
+
+            //Veritabanından film videolarını getirir
+            dto.Videos = db.Videos.Where(x => x.MovieId == dto.Movies.MovieId).ToList();
+
+            return View(dto);
         }
 
     }

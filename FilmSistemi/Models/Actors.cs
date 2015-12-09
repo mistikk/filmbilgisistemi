@@ -25,5 +25,10 @@ namespace FilmSistemi.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActorMovie> ActorMovie { get; set; }
+
+        public static implicit operator Actors(List<object> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
