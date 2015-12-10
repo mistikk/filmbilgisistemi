@@ -16,7 +16,9 @@ namespace FilmSistemi.Controllers
             //Yeni Model dan bi nesne oluşturuluyor
             Models.MovieListModel dto = new Models.MovieListModel();
 
+            // Film-kategori ve Actor-kategori listeleri oluşturuluyor. 
             List<ActorMovie> ActorMovieList = new List<ActorMovie>();
+            List<MovieCategory> MovieCategoryList = new List<MovieCategory>();
 
             //Veritabanından filmler çekiliyor
             dto.Movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
@@ -25,9 +27,14 @@ namespace FilmSistemi.Controllers
             foreach (var item in dto.Movies)
             {
                 ActorMovieList = db.ActorMovie.Where(x => x.MovieId == item.MovieId).ToList();
+
+                MovieCategoryList = db.MovieCategory.Where(x => x.MovieId == item.MovieId).ToList();
+            
             }
             dto.ActorMovie = ActorMovieList;
-            
+            dto.MovieCategory = MovieCategoryList;
+          
+
             return View(dto);
         }
     }
