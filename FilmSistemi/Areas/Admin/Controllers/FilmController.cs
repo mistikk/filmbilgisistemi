@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
@@ -26,11 +27,19 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult FilmEkleYeni (FilmModel model)
+        public ActionResult FilmEkleYeni (FilmModel model, HttpPostedFileBase pic)
         {
             //validation eklendi basic modal
             if (true)
             {
+                MemoryStream memoryStream = pic.InputStream as MemoryStream;
+                if (memoryStream == null)
+                {
+                    memoryStream = new MemoryStream();
+                    pic.InputStream.CopyTo(memoryStream);
+                }
+                
+
                 Movies yfilm = new Movies();
                 yfilm.MName = model.Movies.MName;
                 yfilm.MDirector = model.Movies.MDirector;
@@ -38,12 +47,19 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 yfilm.MMinute = model.Movies.MMinute;
                 yfilm.MCountry = model.Movies.MCountry;
                 yfilm.MReleaseDate = model.Movies.MReleaseDate;
+                yfilm.MBanner = memoryStream.ToArray();
+            
 
                 db.Movies.Add(yfilm);
                 db.SaveChanges();
+                /*  MoviePicture picture = new MoviePicture();
+              picture.Picture = model.Picture.Picture;
+              db.MoviePicture.Add(picture); */
 
             }
-           return RedirectToAction("Listele");
+
+
+            return RedirectToAction("Listele");
 
         }
     }

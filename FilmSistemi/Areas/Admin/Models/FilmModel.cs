@@ -8,5 +8,6 @@ namespace FilmSistemi.Areas.Admin.Models
     public class FilmModel
     {
         public Movies Movies { get; set; }
+       //public MoviePicture Picture { get; set; }
     }
 }

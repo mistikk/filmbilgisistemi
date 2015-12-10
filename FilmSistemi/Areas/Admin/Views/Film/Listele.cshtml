@@ -27,6 +27,7 @@
                     <thead>
                         <tr>
                             <th>İd</th>
+                            <th>Afiş</th>
                             <th>Ad</th>
                             <th class="hidden-xs">Acıklama</th>
                             <th>Süre</th>
@@ -39,7 +40,9 @@
                         @foreach (var item in Model)
                         {
                             <tr>
+
                                 <td>@item.MovieId</td>
+                                <td>@item.MBanner</td>
                                 <td>@item.MName</td>
                                 <td class="hidden-xs">@item.MDescription</td>
                                 <td>@item.MMinute</td>

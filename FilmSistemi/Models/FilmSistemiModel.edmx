@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FilmSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FilmSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ActorMovie">
           <Key>
             <PropertyRef Name="ActorMovieId" />
@@ -75,6 +75,7 @@
           <Property Name="MReleaseDate" Type="datetime" />
           <Property Name="MCountry" Type="nvarchar" MaxLength="50" />
           <Property Name="MDirector" Type="nvarchar" MaxLength="100" />
+          <Property Name="MBanner" Type="image" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -306,8 +307,7 @@
             <End Role="WatchLists" EntitySet="WatchLists" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FilmSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -396,6 +396,7 @@
           <NavigationProperty Name="Stars" Relationship="Self.FK_Stars_Movies" FromRole="Movies" ToRole="Stars" />
           <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Movies" FromRole="Movies" ToRole="Videos" />
           <NavigationProperty Name="WatchLists" Relationship="Self.FK_WatchLists_Movies" FromRole="Movies" ToRole="WatchLists" />
+          <Property Name="MBanner" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -707,6 +708,7 @@
           <EntitySetMapping Name="Movies">
             <EntityTypeMapping TypeName="FilmSistemiModel.Movies">
               <MappingFragment StoreEntitySet="Movies">
+                <ScalarProperty Name="MBanner" ColumnName="MBanner" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="MName" ColumnName="MName" />
                 <ScalarProperty Name="MDescription" ColumnName="MDescription" />

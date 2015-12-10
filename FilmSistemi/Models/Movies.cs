@@ -33,6 +33,7 @@ namespace FilmSistemi.Models
         public Nullable<System.DateTime> MReleaseDate { get; set; }
         public string MCountry { get; set; }
         public string MDirector { get; set; }
+        public byte[] MBanner { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActorMovie> ActorMovie { get; set; }
