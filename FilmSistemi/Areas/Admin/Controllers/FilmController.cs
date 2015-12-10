@@ -1,4 +1,5 @@
 ﻿using FilmSistemi.Models;
+using FilmSistemi.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,22 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult FilmEkleYeni (Movies model)
+        public ActionResult FilmEkleYeni (FilmModel model)
         {
             //validation eklendi basic modal
             if (true)
             {
-                db.Movies.Add(model);
+                Movies yfilm = new Movies();
+                yfilm.MName = model.Movies.MName;
+                yfilm.MDirector = model.Movies.MDirector;
+                yfilm.MDescription = model.Movies.MDescription;
+                yfilm.MMinute = model.Movies.MMinute;
+                yfilm.MCountry = model.Movies.MCountry;
+                yfilm.MReleaseDate = model.Movies.MReleaseDate;
+
+                db.Movies.Add(yfilm);
                 db.SaveChanges();
+
             }
            return RedirectToAction("Listele");
 
