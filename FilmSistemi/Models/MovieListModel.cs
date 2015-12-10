@@ -9,7 +9,7 @@ namespace FilmSistemi.Models
     {
         public IEnumerable<Movies> Movies { get; set; }
 
-        public List<Actors> Actors { get; set; }
+        public List<ActorMovie> ActorMovie { get; set; }
     }
 
 }

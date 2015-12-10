@@ -13,18 +13,20 @@ namespace FilmSistemi.Controllers
         // GET: MovieList
         public ActionResult Index()
         {
-            List<Object> ActorMovieList = new List<Object>();
+            //Yeni Model dan bi nesne oluşturuluyor
             Models.MovieListModel dto = new Models.MovieListModel();
+
+            List<ActorMovie> ActorMovieList = new List<ActorMovie>();
+
+            //Veritabanından filmler çekiliyor
             dto.Movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
+
+            //Veritabanından çekilen filmlerin oyuncuları çekilir
             foreach (var item in dto.Movies)
             {
-                ActorMovieList.Add(db.ActorMovie.Where(x => x.MovieId == item.MovieId));
+                ActorMovieList = db.ActorMovie.Where(x => x.MovieId == item.MovieId).ToList();
             }
-
-            foreach (var item in ActorMovieList)
-            {
-
-            }
+            dto.ActorMovie = ActorMovieList;
             
             return View(dto);
         }

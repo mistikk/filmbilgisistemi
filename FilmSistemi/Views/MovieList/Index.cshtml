@@ -10,7 +10,6 @@
     <section class="container">
         <div class="col-sm-12">
             <h2 class="page-heading">Movies</h2>
-
             <div class="select-area">
                 <form class="select" method='get'>
                     <select name="select_item" class="select__sort" tabindex="0">
@@ -90,7 +89,16 @@
                         <p class="movie__option"><strong>Category: </strong><a href="#">Comady</a></p>
                         <p class="movie__option"><strong>Release date: </strong>@item.MReleaseDate</p>
                         <p class="movie__option"><strong>Director: </strong><a href="#">@item.MDirector</a></p>
-                        <p class="movie__option"><strong>Actors: </strong><a href="#">Robert De Niro</a>, <a href="#">Michael Douglas</a>, <a href="#">Morgan Freeman</a>, <a href="#">Kevin Kline</a>, <a href="#">Mary Steenburgen</a>, <a href="#">Jerry Ferrara</a>, <a href="#">Romany Malco</a> <a href="#">...</a></p>
+                        <p class="movie__option">
+                            <strong>Actors: </strong>
+                            @foreach (var actor in Model.ActorMovie)
+                            {
+                                if (actor.MovieId == item.MovieId)
+                                {
+                                    <a href="#">@actor.Actors.ActorName</a><span>, </span>
+                                }
+                            }
+                        </p>
                         <p class="movie__option"><strong>Age restriction: </strong><a href="#">13</a></p>
 
                         <div class="movie__btns">
