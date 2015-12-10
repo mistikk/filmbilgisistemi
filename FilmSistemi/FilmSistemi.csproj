@@ -169,6 +169,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MovieListController.cs" />
+    <Compile Include="Controllers\MoviePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +210,8 @@
     <Compile Include="Models\MovieCategory.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovieListModel.cs" />
+    <Compile Include="Models\MoviePageModel.cs" />
     <Compile Include="Models\MoviePicture.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
@@ -391,6 +395,9 @@
     <Content Include="Content\rs-plugin\js\jquery.themepunch.plugins.min.js" />
     <Content Include="Content\rs-plugin\js\jquery.themepunch.revolution.js" />
     <Content Include="Content\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -512,6 +519,10 @@
     <Content Include="Models\FilmSistemiModel.edmx.diagram">
       <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
     </Content>
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\filmbilgi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\filmbilgi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\filmsistemi - FTP %282%29.pubxml" />
@@ -603,6 +614,8 @@
     <Content Include="Views\Home\_Slider.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\SingleNews.cshtml" />
+    <Content Include="Views\MoviePage\Index.cshtml" />
+    <Content Include="Views\MovieList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -41,8 +41,8 @@ namespace FilmSistemi.Controllers
         }
         public ActionResult movielist()
         {
-
-            return View();
+           var movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
+            return View(movies);
         }
         public ActionResult news()
         {

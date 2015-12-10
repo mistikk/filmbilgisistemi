@@ -10,5 +10,11 @@
     "inputFiles": [
       "Scripts/jquery-1.10.2.js"
     ]
+  },
+  {
+    "outputFileName": "Content/style.css",
+    "inputFiles": [
+      "Content/style.css"
+    ]
   }
 ]
