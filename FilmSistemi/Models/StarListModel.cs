@@ -10,5 +10,9 @@ namespace FilmSistemi.Models
         public int MovieId { get; set; }
 
         public double StarAvg { get; set; }
+
+        public int Vote { get; set;}
+
+
     }
 }

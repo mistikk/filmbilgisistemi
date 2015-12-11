@@ -40,24 +40,33 @@ namespace FilmSistemi.Controllers
                 {
                     MovieCategoryList.Add(category);
                 }
-
+                //Veritabanından verilen oyları çeker.
                 //Veritabanından verilen ortalama yıldızı çeker
                 StarListModel MovieStar = new StarListModel();
                 if (db.Stars.Where(x => x.MovieId == item.MovieId).Count() != 0)
                 {
                     MovieStar.MovieId = item.MovieId;
                     MovieStar.StarAvg = (double) db.Stars.Where(x => x.MovieId == item.MovieId).Average(x => x.Star);
+                  
+                    MovieStar.Vote = db.Stars.Where(x => x.MovieId == item.MovieId).Count();
+
                     StarsTemp.Add(MovieStar);
                 }
                 else
                 {
                     MovieStar.MovieId = item.MovieId;
                     MovieStar.StarAvg = 0;
+                    MovieStar.Vote = 0;
+                    
                     StarsTemp.Add(MovieStar);
+
                 }
-
-
-
+                //TODO:MovieList yorum sayısı çekilecek.
+              //  dto.Comments.Add(db.Comments.Where(x => x.MovieId == item.MovieId));
+                
+                
+                
+              
             }
             dto.ActorMovie = ActorMovieList;
             dto.MovieCategory = MovieCategoryList;

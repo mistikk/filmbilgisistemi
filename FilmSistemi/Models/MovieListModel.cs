@@ -14,6 +14,10 @@ namespace FilmSistemi.Models
         public List<MovieCategory> MovieCategory { get; set; }
 
         public IEnumerable<StarListModel> Stars { get; set; }
+
+        public List<Comments> Comments { get; set; }
+
+        
     }
 
 }

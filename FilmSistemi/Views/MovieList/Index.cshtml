@@ -74,7 +74,15 @@
                             <img alt='' src="http://placehold.it/380x600">
                         </div>
                         <div class="movie__feature">
-                            <a href="#" class="movie__feature-item movie__feature--comment">123</a>
+                            <a href="#" class="movie__feature-item movie__feature--comment">
+                            @foreach (var comment in Model.Comments)
+                            {
+                                if (item.MovieId == comment.MovieId)
+                                {
+                                    //TODO: çekilen comentler yazılacak
+                                }
+                            }
+                            </a>
                             <a href="#" class="movie__feature-item movie__feature--video">7</a>
                             <a href="#" class="movie__feature-item movie__feature--photo">352</a>
                         </div>
@@ -121,7 +129,17 @@
                         </div>
 
                         <div class="preview-footer">
-                            <div class="movie__rate"><div class="score"></div><span class="movie__rate-number">170 votes</span> <span class="movie__rating">
+                            <div class="movie__rate"><div class="score"></div><span class="movie__rate-number">
+                                
+                                
+                                @foreach (var vote in Model.Stars) 
+                                {
+                                    if (vote.MovieId == item.MovieId)
+                                    {
+                                        @vote.Vote
+                                    }
+		                            
+                                } votes</span> <span class="movie__rating">
                                 @foreach (var star in Model.Stars)
                                 {
                                     if (star.MovieId == item.MovieId)
