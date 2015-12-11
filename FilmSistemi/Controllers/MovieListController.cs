@@ -17,24 +17,51 @@ namespace FilmSistemi.Controllers
             Models.MovieListModel dto = new Models.MovieListModel();
 
             // Film-kategori ve Actor-kategori listeleri oluşturuluyor. 
+            List<ActorMovie> ActorMovieTemp = new List<ActorMovie>();
             List<ActorMovie> ActorMovieList = new List<ActorMovie>();
+            List<MovieCategory> MovieCategoryTemp = new List<MovieCategory>();
             List<MovieCategory> MovieCategoryList = new List<MovieCategory>();
-
+            List<StarListModel> StarsTemp = new List<StarListModel>();
+            
             //Veritabanından filmler çekiliyor
             dto.Movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
 
             //Veritabanından çekilen filmlerin oyuncuları çekilir
             foreach (var item in dto.Movies)
             {
-                ActorMovieList = db.ActorMovie.Where(x => x.MovieId == item.MovieId).ToList();
+                ActorMovieTemp = db.ActorMovie.Where(x => x.MovieId == item.MovieId).ToList();
+                foreach (var actor in ActorMovieTemp)
+                {
+                    ActorMovieList.Add(actor);
+                }
 
-                MovieCategoryList = db.MovieCategory.Where(x => x.MovieId == item.MovieId).ToList();
-            
+                MovieCategoryTemp = db.MovieCategory.Where(x => x.MovieId == item.MovieId).ToList();
+                foreach (var category in MovieCategoryTemp)
+                {
+                    MovieCategoryList.Add(category);
+                }
+
+                //Veritabanından verilen ortalama yıldızı çeker
+                StarListModel MovieStar = new StarListModel();
+                if (db.Stars.Where(x => x.MovieId == item.MovieId).Count() != 0)
+                {
+                    MovieStar.MovieId = item.MovieId;
+                    MovieStar.StarAvg = (double) db.Stars.Where(x => x.MovieId == item.MovieId).Average(x => x.Star);
+                    StarsTemp.Add(MovieStar);
+                }
+                else
+                {
+                    MovieStar.MovieId = item.MovieId;
+                    MovieStar.StarAvg = 0;
+                    StarsTemp.Add(MovieStar);
+                }
+
+
+
             }
             dto.ActorMovie = ActorMovieList;
             dto.MovieCategory = MovieCategoryList;
-          
-
+            dto.Stars = StarsTemp;
             return View(dto);
         }
     }

@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
-                        <a href='movie-page-full.html' class="movie__title link--huge">@item.MName</a>
+                        @Html.ActionLink(@item.MName, "Index" ,"MoviePage",new { id = item.MovieId },new { @class= "movie__title link--huge" })
 
                         <p class="movie__time">@item.MMinute min</p>
 
@@ -92,7 +92,10 @@
                             {
                                 if (category.MovieId == item.MovieId)
                                 {
-                                    <a href="#">@category.Categories.CName</a><span>,</span>
+                                    if (category.Categories != null)
+                                    {
+                                        <a href="#">@category.Categories.CName</a><span>,</span>
+                                    }
                                 }
                             }
                         </p>
@@ -104,7 +107,10 @@
                             {
                                 if (actor.MovieId == item.MovieId)
                                 {
-                                    <a href="#">@actor.Actors.ActorName</a><span>, </span>
+                                    if (actor.Actors != null)
+                                    {
+                                        <a href="#">@actor.Actors.ActorName</a><span>, </span>
+                                    }
                                 }
                             }
                         </p>
@@ -115,7 +121,15 @@
                         </div>
 
                         <div class="preview-footer">
-                            <div class="movie__rate"><div class="score"></div><span class="movie__rate-number">170 votes</span> <span class="movie__rating">5.0</span></div>
+                            <div class="movie__rate"><div class="score"></div><span class="movie__rate-number">170 votes</span> <span class="movie__rating">
+                                @foreach (var star in Model.Stars)
+                                {
+                                    if (star.MovieId == item.MovieId)
+                                    {
+                                        @star.StarAvg
+                                    }
+                                }
+                                </span></div>
 
                         </div>
                     </div>
