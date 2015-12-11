@@ -19,7 +19,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             //var idgetir =  db.Movies.FirstOrDefault(x=> x.MovieId == 1);
             //var idgetir = db.Movies.ToList();
             // return View(idgetir);
-           var model = db.Movies.OrderByDescending(x => x.MovieId).ToList();
+            var model = db.Movies.OrderByDescending(x => x.MovieId).ToList();
             return View(model);
         }
 
@@ -27,7 +27,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult FilmEkleYeni (FilmModel model, HttpPostedFileBase pic)
+        public ActionResult FilmEkleYeni(FilmModel model, HttpPostedFileBase pic)
         {
             //validation eklendi basic modal
             if (true)
@@ -38,20 +38,23 @@ namespace FilmSistemi.Areas.Admin.Controllers
                     memoryStream = new MemoryStream();
                     pic.InputStream.CopyTo(memoryStream);
                 }
-                
+
 
                 Movies yfilm = new Movies();
-                yfilm.MName = model.Movies.MName;
-                yfilm.MDirector = model.Movies.MDirector;
-                yfilm.MDescription = model.Movies.MDescription;
-                yfilm.MMinute = model.Movies.MMinute;
-                yfilm.MCountry = model.Movies.MCountry;
-                yfilm.MReleaseDate = model.Movies.MReleaseDate;
-                yfilm.MBanner = memoryStream.ToArray();
-            
+                if (yfilm == null)
+                {
+                    yfilm.MName = model.Movies.MName;
+                    yfilm.MDirector = model.Movies.MDirector;
+                    yfilm.MDescription = model.Movies.MDescription;
+                    yfilm.MMinute = model.Movies.MMinute;
+                    yfilm.MCountry = model.Movies.MCountry;
+                    yfilm.MReleaseDate = model.Movies.MReleaseDate;
+                    yfilm.MBanner = memoryStream.ToArray();
+                    db.Movies.Add(yfilm);
+                    db.SaveChanges();
+                }
 
-                db.Movies.Add(yfilm);
-                db.SaveChanges();
+           
                 /*  MoviePicture picture = new MoviePicture();
               picture.Picture = model.Picture.Picture;
               db.MoviePicture.Add(picture); */
