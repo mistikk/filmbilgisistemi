@@ -5,32 +5,67 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
 
-        <div class="panel panel-default">
-            <h4>Categories</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.CName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control" } })
+
+
+<div class="page-header">
+
+
+    <a class="btn btn-warning pull-right" href="Index"><i class="fa fa-eye    fa fa-white"></i></a>
+    <h1>Kategoriler<small></small></h1>
+
+</div>
+
+
+
+
+
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <i class="fa fa-external-link-square"></i>
+        Kategori Ekle
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+            <a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+                <i class="fa fa-wrench"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-refresh" href="#">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-expand" href="#">
+                <i class="fa fa-resize-full"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-close" href="#">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group col-md-4">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.CName, new { @class = "col-sm-3 control-label" })
+
+                <div class="col-sm-7">
+                    @Html.TextBoxFor(model => model.CName, new { @class = "form-control float-right", placeholder = "Kategori Adı" })
                     @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
                 </div>
             </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2">
+                            <input type="submit" value="Ekle" class="btn btn-success btn-squared" />
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-success btn-squared btn-lg" />
-                </div>
-            </div>
-        </div>
         }
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    </div>
+</div>
