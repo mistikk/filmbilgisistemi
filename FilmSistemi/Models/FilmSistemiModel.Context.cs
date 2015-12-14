@@ -25,7 +25,6 @@ namespace FilmSistemi.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ActorMovie> ActorMovie { get; set; }
         public virtual DbSet<Actors> Actors { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
@@ -39,5 +38,6 @@ namespace FilmSistemi.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Videos> Videos { get; set; }
         public virtual DbSet<WatchLists> WatchLists { get; set; }
+        public virtual DbSet<ActorMovie> ActorMovie { get; set; }
     }
 }

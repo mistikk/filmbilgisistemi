@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FilmSistemi.Models.Movies>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MMinute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MDirector)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBanner)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MMinute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MDirector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBanner)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MovieId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MovieId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MovieId })
+        </td>
+    </tr>
+}
+
+</table>

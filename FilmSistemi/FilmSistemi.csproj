@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -496,7 +497,7 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\HaberDuzenle.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\FilmSil.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\FilmDuzenle.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Yorumlar.cshtml" />
+    <Content Include="Areas\Admin\Views\Yorumlar.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\YorumOnayla.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\YorumSil.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\YorumDuzenle.cshtml" />
@@ -604,6 +605,11 @@
     <Content Include="Views\Home\_Slider.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\SingleNews.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
+    <Content Include="Views\Movies\Delete.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Movies\Edit.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

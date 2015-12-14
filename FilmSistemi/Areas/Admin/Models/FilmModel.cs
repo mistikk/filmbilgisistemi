@@ -9,6 +9,9 @@ namespace FilmSistemi.Areas.Admin.Models
     {
         public Movies Movies { get; set; }
         public Actors Actors { get; set; }
-       //public MoviePicture Picture { get; set; }
+        //public MoviePicture Picture { get; set; }
+
+        //, FilmModel actor
+        //  Actors artiz = new Actors();
     }
 }
