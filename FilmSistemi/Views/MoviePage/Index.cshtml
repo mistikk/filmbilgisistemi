@@ -15,7 +15,14 @@
                     <div class="col-sm-4 col-md-3 movie-mobile">
                         <div class="movie__images">
                             <span class="movie__rating">@Model.Star</span>
-                            <img alt='' src="http://placehold.it/526x773">
+                            @if (Model.Movies.MBanner == null)
+                            {
+                                <img alt='' src="http://placehold.it/526x773">
+                            }
+                            else
+                            {
+                                <img alt='' src="data:image/png;base64,@System.Convert.ToBase64String(Model.Movies.MBanner)">
+                            }
                         </div>
                         <div class="movie__rate">Your vote: <div id='score' class="score"></div></div>
                     </div>
