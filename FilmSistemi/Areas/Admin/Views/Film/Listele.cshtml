@@ -53,12 +53,14 @@
                     <tr>
 
                         <td class="center">@item.MovieId</td>
-                        @if (item.MBanner != null)
-                        {
-                            <td class="hidden-xs"> <img style="width:100px; height:100px;" src="data:image/png;base64,@System.Convert.ToBase64String(item.MBanner)" /></td>
-                        }
-                  
-                        <td class="col-md-2" >@item.MName</td>
+                        <td class="hidden-xs">
+    @if (item.MBanner != null)
+    {
+        <img style="width:100px; height:100px;" src="data:image/png;base64,@System.Convert.ToBase64String(item.MBanner)" />
+   
+    }
+                        </td>
+                        <td class="col-md-1" >@item.MName</td>
                         <td>@item.MDescription</td>
                         <td class="hidden-xs">@item.MReleaseDate</td>
                         <td class="hidden-xs">@item.MCountry</td>

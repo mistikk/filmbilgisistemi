@@ -11,7 +11,7 @@
 
 <div class="page-header">
 
-    <a class="btn btn-green pull-right" href="Create"><i class="fa fa-plus    fa fa-white"></i></a>
+    <a class="btn btn-green pull-right" href="@Url.Action("Create", "Categories")"><i class="fa fa-plus    fa fa-white"></i></a>
     <h1>Kategoriler<small></small></h1>
 
 </div>
@@ -59,7 +59,7 @@
 
 
                             @Html.ActionLink("Düzenle", "Edit", new { id = item.CategoryId }, new { @class = "btn btn-success dropdown-toggle btn-sm" })
-                            @Html.ActionLink("Detay", "Details", new { id = item.CategoryId }, new { @class = "btn btn-info  dropdown-toggle btn-sm" })
+                         
                             @Html.ActionLink("Sil", "Delete", new { id = item.CategoryId }, new { @class = "btn btn-danger dropdown-toggle btn-sm" })
 
                         </td>
