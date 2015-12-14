@@ -17,20 +17,15 @@
 
 <div class="panel panel-default">
 
+
     <div class="panel-heading">
         <i class="fa fa-external-link-square"></i>
-        Filmler
+        Kategori Ekle
         <div class="panel-tools">
             <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
             </a>
-            <a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
-                <i class="fa fa-wrench"></i>
-            </a>
             <a class="btn btn-xs btn-link panel-refresh" href="#">
                 <i class="fa fa-refresh"></i>
-            </a>
-            <a class="btn btn-xs btn-link panel-expand" href="#">
-                <i class="fa fa-resize-full"></i>
             </a>
             <a class="btn btn-xs btn-link panel-close" href="#">
                 <i class="fa fa-times"></i>
@@ -58,8 +53,12 @@
                     <tr>
 
                         <td class="center">@item.MovieId</td>
-                        <td class="hidden-xs">@item.MBanner</td>
-                        <td>@item.MName</td>
+                        @if (item.MBanner != null)
+                        {
+                            <td class="hidden-xs"> <img style="width:100px; height:100px;" src="data:image/png;base64,@System.Convert.ToBase64String(item.MBanner)" /></td>
+                        }
+                  
+                        <td class="col-md-2" >@item.MName</td>
                         <td>@item.MDescription</td>
                         <td class="hidden-xs">@item.MReleaseDate</td>
                         <td class="hidden-xs">@item.MCountry</td>
