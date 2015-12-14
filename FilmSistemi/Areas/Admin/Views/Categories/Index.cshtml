@@ -1,0 +1,77 @@
+﻿@model IEnumerable<FilmSistemi.Models.Categories>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<div class="page-header">
+
+    <a class="btn btn-green pull-right" href="Categories/Create"><i class="fa fa-plus    fa fa-white"></i></a>
+    <h1>Kategoriler<small></small></h1>
+
+</div>
+
+
+
+
+
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <i class="fa fa-external-link-square"></i>
+        Kategoriler
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+            <a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+                <i class="fa fa-wrench"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-refresh" href="#">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-expand" href="#">
+                <i class="fa fa-resize-full"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-close" href="#">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-hover" id="sample-table-1">
+            <thead>
+                <tr>
+                    <th class="center">#</th>
+                    <th>@Html.DisplayNameFor(model => model.CName)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.CategoryId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CName)</td>
+
+                        <td class="center col-md-2">
+
+
+                            @Html.ActionLink("Düzenle", "Edit", new { id = item.CategoryId }, new { @class = "btn btn-success dropdown-toggle btn-sm" })
+                            @Html.ActionLink("Detay", "Details", new { id = item.CategoryId }, new { @class = "btn btn-info  dropdown-toggle btn-sm" })
+                            @Html.ActionLink("Sil", "Delete", new { id = item.CategoryId }, new { @class = "btn btn-danger dropdown-toggle btn-sm" })
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

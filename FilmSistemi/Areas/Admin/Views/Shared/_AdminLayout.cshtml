@@ -451,7 +451,7 @@
                             <li>
                                 <a href="users">
                                     <span class="title"> Listele </span>
-                                  
+
                                 </a>
                             </li>
                             <li>
@@ -461,8 +461,8 @@
                             </li>
 
                         </ul>
-             
-        
+
+
                     <li>
                         <a href="javascript:void(0)">
                             <i class="fa fa-play"></i>
@@ -471,25 +471,37 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                             
-                                  @Html.ActionLink("Listele", "Listele", "Film")
-                                
+
+                                @Html.ActionLink("Listele", "Listele", "Film")
+
                             </li>
                             <li>
                                 @Html.ActionLink("Ekle", "FilmEkle", "Film")
                             </li>
-                
+
+
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-bars"></i>
+                            <span class="title"> Kategori </span><i class="icon-arrow"></i>
+                            <span class="selected"></span>
+                        </a>
+                        <ul class="sub-menu">
                             <li>
-                                <a href="FilmSil">
-                                    <span class="title"><i class="fa fa-eraser"></i>Sil </span>
-                                </a>
+
+                                @Html.ActionLink("Listele", "Index", "Categories")
+
                             </li>
                             <li>
-                                <a href="FilmDuzenle">
-                                    <span class="title"> <i class="fa fa-edit"></i> Düzenle </span>
-                                </a>
+                                @Html.ActionLink("Ekle", "Create", "Categories")
                             </li>
-              
+
+
+
                         </ul>
                     </li>
 
@@ -521,7 +533,7 @@
                                     <span class="title"> <i class="fa fa-edit"></i> Düzenle </span>
                                 </a>
                             </li>
-                           
+
                         </ul>
                     </li>
                     <li>
@@ -595,7 +607,7 @@
                 <!-- start: PAGE HEADER -->
                 <div class="row">
                     <div class="col-sm-12">
-                   
+
                         <!-- start: PAGE TITLE & BREADCRUMB -->
                         <ol class="breadcrumb">
                             <li>
@@ -618,13 +630,13 @@
                                 </form>
                             </li>
                         </ol>
-               
+
                         <!-- end: PAGE TITLE & BREADCRUMB -->
                     </div>
                 </div>
                 <!-- end: PAGE HEADER -->
 
-       
+
                 <div>
                     @RenderBody()
                 </div>
@@ -680,10 +692,10 @@
     <script src="~/assets/js/form-elements.js"></script>
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script>
-			jQuery(document).ready(function() {
-				Main.init();
-				FormElements.init();
-			});
+        jQuery(document).ready(function () {
+            Main.init();
+            FormElements.init();
+        });
     </script>
 </body>
 </html>
