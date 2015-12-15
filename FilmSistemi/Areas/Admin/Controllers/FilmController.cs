@@ -32,7 +32,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
         }
 
 
-// EDİTTTTTTTTTTTTTTTTTTTTT BAŞ
+        // EDİTTTTTTTTTTTTTTTTTTTTT BAŞ
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -59,7 +59,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             }
             return View(movies);
         }
-// EDİTTTTTTTTTTTTTTTTTTTTT SON
+        // EDİTTTTTTTTTTTTTTTTTTTTT SON
 
 
 
@@ -83,6 +83,31 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             Movies movies = db.Movies.Find(id);
             db.Movies.Remove(movies);
+            ActorMovie actor = new ActorMovie();
+            MovieCategory category= new MovieCategory();
+
+            //categorisi movi aydi le aynı olan categorymoviden siliyor
+            //mal diilsen anlarsın m*
+            if (category ==null)
+            {
+                var silcat = db.MovieCategory.Where(n => n.MovieId == id);
+                foreach (var item in silcat)
+                {
+                    db.MovieCategory.Remove(item);
+                }
+            }
+
+            if (actor == null)
+            {
+                var silid = db.ActorMovie.Where(n => n.MovieId == id);
+                foreach (var item in silid)
+                {
+
+                    db.ActorMovie.Remove(item);
+
+                }
+
+            }
             db.SaveChanges();
             return RedirectToAction("Listele");
         }
@@ -123,31 +148,31 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 yfilm.MCountry = model.Movies.MCountry;
                 yfilm.MReleaseDate = model.Movies.MReleaseDate;
                 yfilm.MBanner = memoryStream.ToArray();
-           
+
                 var r = db.Movies.Add(yfilm);
                 db.SaveChanges();
-              /*  var names = model.Actors.ActorName.Split(',');
-    
-               
-                    ActorMovie actormovie = new ActorMovie();
-                if (actormovie == null)
-                {
+                /*  var names = model.Actors.ActorName.Split(',');
 
-             
-                    //var actorName = actormovie.Actors.ActorName;
-                    foreach (var item in names)
-                    {
-                        //var ugur = item;
-                        //actorName = ugur;
-                        //actormovie.Actors.ActorName = ugur;
 
-                        //actormovie.MovieId = r.MovieId;
-                        var iteminactor = db.Actors.Add(new Actors { ActorName = item });
-                        db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
-                        db.SaveChanges();
-                    }
-                    
-                }*/
+                      ActorMovie actormovie = new ActorMovie();
+                  if (actormovie == null)
+                  {
+
+
+                      //var actorName = actormovie.Actors.ActorName;
+                      foreach (var item in names)
+                      {
+                          //var ugur = item;
+                          //actorName = ugur;
+                          //actormovie.Actors.ActorName = ugur;
+
+                          //actormovie.MovieId = r.MovieId;
+                          var iteminactor = db.Actors.Add(new Actors { ActorName = item });
+                          db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
+                          db.SaveChanges();
+                      }
+
+                  }*/
 
                 //for (int i = 0; i < names.Length; i++)
                 //{
@@ -166,7 +191,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
         }
 
- 
+
 
     }
 
