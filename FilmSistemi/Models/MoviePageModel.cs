@@ -13,6 +13,6 @@ namespace FilmSistemi.Models
         public double Star { get; set; }
         public List<Comments> Comments { get; set; }
         public List<Videos> Videos { get; set; }
-
+        public  News Haber { get; set; }
     }
 }
