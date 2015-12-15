@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Net;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
@@ -28,6 +29,43 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
+        // GET: Admin/Movies/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movies movies = db.Movies.Find(id);
+            if (movies == null)
+            {
+                return RedirectToAction("Listele");
+            }
+            return View(movies);
+        }
+
+        // POST: Admin/Movies/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Movies movies = db.Movies.Find(id);
+            db.Movies.Remove(movies);
+            db.SaveChanges();
+            return RedirectToAction("Listele");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+
+
 
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic)
@@ -53,7 +91,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 yfilm.MCountry = model.Movies.MCountry;
                 yfilm.MReleaseDate = model.Movies.MReleaseDate;
                 yfilm.MBanner = memoryStream.ToArray();
-           
+           /*
                 var r = db.Movies.Add(yfilm);
                 db.SaveChanges();
                 var names = model.Actors.ActorName.Split(',');
@@ -76,8 +114,8 @@ namespace FilmSistemi.Areas.Admin.Controllers
                         db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
                         db.SaveChanges();
                     }
-
-                }
+                    
+                }*/
 
                 //for (int i = 0; i < names.Length; i++)
                 //{
@@ -95,8 +133,14 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return RedirectToAction("Listele");
 
         }
+
+ 
+
     }
+
+
 }
 
 //var model = db.Movies.OrderByDescending(x => x.ID).ToList();
 //return View(model);
+
