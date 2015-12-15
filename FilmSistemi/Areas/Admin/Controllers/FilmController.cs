@@ -18,10 +18,9 @@ namespace FilmSistemi.Areas.Admin.Controllers
         // GET: Admin/Film
         public ActionResult Listele()
         {
-            //var idgetir =  db.Movies.FirstOrDefault(x=> x.MovieId == 1);
-            //var idgetir = db.Movies.ToList();
-            // return View(idgetir);
+
             var model = db.Movies.OrderByDescending(x => x.MovieId).ToList();
+
             return View(model);
         }
 
@@ -84,11 +83,11 @@ namespace FilmSistemi.Areas.Admin.Controllers
             Movies movies = db.Movies.Find(id);
             db.Movies.Remove(movies);
             ActorMovie actor = new ActorMovie();
-            MovieCategory category= new MovieCategory();
+            MovieCategory category = new MovieCategory();
 
             //categorisi movi aydi le aynı olan categorymoviden siliyor
             //mal diilsen anlarsın m*
-            if (category ==null)
+            if (category == null)
             {
                 var silcat = db.MovieCategory.Where(n => n.MovieId == id);
                 foreach (var item in silcat)
@@ -151,28 +150,28 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
                 var r = db.Movies.Add(yfilm);
                 db.SaveChanges();
-                /*  var names = model.Actors.ActorName.Split(',');
+                var names = model.Actors.ActorName.Split(',');
 
 
-                      ActorMovie actormovie = new ActorMovie();
-                  if (actormovie == null)
-                  {
+                ActorMovie actormovie = new ActorMovie();
+                if (actormovie == null)
+                {
 
 
-                      //var actorName = actormovie.Actors.ActorName;
-                      foreach (var item in names)
-                      {
-                          //var ugur = item;
-                          //actorName = ugur;
-                          //actormovie.Actors.ActorName = ugur;
+                    //var actorName = actormovie.Actors.ActorName;
+                    foreach (var item in names)
+                    {
+                        //var ugur = item;
+                        //actorName = ugur;
+                        //actormovie.Actors.ActorName = ugur;
 
-                          //actormovie.MovieId = r.MovieId;
-                          var iteminactor = db.Actors.Add(new Actors { ActorName = item });
-                          db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
-                          db.SaveChanges();
-                      }
+                        //actormovie.MovieId = r.MovieId;
+                        var iteminactor = db.Actors.Add(new Actors { ActorName = item });
+                        db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
+                        db.SaveChanges();
+                    }
 
-                  }*/
+                }
 
                 //for (int i = 0; i < names.Length; i++)
                 //{

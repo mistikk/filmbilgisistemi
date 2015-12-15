@@ -167,7 +167,6 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\FilmController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Admin\Models\FilmModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -509,11 +508,6 @@
     <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Movies\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Movies\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Movies\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Movies\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Movies\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Film\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Film\Edit.cshtml" />
     <None Include="bundleconfig.json" />
