@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Net;
+using System.Data.Entity;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
@@ -29,7 +30,39 @@ namespace FilmSistemi.Areas.Admin.Controllers
         {
             return View();
         }
-        // GET: Admin/Movies/Delete/5
+
+
+// EDİTTTTTTTTTTTTTTTTTTTTT BAŞ
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movies movies = db.Movies.Find(id);
+            if (movies == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movies);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "MovieId,MName,MDescription,MMinute,MReleaseDate,MCountry,MDirector,MBanner")] Movies movies)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(movies).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Listele");
+            }
+            return View(movies);
+        }
+// EDİTTTTTTTTTTTTTTTTTTTTT SON
+
+
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -44,7 +77,6 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(movies);
         }
 
-        // POST: Admin/Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -91,10 +123,10 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 yfilm.MCountry = model.Movies.MCountry;
                 yfilm.MReleaseDate = model.Movies.MReleaseDate;
                 yfilm.MBanner = memoryStream.ToArray();
-           /*
+           
                 var r = db.Movies.Add(yfilm);
                 db.SaveChanges();
-                var names = model.Actors.ActorName.Split(',');
+              /*  var names = model.Actors.ActorName.Split(',');
     
                
                     ActorMovie actormovie = new ActorMovie();

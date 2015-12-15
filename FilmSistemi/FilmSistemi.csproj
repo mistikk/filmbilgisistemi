@@ -515,6 +515,7 @@
     <Content Include="Areas\Admin\Views\Movies\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Movies\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Film\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Film\Edit.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />
