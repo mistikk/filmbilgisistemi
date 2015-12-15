@@ -15,16 +15,22 @@
                     <div class="col-sm-4 col-md-3 movie-mobile">
                         <div class="movie__images">
                             <span class="movie__rating">@Model.Star</span>
-                            <img alt='' src="http://placehold.it/526x773">
+                            @if (Model.Movies.MBanner == null)
+                            {
+                                <img alt='' src="http://placehold.it/526x773">
+                            }
+                            else
+                            {
+                                <img alt='' src="data:image/png;base64,@System.Convert.ToBase64String(Model.Movies.MBanner)">
+                            }
                         </div>
                         <div class="movie__rate">Your vote: <div id='score' class="score"></div></div>
                     </div>
 
                     <div class="col-sm-8 col-md-9">
                         <p class="movie__time">@Model.Movies.MMinute min</p>
-
                         <p class="movie__option"><strong>Country: </strong><a href="#">@Model.Movies.MCountry</a></p>
-                        <p class="movie__option"><strong>Year: </strong><a href="#">@Model.Movies.MReleaseDate</a></p>
+                        <p class="movie__option"><strong>Year: </strong><a href="#">@String.Format("{0:yyyy}", @Model.Movies.MReleaseDate)</a></p>
                         <p class="movie__option">
                             <strong>Category: </strong>
                             @foreach (var item in Model.Categories)
@@ -32,7 +38,7 @@
                                 <a href="#">@item.CName</a><span>,</span>
                             }
                         </p>
-                        <p class="movie__option"><strong>Release date: </strong>@Model.Movies.MReleaseDate</p>
+                        <p class="movie__option"><strong>Release date: </strong>@String.Format("{0:d}", @Model.Movies.MReleaseDate)</p>
                         <p class="movie__option"><strong>Director: </strong><a href="#">@Model.Movies.MDirector</a></p>
                         <p class="movie__option">
                             <strong>Actors: </strong>
@@ -255,7 +261,7 @@
                                     <img alt='' src="http://placehold.it/50x50">
                                 </div>
                                 <a href='#' class="comment__author">@item.UserId</a>
-                                <p class="comment__date">@item.CDate</p>
+                                <p class="comment__date">@String.Format("{0:d}", @item.CDate)</p>
                                 <p class="comment__message">@item.CContent</p>
                             </div>
                         }
