@@ -63,9 +63,10 @@ namespace FilmSistemi.Controllers
                 }
                 //TODO:MovieList yorum sayısı çekilecek.
               //  dto.Comments.Add(db.Comments.Where(x => x.MovieId == item.MovieId));
-                
-                
-                
+
+
+          dto.Comments =  db.Comments.Where(x => x.MovieId == item.MovieId).ToList();
+
               
             }
             dto.ActorMovie = ActorMovieList;
