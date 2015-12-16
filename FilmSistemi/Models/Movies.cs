@@ -17,13 +17,13 @@ namespace FilmSistemi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Movies()
         {
-            this.ActorMovie = new HashSet<ActorMovie>();
             this.Comments = new HashSet<Comments>();
             this.MovieCategory = new HashSet<MovieCategory>();
             this.MoviePicture = new HashSet<MoviePicture>();
             this.Stars = new HashSet<Stars>();
             this.Videos = new HashSet<Videos>();
             this.WatchLists = new HashSet<WatchLists>();
+            this.ActorMovie = new HashSet<ActorMovie>();
         }
     
         public int MovieId { get; set; }
@@ -33,9 +33,8 @@ namespace FilmSistemi.Models
         public Nullable<System.DateTime> MReleaseDate { get; set; }
         public string MCountry { get; set; }
         public string MDirector { get; set; }
+        public byte[] MBanner { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ActorMovie> ActorMovie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -48,5 +47,7 @@ namespace FilmSistemi.Models
         public virtual ICollection<Videos> Videos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WatchLists> WatchLists { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ActorMovie> ActorMovie { get; set; }
     }
 }

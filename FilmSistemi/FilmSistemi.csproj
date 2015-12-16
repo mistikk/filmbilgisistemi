@@ -164,8 +164,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\FilmController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Models\FilmModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -502,12 +504,18 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\HaberDuzenle.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\FilmSil.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\FilmDuzenle.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Yorumlar.cshtml" />
+    <Content Include="Areas\Admin\Views\Yorumlar.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\YorumOnayla.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\YorumSil.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\YorumDuzenle.cshtml" />
     <Content Include="Areas\Admin\Views\Film\Listele.cshtml" />
     <Content Include="Areas\Admin\Views\Film\FilmEkle.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Film\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Film\Edit.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />
@@ -616,11 +624,14 @@
     <Content Include="Views\Home\SingleNews.cshtml" />
     <Content Include="Views\MoviePage\Index.cshtml" />
     <Content Include="Views\MovieList\Index.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
+    <Content Include="Views\Movies\Delete.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Movies\Edit.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="assets\" />
     <Folder Include="Content\images\banners\" />
     <Folder Include="Content\images\cinema\" />

@@ -1,0 +1,64 @@
+﻿@model FilmSistemi.Models.Categories
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-header">
+
+
+    <a class="btn btn-warning pull-right" href="@Url.Action("Index", "Categories")"><i class="fa fa-eye    fa fa-white"></i></a>
+    <a class="btn btn-green pull-right" href="@Url.Action("Create", "Categories")"><i class="fa fa-plus    fa fa-white"></i></a>
+    <a class="btn btn-danger pull-right" href="@Url.Action("Index", "Categories")"><i class="fa fa-reply    fa fa-white"></i></a>
+    <h1>Kategoriler<small></small></h1>
+
+</div>
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <i class="fa fa-trash-o"></i>
+        Kategori Düzenle
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+            <a class="btn btn-xs btn-link panel-refresh" href="#">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-close" href="#">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <h3> Hakket silcenmi la ???</h3>
+        <div>
+        
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CName)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+
+                    <input type="submit" value="Delete" class="btn btn-bricky" />
+
+                </div>
+
+
+            }
+        </div>
+    </div>
+</div>

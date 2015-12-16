@@ -1,9 +1,135 @@
-﻿@model FilmSistemi.Models.Movies
+﻿@model FilmSistemi.Areas.Admin.Models.FilmModel
 
 @{
     ViewBag.Title = "FilmEkle";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>FilmEkle</h2>
+<div class="page-header">
+    <a class="btn btn-warning pull-right" href="@Url.Action("Listele", "Film")"><i class="fa fa-eye    fa fa-white"></i></a>
+    <a class="btn btn-danger pull-right" href="@Url.Action("Listele", "Film")"><i class="fa fa-reply    fa fa-white"></i></a>
+    <h1>Film Ekle<small></small></h1>
+</div>
+
+
+<!-- start: FORM WIZARD PANEL -->
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <i class="fa fa-external-link-square"></i>
+        Film Ekle
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+            <a class="btn btn-xs btn-link panel-refresh" href="#">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-close" href="#">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+      
+        @using (Html.BeginForm("FilmEkle", "Film", FormMethod.Post, new { @class = "smart-wizard form-horizontal", enctype = "multipart/form-data"
+        }))
+        {
+
+            @Html.AntiForgeryToken()
+            <div id="wizard" class="swMain">
+                <span class="symbol required" style="color:red">Tüm alanların doldurulması zorunludur !</span>
+     
+                <div id="step-1">
+                  
+                    <div class="form-group">
+
+                        @Html.LabelFor(m => m.Movies.MName, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.Movies.MName, new { @class = "form-control", placeholder = "Film Adı" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MDirector, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.Movies.MDirector, new { @class = "form-control", placeholder = "Yönetmen" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MMinute, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.Movies.MMinute, new { @class = "form-control", placeholder = "Süre", type="number" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MCountry, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.Movies.MCountry, new { @class = "form-control", placeholder = "Ülke" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MReleaseDate, new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.Movies.MReleaseDate, new { @class = "form-control date-picker", placeholder = "Cıkış Tarihi"})
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MBanner, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            <input type="file" name="pic" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MDescription, new { @class = "col-sm-3 control-label" })
+                 
+                        <div class="col-sm-7">
+                            @Html.TextAreaFor(m => m.Movies.MDescription, new { @class = "form-control", rows = "10", placeholder = "Film Acıklaması" })
+
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+
+                        @Html.LabelFor(m => m.Actors.ActorName, new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-7">
+                            @Html.TextAreaFor(m => m.Actors.ActorName, new { @class = "tags", id= "tags_1" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-8">
+                            <button type="submit" class="btn btn-blue next-step btn-block">
+                                Ekle <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+
 
