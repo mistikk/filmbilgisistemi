@@ -27,6 +27,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult FilmEkle()
         {
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CName");
             return View();
         }
 

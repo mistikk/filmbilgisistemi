@@ -10,6 +10,7 @@ namespace FilmSistemi.Areas.Admin.Models
         public Movies Movies { get; set; }
         public Actors Actors { get; set; }
         public Categories Categories { get; set; }
+        public MovieCategory MovieCategory { get; set; }
         //public MoviePicture Picture { get; set; }
 
         //, FilmModel actor

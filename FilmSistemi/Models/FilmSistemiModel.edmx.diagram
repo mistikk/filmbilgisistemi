@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5d27daedbcdb44f4be50a278a9ed1f8c" Name="Diagram1">
         <EntityTypeShape EntityType="FilmSistemiModel.Actors" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Categories" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Categories" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.Comments" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.Contacts" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.MovieCategory" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
