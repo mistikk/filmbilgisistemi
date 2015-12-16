@@ -226,6 +226,7 @@
     <Compile Include="Models\NewsPicture.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StarListModel.cs" />
     <Compile Include="Models\Stars.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
