@@ -125,7 +125,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic)
+        public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic, int CategoryId)
         {
             Actors artiz = new Actors();
             //validation eklendi basic modal
@@ -138,9 +138,8 @@ namespace FilmSistemi.Areas.Admin.Controllers
                     pic.InputStream.CopyTo(memoryStream);
                 }
 
-
                 Movies yfilm = new Movies();
-
+       
                 yfilm.MName = model.Movies.MName;
                 yfilm.MDirector = model.Movies.MDirector;
                 yfilm.MDescription = model.Movies.MDescription;
@@ -153,42 +152,31 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 db.SaveChanges();
                 var names = model.Actors.ActorName.Split(',');
 
+                var catid = CategoryId;
+
+                if (catid != null)
+                {
+
+                    db.MovieCategory.Add(new MovieCategory { MovieId = r.MovieId, CategoryId = catid });
+                    db.SaveChanges();
+                }
 
                 ActorMovie actormovie = new ActorMovie();
                 if (actormovie == null)
                 {
-
-
                     //var actorName = actormovie.Actors.ActorName;
                     foreach (var item in names)
                     {
-                        //var ugur = item;
-                        //actorName = ugur;
-                        //actormovie.Actors.ActorName = ugur;
-
-                        //actormovie.MovieId = r.MovieId;
                         var iteminactor = db.Actors.Add(new Actors { ActorName = item });
                         db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
                         db.SaveChanges();
                     }
-
                 }
-
-                //for (int i = 0; i < names.Length; i++)
-                //{
-                //    db.Actors.Add(new Actors() { ActorName = names[i], MovieId = r.MovieId });
-                //    db.SaveChanges();
-                //}
-
-                /*  MoviePicture picture = new MoviePicture();
-              picture.Picture = model.Picture.Picture;
-              db.MoviePicture.Add(picture); */
 
             }
 
 
             return RedirectToAction("Listele");
-
         }
 
 
