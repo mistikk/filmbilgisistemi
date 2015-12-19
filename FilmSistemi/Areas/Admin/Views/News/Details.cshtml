@@ -5,39 +5,62 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="page-header">
 
-<div>
-    <h4>News</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NTitle)
-        </dt>
+    <a class="btn btn-teal pull-right" href="@Url.Action("Edit", "News")"><i class="fa fa-edit    fa fa-white"></i></a>
+    <a class="btn btn-danger pull-right" href="@Url.Action("index", "News",  new { id = Model.NewsId })"><i class="fa fa-reply    fa fa-white"></i></a>
 
-        <dd>
-            @Html.DisplayFor(model => model.NTitle)
-        </dd>
+    <h1>Haber<small></small></h1>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NContent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NContent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NDate)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="panel panel-default">
+
+
+    <div class="panel-heading">
+        <i class="fa fa-external-link-square"></i>
+        Haber Ekle
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+            <a class="btn btn-xs btn-link panel-refresh" href="#">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="btn btn-xs btn-link panel-close" href="#">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="panel-body ">
+        <div>
+     
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NTitle)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NTitle)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NContent)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NContent)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NDate)
+                </dd>
+
+            </dl>
+        </div>
+
+    </div>
+</div>
