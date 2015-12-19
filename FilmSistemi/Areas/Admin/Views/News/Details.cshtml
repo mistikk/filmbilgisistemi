@@ -1,0 +1,43 @@
+﻿@model FilmSistemi.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
