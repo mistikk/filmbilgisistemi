@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using FilmSistemi.Models
+@using Microsoft.AspNet.Identity
+@model LoginViewModel
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -169,10 +172,28 @@
                 </nav>
 
                 <!-- Additional header buttons / Auth and direct link to booking-->
-                <div class="control-panel">
-                    <a href="#" class="btn btn--sign login-window">Sign in</a>
-                    <a href="#" class="btn btn-md btn--warning btn--book login-window">Book a ticket</a>
-                </div>
+                @if (Request.IsAuthenticated)
+                {
+                    <div class="control-panel">
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color:#FFFFFF;" })
+                                </li>
+                                <li><a class="btn btn-md btn--warning" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                            </ul>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="control-panel">
+                        <a href="#" class="btn btn--sign login-window">Sign in</a>
+                    </div>
+                }
+
 
             </div>
         </header>
@@ -183,32 +204,29 @@
 
             <section class="container">
 
-                <div class="col-sm-4 col-sm-offset-4">
-                    <button type="button" class="overlay-close">Close</button>
-                    <form id="login-form" class="login" method='get' novalidate=''>
-                        <p class="login__title">Giris <br><span class="login-edition">flimlerhakkinda.com'a hosgeldiniz</span></p>
+                <div class="col-sm-4 col-sm-offset-4" style="margin-top:10%;">
 
-                        <div class="social social--colored">
-                            <a href='#' class="social__variant fa fa-facebook"></a>
-                            <a href='#' class="social__variant fa fa-twitter"></a>
-                            <a href='#' class="social__variant fa fa-tumblr"></a>
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="login">
+                            <button type="button" class="overlay-close">Close</button>
+                            <p class="login__title">Giris <br><span class="login-edition">Hosgeldiniz</span></p>
+                            <div class="field-wrap">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "login__input", @placeholder = "Email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                <br />
+                                @Html.PasswordFor(m => m.Password, new { @class = "login__input", @placeholder = "Şifre" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <br /><br /><br />
+                            <div class="login__control">
+                                <input type="submit" value="Giris" class="btn btn-md btn--warning btn--wider" />
+                            </div>
+
+                            <br /><br /><br />
                         </div>
-
-                        <p class="login__tracker">yada</p>
-
-                        <div class="field-wrap">
-                            <input type='email' placeholder='Email' name='user-email' class="login__input">
-                            <input type='password' placeholder='Şifre' name='user-password' class="login__input">
-
-                            <input type='checkbox' id='#informed' class='login__check styled'>
-                            <label for='#informed' class='login__check-info'>Beni hatırla</label>
-                        </div>
-
-                        <div class="login__control">
-                            <button type='submit' class="btn btn-md btn--warning btn--wider">Giris</button>
-                            <a href="#" class="login__tracker form__tracker">Şifrenizimi unuttunuz</a>
-                        </div>
-                    </form>
+                    }
                 </div>
 
             </section>
