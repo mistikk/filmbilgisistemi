@@ -405,7 +405,6 @@
           <Property Name="NewsPictureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NewsId" Type="Int32" />
           <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="NPDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="News" Relationship="Self.FK_NewsPicture_News" FromRole="NewsPicture" ToRole="News" />
         </EntityType>
         <EntityType Name="Stars">
@@ -726,7 +725,6 @@
                 <ScalarProperty Name="NewsPictureId" ColumnName="NewsPictureId" />
                 <ScalarProperty Name="NewsId" ColumnName="NewsId" />
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="NPDate" ColumnName="NPDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

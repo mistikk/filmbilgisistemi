@@ -11,6 +11,7 @@ namespace FilmSistemi.Areas.Admin.Models
         public Actors Actors { get; set; }
         public Categories Categories { get; set; }
         public MovieCategory MovieCategory { get; set; }
-
+        public News News { get; set; }
+        public NewsPicture NewsPicture { get; set; }
     }
 }

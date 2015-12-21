@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FilmSistemi.Models;
+using System.IO;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
@@ -42,20 +43,34 @@ namespace FilmSistemi.Areas.Admin.Controllers
         }
 
         // POST: Admin/News/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NewsId,NTitle,NContent,NDate")] News news)
+        public ActionResult Create([Bind(Include = "NewsId,NTitle,NContent,NDate")] News news, HttpPostedFileBase pic)
         {
+            MemoryStream memoryStream = pic.InputStream as MemoryStream;
+            NewsPicture npic = new NewsPicture();
+
+            var fid = db.News.Add(news);
             if (ModelState.IsValid)
             {
-                db.News.Add(news);
+                
                 db.SaveChanges();
-                return RedirectToAction("Index");
+     
             }
 
-            return View(news);
+
+            if (memoryStream == null)
+            {
+                memoryStream = new MemoryStream();
+                pic.InputStream.CopyTo(memoryStream);
+            }
+
+            npic.Picture = memoryStream.ToArray();
+            npic.NewsId = fid.NewsId;
+            db.NewsPicture.Add(npic);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+       ;
         }
 
         // GET: Admin/News/Edit/5
