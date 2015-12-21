@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ActorMoviesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\FilmController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieCategories1Controller.cs" />
@@ -535,6 +536,9 @@
     <Content Include="Areas\Admin\Views\News\Details.cshtml" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />
