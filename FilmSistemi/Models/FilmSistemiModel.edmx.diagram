@@ -29,6 +29,9 @@
         <EntityTypeShape EntityType="FilmSistemiModel.ActorMovie" Width="1.5" PointX="5" PointY="9.75" />
         <AssociationConnector Association="FilmSistemiModel.FK_ActorMovie_Actors" />
         <AssociationConnector Association="FilmSistemiModel.FK_ActorMovie_Movies" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Sliderimg" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="FilmSistemiModel.kisitablo" Width="1.5" PointX="8.5" PointY="2.5" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Simage" Width="1.5" PointX="8.375" PointY="5.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

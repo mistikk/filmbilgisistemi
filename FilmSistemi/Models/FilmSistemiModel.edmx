@@ -47,6 +47,14 @@
           <Property Name="CMessage" Type="nvarchar(max)" />
           <Property Name="CDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="kisitablo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="ad" Type="varchar" MaxLength="50" />
+          <Property Name="soyad" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="MovieCategory">
           <Key>
             <PropertyRef Name="MovieCategoryId" />
@@ -94,6 +102,25 @@
           <Property Name="NewsId" Type="int" />
           <Property Name="Picture" Type="image" />
           <Property Name="NPDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Simage">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="İmage" Type="varchar" MaxLength="250" />
+          <Property Name="MovieId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sliderimg">
+          <Key>
+            <PropertyRef Name="SliderId" />
+            <PropertyRef Name="Picture" />
+          </Key>
+          <Property Name="SliderId" Type="int" Nullable="false" />
+          <Property Name="Picture" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
         </EntityType>
         <EntityType Name="Stars">
           <Key>
@@ -257,15 +284,24 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kisitablo" EntityType="Self.kisitablo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieCategory" EntityType="Self.MovieCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MoviePicture" EntityType="Self.MoviePicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsPicture" EntityType="Self.NewsPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Simage" EntityType="Self.Simage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stars" EntityType="Self.Stars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WatchLists" EntityType="Self.WatchLists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sliderimg" EntityType="Self.Sliderimg" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sliderimg].[SliderId] AS [SliderId], 
+    [Sliderimg].[Picture] AS [Picture], 
+    [Sliderimg].[MovieId] AS [MovieId]
+    FROM [dbo].[Sliderimg] AS [Sliderimg]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_ActorMovie_Actors" Association="Self.FK_ActorMovie_Actors">
             <End Role="Actors" EntitySet="Actors" />
             <End Role="ActorMovie" EntitySet="ActorMovie" />
@@ -597,6 +633,9 @@
             <End Role="Movies" EntitySet="Movies" />
             <End Role="ActorMovie" EntitySet="ActorMovie" />
           </AssociationSet>
+          <EntitySet Name="Sliderimg" EntityType="FilmSistemiModel.Sliderimg" />
+          <EntitySet Name="kisitablo" EntityType="FilmSistemiModel.kisitablo" />
+          <EntitySet Name="Simage" EntityType="FilmSistemiModel.Simage" />
           </EntityContainer>
         <EntityType Name="ActorMovie">
           <Key>
@@ -632,6 +671,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Sliderimg">
+          <Key>
+            <PropertyRef Name="SliderId" />
+            <PropertyRef Name="Picture" />
+          </Key>
+          <Property Name="SliderId" Type="Int32" Nullable="false" />
+          <Property Name="Picture" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MovieId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="kisitablo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Simage">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="İmage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MovieId" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -774,6 +838,33 @@
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="ActorId" ColumnName="ActorId" />
                 <ScalarProperty Name="ActorMovieId" ColumnName="ActorMovieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sliderimg">
+            <EntityTypeMapping TypeName="FilmSistemiModel.Sliderimg">
+              <MappingFragment StoreEntitySet="Sliderimg">
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="SliderId" ColumnName="SliderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kisitablo">
+            <EntityTypeMapping TypeName="FilmSistemiModel.kisitablo">
+              <MappingFragment StoreEntitySet="kisitablo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Simage">
+            <EntityTypeMapping TypeName="FilmSistemiModel.Simage">
+              <MappingFragment StoreEntitySet="Simage">
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="İmage" ColumnName="İmage" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

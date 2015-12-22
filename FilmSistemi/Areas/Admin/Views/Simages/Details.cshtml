@@ -1,0 +1,35 @@
+﻿@model FilmSistemi.Models.Simage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Simage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.İmage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.İmage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Sid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
