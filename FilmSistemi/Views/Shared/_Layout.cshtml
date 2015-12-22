@@ -1,6 +1,5 @@
-﻿@using FilmSistemi.Models
+﻿
 @using Microsoft.AspNet.Identity
-@model LoginViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +41,7 @@
         <header class="header-wrapper" style="height:55px;">
             <div class="container">
                 <!-- Logo link-->
-                <a href='index.html' class="logo">
+                <a href='~/Home/Index' class="logo">
                     <img alt='logo' src="~/Content/images/logo.png">
                 </a>
 
@@ -190,7 +189,8 @@
                 else
                 {
                     <div class="control-panel">
-                        <a href="#" class="btn btn--sign login-window">Sign in</a>
+                        @Html.ActionLink("Sign in","Login","Account",null,new { @class = "btn btn--sign" });
+                        
                     </div>
                 }
 
@@ -200,7 +200,7 @@
 
         @RenderBody()
 
-        <div class="overlay overlay-hugeinc">
+        @*<div class="overlay overlay-hugeinc">
 
             <section class="container">
 
@@ -230,7 +230,7 @@
                 </div>
 
             </section>
-        </div>
+        </div>*@
         <footer class="footer-wrapper">
             <section class="container">
                 <div class="col-xs-4 col-md-2 footer-nav">
