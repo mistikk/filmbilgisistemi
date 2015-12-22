@@ -6,18 +6,18 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5d27daedbcdb44f4be50a278a9ed1f8c" Name="Diagram1">
         <EntityTypeShape EntityType="FilmSistemiModel.Actors" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Categories" Width="1.5" PointX="5.875" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Categories" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.Comments" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Contacts" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.MovieCategory" Width="1.5" PointX="5.875" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Contacts" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.MovieCategory" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.MoviePicture" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.Movies" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.News" Width="1.5" PointX="0.875" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.NewsPicture" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Stars" Width="1.5" PointX="5.625" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.sysdiagrams" Width="1.5" PointX="0.875" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Videos" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.WatchLists" Width="1.5" PointX="5.625" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.News" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.NewsPicture" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Stars" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Videos" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.WatchLists" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
         <AssociationConnector Association="FilmSistemiModel.FK_MovieCategory_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="FilmSistemiModel.FK_Comments_Movies" ManuallyRouted="false" />
         <AssociationConnector Association="FilmSistemiModel.FK_MovieCategory_Movies" ManuallyRouted="false" />
@@ -29,7 +29,6 @@
         <EntityTypeShape EntityType="FilmSistemiModel.ActorMovie" Width="1.5" PointX="5" PointY="9.75" />
         <AssociationConnector Association="FilmSistemiModel.FK_ActorMovie_Actors" />
         <AssociationConnector Association="FilmSistemiModel.FK_ActorMovie_Movies" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Sliders" Width="1.5" PointX="0.875" PointY="7.125" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
