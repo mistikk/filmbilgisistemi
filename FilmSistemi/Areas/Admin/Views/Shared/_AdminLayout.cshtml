@@ -52,7 +52,7 @@
                 <!-- end: RESPONSIVE MENU TOGGLER -->
                 <!-- start: LOGO -->
                 <a class="navbar-brand" href="index">
-                    CLIP<i class="clip-clip"></i>ONE
+                    Filmlerhakkinda.com<i class="clip-clip"></i>Admin Paneli
                 </a>
                 <!-- end: LOGO -->
             </div>
@@ -309,7 +309,7 @@
                                                         <img alt="" src="./assets/images/avatar-1.jpg">
                                                     </div>
                                                     <div class="thread-content">
-                                                        <span class="author">Peter Clark</span>
+                                                        <span class="author">Uğur Erdal</span>
                                                         <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
                                                         <span class="time">2 mins</span>
                                                     </div>
@@ -549,19 +549,19 @@
 
                     <li>
                         <a href="javascript:void(0)">
-                            <i class="fa fa-comment"></i>
-                            <span class="title"> Yorumlar </span><i class="icon-arrow"></i>
+                            <i class="fa fa-image"></i>
+                            <span class="title"> Slider </span><i class="icon-arrow"></i>
                             <span class="selected"></span>
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="@Url.Action("Index","Simages")">
+                                <a href="@Url.Action("Index","Slider")">
                                     <span class="title"><i class="fa fa-list"></i>  Listele </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Onayla","Comments")">
-                                    <span class="title"> <i class="fa fa-check"></i>  Onayla </span>
+                                <a href="@Url.Action("Create","Slider")">
+                                    <span class="title"> <i class="fa fa-plus"></i>  Ekle </span>
                                 </a>
                             </li>
                         </ul>
@@ -612,16 +612,16 @@
                             <li>
                                 <i class="clip-home-3"></i>
                                 <a href="#">
-                                    Home
+                                    Admin
                                 </a>
                             </li>
                             <li class="active">
-                                Dashboard
+                                @ViewBag.Title
                             </li>
                             <li class="search-box">
                                 <form class="sidebar-search">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Start Searching...">
+                                        <input type="text" placeholder="Ara...">
                                         <button class="submit">
                                             <i class="clip-search-3"></i>
                                         </button>

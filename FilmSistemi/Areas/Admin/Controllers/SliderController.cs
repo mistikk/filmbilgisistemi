@@ -10,17 +10,17 @@ using FilmSistemi.Models;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
-    public class SimagesController : Controller
+    public class SliderController : Controller
     {
         private FilmSistemiEntities db = new FilmSistemiEntities();
 
-        // GET: Admin/Simages
+        // GET: Admin/Slider
         public ActionResult Index()
         {
             return View(db.Simage.ToList());
         }
 
-        // GET: Admin/Simages/Details/5
+        // GET: Admin/Slider/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(simage);
         }
 
-        // GET: Admin/Simages/Create
+        // GET: Admin/Slider/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Simages/Create
+        // POST: Admin/Slider/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(simage);
         }
 
-        // GET: Admin/Simages/Edit/5
+        // GET: Admin/Slider/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(simage);
         }
 
-        // POST: Admin/Simages/Edit/5
+        // POST: Admin/Slider/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(simage);
         }
 
-        // GET: Admin/Simages/Delete/5
+        // GET: Admin/Slider/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(simage);
         }
 
-        // POST: Admin/Simages/Delete/5
+        // POST: Admin/Slider/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
