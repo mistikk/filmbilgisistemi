@@ -95,6 +95,17 @@
           <Property Name="Picture" Type="image" />
           <Property Name="NPDate" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'g120910023.dbo.Sliders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sliders">
+          <Key>
+            <PropertyRef Name="SliderId" />
+            <PropertyRef Name="Pictures" />
+          </Key>
+          <Property Name="SliderId" Type="int" Nullable="false" />
+          <Property Name="Pictures" Type="image" Nullable="false" />
+          <Property Name="MovieId" Type="int" />
+        </EntityType>
         <EntityType Name="Stars">
           <Key>
             <PropertyRef Name="StarId" />
@@ -266,6 +277,13 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WatchLists" EntityType="Self.WatchLists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sliders" EntityType="Self.Sliders" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sliders].[SliderId] AS [SliderId], 
+    [Sliders].[Pictures] AS [Pictures], 
+    [Sliders].[MovieId] AS [MovieId]
+    FROM [dbo].[Sliders] AS [Sliders]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_ActorMovie_Actors" Association="Self.FK_ActorMovie_Actors">
             <End Role="Actors" EntitySet="Actors" />
             <End Role="ActorMovie" EntitySet="ActorMovie" />
@@ -597,6 +615,7 @@
             <End Role="Movies" EntitySet="Movies" />
             <End Role="ActorMovie" EntitySet="ActorMovie" />
           </AssociationSet>
+          <EntitySet Name="Sliders" EntityType="FilmSistemiModel.Sliders" />
           </EntityContainer>
         <EntityType Name="ActorMovie">
           <Key>
@@ -632,6 +651,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Sliders">
+          <Key>
+            <PropertyRef Name="SliderId" />
+            <PropertyRef Name="Pictures" />
+          </Key>
+          <Property Name="SliderId" Type="Int32" Nullable="false" />
+          <Property Name="Pictures" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="MovieId" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -774,6 +802,15 @@
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="ActorId" ColumnName="ActorId" />
                 <ScalarProperty Name="ActorMovieId" ColumnName="ActorMovieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sliders">
+            <EntityTypeMapping TypeName="FilmSistemiModel.Sliders">
+              <MappingFragment StoreEntitySet="Sliders">
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+                <ScalarProperty Name="SliderId" ColumnName="SliderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
