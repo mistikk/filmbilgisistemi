@@ -162,7 +162,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 }
 
                 ActorMovie actormovie = new ActorMovie();
-                if (actormovie == null)
+                if (actormovie != null)
                 {
                     //var actorName = actormovie.Actors.ActorName;
                     foreach (var item in names)

@@ -10,10 +10,13 @@ namespace FilmSistemi.Controllers
     public class HomeController : Controller
     {
         FilmSistemiEntities db = new FilmSistemiEntities();
+        [HttpGet]
         public ActionResult Index()
         {
-            
-            return View();
+            FilmIndexModel dto = new FilmIndexModel();
+            dto.LastMovies = db.Movies.OrderByDescending(x => x.MovieId).Take(8).ToList();
+            dto.BestMovies = db.Movies.OrderByDescending(x => x.Stars.Average(y => y.Star)).Take(6).ToList();
+            return View(dto);
         }
         [ChildActionOnly]
         public ActionResult _Slider()
@@ -41,7 +44,7 @@ namespace FilmSistemi.Controllers
         }
         public ActionResult movielist()
         {
-           var movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
+            var movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
             return View(movies);
         }
         public ActionResult news()
