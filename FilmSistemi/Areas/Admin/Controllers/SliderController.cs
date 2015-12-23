@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FilmSistemi.Models;
 using System.IO;
+using FilmSistemi.Areas.Admin.Models;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
@@ -47,23 +48,28 @@ namespace FilmSistemi.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Sid,MovieId")] Simage simage, HttpPostedFile slider)
+        public ActionResult Create(SliderModel model)
         {
             if (ModelState.IsValid)
             {
-                if (slider != null)
+                if (model.İmage != null)
                 {
-                    // projenin bulundugu yol klasör
-                    var fileName = slider.FileName;
-                    var way = Path.Combine(Server.MapPath("~/Content/slider/"), fileName);
-                    slider.SaveAs("");
+                    var fileN = model.İmage.FileName;
+                    var way =Path.Combine( Server.MapPath("~/Content/slider"), fileN);
+                    model.İmage.SaveAs(way);
+                    
                 }
-                db.Simage.Add(simage);
+                
+
+                Simage slider = new Simage();
+            
+                slider.MovieId = model.MovieId;
+                slider.İmage = "";
+                db.Simage.Add(slider);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
-            return View(simage);
+            return RedirectToAction("Index");
         }
 
         // GET: Admin/Slider/Edit/5

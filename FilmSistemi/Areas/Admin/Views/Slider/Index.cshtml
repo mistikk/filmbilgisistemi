@@ -5,36 +5,50 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="page-header">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.İmage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MovieId)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.İmage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Sid }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Sid }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Sid })
-        </td>
-    </tr>
-}
+    <a class="btn btn-success pull-right" href="@Url.Action("Create", "Slider")"><i class="fa fa-plus    fa fa-white"></i></a>
+    <h1>Slider<small></small></h1>
 
-</table>
+</div>
+
+<div class="panel panel-default">
+
+
+    <div class="panel-heading">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.İmage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MovieId)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.İmage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MovieId)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Sid }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Sid }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Sid })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
