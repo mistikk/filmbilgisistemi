@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FilmSistemi.Models;
+using System.IO;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
@@ -46,10 +47,17 @@ namespace FilmSistemi.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Sid,İmage,MovieId")] Simage simage)
+        public ActionResult Create([Bind(Include = "Sid,MovieId")] Simage simage, HttpPostedFile slider)
         {
             if (ModelState.IsValid)
             {
+                if (slider != null)
+                {
+                    // projenin bulundugu yol klasör
+                    var fileName = slider.FileName;
+                    var way = Path.Combine(Server.MapPath("~/Content/slider/"), fileName);
+                    slider.SaveAs("");
+                }
                 db.Simage.Add(simage);
                 db.SaveChanges();
                 return RedirectToAction("Index");

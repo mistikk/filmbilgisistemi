@@ -675,6 +675,7 @@
     <Folder Include="Content\images\new\" />
     <Folder Include="Content\images\slides\" />
     <Folder Include="Content\images\trailers\" />
+    <Folder Include="Content\slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
