@@ -71,7 +71,17 @@
                 <div class="movie movie--preview movie--full release">
                     <div class="col-sm-3 col-md-2 col-lg-2">
                         <div class="movie__images">
-                            <img alt='' src="http://placehold.it/380x600">
+                            @if (item.MoviePicture != null)
+                            {
+                                <img alt=''  src="data:image/png;base64,@System.Convert.ToBase64String(item.MBanner)">
+                            }
+                            else
+                            {
+                                <img alt='' src="http://placehold.it/380x600"> 
+                            }
+                         
+                           
+
                         </div>
                         <div class="movie__feature">
                             <a href="#" class="movie__feature-item movie__feature--comment">
@@ -79,7 +89,8 @@
                             {
                                 if (item.MovieId == comment.MovieId)
                                 {
-                                   
+                                   //@Model.BestMovies[4].Comments.Count()
+                                    
                                 }
                             }
                             </a>
