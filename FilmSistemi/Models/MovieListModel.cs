@@ -15,7 +15,7 @@ namespace FilmSistemi.Models
 
         public IEnumerable<StarListModel> Stars { get; set; }
 
-        public IEnumerable<Comments> Comments { get; set; }
+        public IEnumerable<CommentListModel> Comments { get; set; }
 
         
     }
