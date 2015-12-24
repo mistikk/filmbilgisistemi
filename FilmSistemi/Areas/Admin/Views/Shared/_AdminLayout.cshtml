@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="~/assets/plugins/summernote/build/summernote.css">
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="favicon.ico" />
+    @RenderSection("styleFilmEkle", required:false)
 </head>
 <body>
     <!-- start: HEADER -->
@@ -648,7 +649,7 @@
 
 
 
-
+    @RenderSection("sicriptFilmEkle", required:false)
     <!-- end: RIGHT SIDEBAR -->
     <!-- start: MAIN JAVASCRIPTS -->
     <!--[if lt IE 9]>

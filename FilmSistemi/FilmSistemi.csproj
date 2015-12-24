@@ -267,6 +267,7 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
+    <Content Include="Content\slider\zü.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="Content\css\touch.css" />
     <Content Include="Content\images\ajax-loader.GIF" />
@@ -681,7 +682,6 @@
     <Folder Include="Content\images\new\" />
     <Folder Include="Content\images\slides\" />
     <Folder Include="Content\images\trailers\" />
-    <Folder Include="Content\slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

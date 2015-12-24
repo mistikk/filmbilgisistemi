@@ -116,6 +116,8 @@
 
 
 
+
+
                     <div class="form-group">
 
                         @Html.LabelFor(m => m.Actors.ActorName, new { @class = "col-sm-3 control-label" })
@@ -141,3 +143,17 @@
         }
     </div>
 </div>
+
+
+@section sicriptFilmEkle {
+
+    <script src="~/Scripts/dropzone/dropzone-amd-module.min.js"></script>
+
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
+
+}
+
+@section styleFilmEkle {
+    <link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
+    <link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
+}
