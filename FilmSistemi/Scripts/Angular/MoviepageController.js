@@ -12,23 +12,31 @@
         console.clear();
         
         activate();
-        $scope.starClick = function () {
-            console.info("Star", $scope.star);
+
+
+        $scope.StarClick = function (MovieId) {
+            $scope.MovieId = MovieId;
+            console.log(MovieId);
         }
 
         $('.score').raty({
+            movieid:$scope.MovieId,
             width: 130,
             score: 4,
             path: '/Content/images/rate/',
             starOff: 'star-off.svg',
             starOn: 'star-on.svg',
             click: function (score, evt) {
-                alert('ID: ' + $(this).attr('id') + '\nscore: ' + score + '\nevent: ' + evt);
-                $http.post("/MoviePage/SaveStar/136", { "score": score }).success(function () {
-                    console.log("başarılı");
-                }).error(function (ex) {
-                    console.log("Hatalı");
-                });;
+                setTimeout(function () {
+                    console.info("$scope.MovieId", $scope.MovieId);
+                    $http.post("/MoviePage/SaveStar/" + $scope.MovieId, { "score": score }).success(function () {
+                        console.log("başarılı");
+                        console.info("$scope.MovieIdB", $scope.MovieId);
+                    }).error(function (ex) {
+                        console.log("Hatalı");
+                        console.info("$scope.MovieIdH", $scope.MovieId);
+                    });;
+                }, 500);
             }
         });
 
@@ -37,10 +45,17 @@
             $(this).children().hide();
 
             $(this).html('<span class="rates__done">Thanks for your vote!<span>')
-            console.log($('.score').score);
         })
-
-
+        console.log($scope.Movieid);
+        $scope.SaveComment = function (commentContent, Movieid) {
+            console.log(commentContent);
+            console.log(Movieid);
+            $http.post("/MoviePage/SaveComment/" + Movieid, { "Content": commentContent }).success(function () {
+                console.log("başarılı");
+            }).error(function (ex) {
+                console.log("Hatalı");
+            });;
+        }
 
         function activate() { }
     }

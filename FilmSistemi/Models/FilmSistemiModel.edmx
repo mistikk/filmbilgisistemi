@@ -33,9 +33,10 @@
           </Key>
           <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MovieId" Type="int" />
-          <Property Name="UserId" Type="int" />
           <Property Name="CContent" Type="nvarchar(max)" />
           <Property Name="CDate" Type="datetime" />
+          <Property Name="NewUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -343,10 +344,11 @@
           </Key>
           <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MovieId" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
           <Property Name="CContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Movies" Relationship="Self.FK_Comments_Movies" FromRole="Comments" ToRole="Movies" />
+          <Property Name="NewUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -678,9 +680,10 @@
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="FilmSistemiModel.Comments">
               <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NewUserId" ColumnName="NewUserId" />
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="CContent" ColumnName="CContent" />
                 <ScalarProperty Name="CDate" ColumnName="CDate" />
               </MappingFragment>

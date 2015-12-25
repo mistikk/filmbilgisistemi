@@ -14,7 +14,6 @@ namespace FilmSistemi.Controllers
     {
         FilmSistemiEntities db = new FilmSistemiEntities();
         Models.MoviePageModel dto = new MoviePageModel();
-        int MovieId;
         // GET: MoviePage
         [HttpGet]
         public ActionResult Index(int id)
@@ -55,7 +54,6 @@ namespace FilmSistemi.Controllers
 
             //Veritabanından film videolarını getirir
             dto.Videos = db.Videos.Where(x => x.MovieId == dto.Movies.MovieId).ToList();
-
             return View(dto);
         }
         public JsonResult SaveStar(int id ,int score)
@@ -81,6 +79,23 @@ namespace FilmSistemi.Controllers
             }
         }
 
+        public JsonResult SaveComment(int id, string Content)
+        {
+
+            var userID = User.Identity.GetUserId();
+            if (userID == null)
+            {
+                return Json("Lütfen giriş yapınız!");
+            }
+            Comments newComment = new Comments();
+            newComment.CContent = Content;
+            newComment.NewUserId = userID;
+            newComment.UserName = User.Identity.GetUserName();
+            newComment.MovieId = id;
+            newComment.CDate = DateTime.Today;
+            db.Comments.Add(newComment);
+            return Json(db.SaveChanges());
+        }
 
     }
 }
