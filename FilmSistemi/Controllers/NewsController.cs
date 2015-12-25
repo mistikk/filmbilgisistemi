@@ -10,12 +10,16 @@ namespace FilmSistemi.Controllers
     public class NewsController : Controller
     {
         FilmSistemiEntities db = new FilmSistemiEntities();
+        Models.NewsModel dto = new NewsModel();
 
 
         // GET: News
         public ActionResult Index()
         {
-            return View();
+
+            dto.News = db.News.Where(x => x.NTitle != null);
+
+            return View(dto);
         }
     }
 }
