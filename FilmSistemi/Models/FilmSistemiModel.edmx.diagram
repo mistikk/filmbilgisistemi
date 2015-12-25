@@ -5,9 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5d27daedbcdb44f4be50a278a9ed1f8c" Name="Diagram1">
-        <EntityTypeShape EntityType="FilmSistemiModel.ActorMovie" Width="1.5" PointX="4" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Actors" Width="1.5" PointX="6.625" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Categories" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Actors" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Categories" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.Comments" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.Contacts" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.MovieCategory" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
@@ -27,6 +26,7 @@
         <AssociationConnector Association="FilmSistemiModel.FK_Videos_Movies" ManuallyRouted="false" />
         <AssociationConnector Association="FilmSistemiModel.FK_WatchLists_Movies" ManuallyRouted="false" />
         <AssociationConnector Association="FilmSistemiModel.FK_NewsPicture_News" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FilmSistemiModel.ActorMovie" Width="1.5" PointX="5" PointY="9.75" />
         <AssociationConnector Association="FilmSistemiModel.FK_ActorMovie_Actors" />
         <AssociationConnector Association="FilmSistemiModel.FK_ActorMovie_Movies" />
         <EntityTypeShape EntityType="FilmSistemiModel.Simage" Width="1.5" PointX="6.375" PointY="3.75" />
