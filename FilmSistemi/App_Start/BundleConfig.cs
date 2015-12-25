@@ -63,6 +63,12 @@ namespace FilmSistemi
                     "~/Content/rs-plugin/css/settings.css",
                     "~/Content/style.css"
                 ));
+            //AngularJS
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/angular.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angularController").Include(
+                        "~/Scripts/app.js",
+                        "~/Scripts/Angular/*.js"));
         }
     }
 }

@@ -16,9 +16,10 @@ namespace FilmSistemi.Models
     {
         public int CommentId { get; set; }
         public Nullable<int> MovieId { get; set; }
-        public Nullable<int> UserId { get; set; }
         public string CContent { get; set; }
         public Nullable<System.DateTime> CDate { get; set; }
+        public string NewUserId { get; set; }
+        public string UserName { get; set; }
     
         public virtual Movies Movies { get; set; }
     }
