@@ -1,21 +1,26 @@
 ﻿using FilmSistemi.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace FilmSistemi.Controllers
 {
     public class MoviePageController : Controller
     {
         FilmSistemiEntities db = new FilmSistemiEntities();
+        Models.MoviePageModel dto = new MoviePageModel();
+        int MovieId;
         // GET: MoviePage
         [HttpGet]
         public ActionResult Index(int id)
         {
             //Yeni Model dan bi nesne oluşturuluyor
-            Models.MoviePageModel dto = new MoviePageModel();
+            
 
             List<Actors> ActorList = new List<Actors>();
             List<Categories> CategoryList = new List<Categories>();
@@ -53,6 +58,29 @@ namespace FilmSistemi.Controllers
 
             return View(dto);
         }
+        public JsonResult SaveStar(int id ,int score)
+        {
+            
+            try
+            {
+                var userID = User.Identity.GetUserId();
+                if (userID == null)
+                {
+                    return Json("Lütfen giriş yapınız!");
+                }
+                Stars newStar = new Stars();
+                newStar.Star = score;
+                newStar.MovieId = id;
+                newStar.NewUserId = userID;
+                db.Stars.Add(newStar);
+                return Json(db.SaveChanges());
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+        }
+
 
     }
 }

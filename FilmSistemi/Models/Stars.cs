@@ -16,8 +16,8 @@ namespace FilmSistemi.Models
     {
         public int StarId { get; set; }
         public Nullable<int> MovieId { get; set; }
-        public Nullable<int> UserId { get; set; }
         public Nullable<int> Star { get; set; }
+        public string NewUserId { get; set; }
     
         public virtual Movies Movies { get; set; }
     }
