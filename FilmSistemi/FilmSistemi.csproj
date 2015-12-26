@@ -211,6 +211,9 @@
       <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\kisitablo.cs">
+      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MovieCategory.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>

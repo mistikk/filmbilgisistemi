@@ -12,13 +12,10 @@ namespace FilmSistemi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Simage
+    public partial class kisitablo
     {
-        public int Sid { get; set; }
-        public string İmage { get; set; }
-        public Nullable<int> MovieId { get; set; }
-        public string Text { get; set; }
-    
-        public virtual Movies Movies { get; set; }
+        public string ad { get; set; }
+        public string soyad { get; set; }
+        public int id { get; set; }
     }
 }

@@ -15,18 +15,24 @@
             {
                     <!-- News post article-->
                 <article class="post post--news">
-
                     <a href='single-page-full.html' class="post__image-link">
-                        <img alt='' src="http://placehold.it/1600x600">
+                        @if (item.NewsPicture.Count() == 0)
+                        {
+                            <img alt='' src="http://placehold.it/1600x600">
+                        }
+                        else
+                        {
+                            <img alt='' style="width:100%;height:100%;" src="data:image/png;base64,@System.Convert.ToBase64String(item.NewsPicture.Last().Picture)">
+                        }
                     </a>
 
                     <h1><a href="single-page-full.html" class="post__title-link">@item.NTitle</a></h1>
-                    <p class="post__date">@String.Format("{0:d}",@item.NDate)</p>
-                   
+                    <p class="post__date">@String.Format("{0:d}", @item.NDate)</p>
+
                     <div class="wave-devider"></div>
 
                     <p class="post__text">@item.NContent.Substring(0, item.NContent.Length > 240 ? 240 : item.NContent.Length)</p>
-                   
+
 
                     <div class="tags">
                         <ul>
@@ -41,8 +47,8 @@
                 </article>
             <!-- end news post article-->
             }
-          
-        
+
+
             <div class="pagination">
                 <a href='#' class="pagination__prev">prev</a>
                 <a href='#' class="pagination__next">next</a>

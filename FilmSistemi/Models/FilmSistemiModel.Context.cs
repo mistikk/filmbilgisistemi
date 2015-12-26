@@ -40,5 +40,6 @@ namespace FilmSistemi.Models
         public virtual DbSet<WatchLists> WatchLists { get; set; }
         public virtual DbSet<ActorMovie> ActorMovie { get; set; }
         public virtual DbSet<Simage> Simage { get; set; }
+        public virtual DbSet<kisitablo> kisitablo { get; set; }
     }
 }
