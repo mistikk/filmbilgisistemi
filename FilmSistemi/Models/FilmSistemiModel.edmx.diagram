@@ -14,10 +14,10 @@
         <EntityTypeShape EntityType="FilmSistemiModel.Movies" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.News" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.NewsPicture" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Stars" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Stars" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmSistemiModel.sysdiagrams" Width="1.5" PointX="3.375" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.Videos" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="FilmSistemiModel.WatchLists" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.Videos" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmSistemiModel.WatchLists" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
         <AssociationConnector Association="FilmSistemiModel.FK_MovieCategory_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="FilmSistemiModel.FK_Comments_Movies" ManuallyRouted="false" />
         <AssociationConnector Association="FilmSistemiModel.FK_MovieCategory_Movies" ManuallyRouted="false" />

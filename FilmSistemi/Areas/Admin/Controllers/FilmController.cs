@@ -28,7 +28,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
         public ActionResult FilmEkle()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CName");
-            
+
             return View();
         }
 
@@ -126,9 +126,19 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic, int CategoryId, HttpPostedFileBase moviepic)
-        {
-        
+        public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic, int CategoryId)
+        {/*
+            string path = Server.MapPath("~/Content/moviepic");
+            if (System.IO.File.Exists(path))
+            {
+
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+
+                    Request.Files[i].SaveAs(string.Format("{0}\\{1}", path, Request.Files[i].FileName));
+                }
+            }
+            */
             //validation eklendi basic modal
             if (true)
             {
@@ -140,7 +150,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 }
 
                 Movies yfilm = new Movies();
-       
+
                 yfilm.MName = model.Movies.MName;
                 yfilm.MDirector = model.Movies.MDirector;
                 yfilm.MDescription = model.Movies.MDescription;
@@ -154,7 +164,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 var names = model.Actors.ActorName.Split(',');
 
                 var catid = CategoryId;
-                if (catid != null)
+                if (catid > 0)
                 {
 
                     db.MovieCategory.Add(new MovieCategory { MovieId = r.MovieId, CategoryId = catid });
@@ -173,16 +183,15 @@ namespace FilmSistemi.Areas.Admin.Controllers
                     }
                 }
 
-                MoviePicture moviepicture = new MoviePicture();
-                
-                if (moviepic != null)
-                {
-                    var don = moviepic.ContentLength;
-                    foreach (var item in names)
-                    {
+                //MoviePicture moviepicture = new MoviePicture();
+                //if (moviepic != null)
+                //{
+                //    var don = moviepic.ContentLength;
+                //    foreach (var item in names)
+                //    {
 
-                    }
-                }
+                //    }
+                //}
 
             }
 

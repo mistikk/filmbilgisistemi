@@ -213,9 +213,6 @@
       <DependentUpon>FilmSistemiModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\kisitablo.cs">
-      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MovieCategory.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
@@ -235,9 +232,6 @@
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Simage.cs">
-      <DependentUpon>FilmSistemiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Sliderimg.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StarListModel.cs" />
@@ -267,7 +261,9 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
-    <Content Include="Content\slider\zü.jpg" />
+    <Content Include="Content\slider\aclikx.jpg" />
+    <Content Include="Content\slider\aclıkoyunarı-slider.jpg" />
+    <Content Include="Content\slider\slider-700x350.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="Content\css\touch.css" />
     <Content Include="Content\images\ajax-loader.GIF" />
@@ -690,6 +686,7 @@
     <Folder Include="Content\images\new\" />
     <Folder Include="Content\images\slides\" />
     <Folder Include="Content\images\trailers\" />
+    <Folder Include="Content\moviepic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
