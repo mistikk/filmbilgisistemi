@@ -1111,13 +1111,7 @@ function init_MoviePage () {
 
 	//1. Rating scrore init
     //Rating star
-    $('.score').raty({
-        width:130, 
-        score: 5,
-        path: '/Content/images/rate/',
-        starOff : 'star-off.svg',
-        starOn  : 'star-on.svg' 
-    });
+    
 
     //2. Swiper slider
     //Media slider

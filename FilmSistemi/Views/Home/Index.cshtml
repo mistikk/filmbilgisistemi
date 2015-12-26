@@ -1,11 +1,83 @@
-﻿@{
+﻿@model FilmSistemi.Models.FilmIndexModel
+@{
     ViewBag.Title = "Home Page";
 }
 
 <body>
     <!-- Slider -->
 
-    @{ Html.RenderAction("_Slider", "Home");}
+    <div class="bannercontainer">
+        <div class="banner">
+            <ul>
+                @foreach (var item in Model.Slider)
+            {
+                    <li data-transition="fade" data-slotamount="7" class="slide" data-slide='Rush.'>
+                        <img alt='' src="~/Content/slider/@item.İmage">
+                        <div class="caption slide__name margin-slider"
+                             data-x="right"
+                             data-y="80"
+                             data-splitin="chars"
+                             data-elementdelay="0.1"
+                             data-speed="700"
+                             data-start="1400"
+                             data-easing="easeOutBack"
+                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
+                             data-frames="{ typ :lines;
+                                                 elementdelay :0.1;
+                                                 start:1650;
+                                                 speed:500;
+                                                 ease:Power3.easeOut;
+                                                 animation:x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:1;transformPerspective:600;transformOrigin:50% 50%;
+                                                 },
+                                                 { typ :lines;
+                                                 elementdelay :0.1;
+                                                 start:2150;
+                                                 speed:500;
+                                                 ease:Power3.easeOut;
+                                                 animation:x:0;y:0;z:0;rotationX:00;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:1;transformPerspective:600;transformOrigin:50% 50%;
+                                                 }
+                                                 "
+                             data-splitout="lines"
+                             data-endelementdelay="0.1"
+                             data-customout="x:-230;y:0;z:0;rotationX:0;rotationY:0;rotationZ:90;scaleX:0.2;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%"
+                             data-endspeed="500"
+                             data-end="8400"
+                             data-endeasing="Back.easeIn">
+                            @item.Movies.MName
+                        </div>
+
+                        <div class="caption slide__text margin-slider customin customout"
+                             data-x="right"
+                             data-y="200"
+                             data-customin="x:0;y:100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:3;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:0% 0%;"
+                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="400"
+                             data-start="3000"
+                             data-endspeed="400"
+                             data-end="8000"
+                             data-endeasing="Back.easeIn">
+                            @item.Text
+                        </div>
+                        <div class="caption margin-slider skewfromright customout "
+                             data-x="right"
+                             data-y="324"
+                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="400"
+                             data-start="3300"
+                             data-easing="Power4.easeOut"
+                             data-endspeed="300"
+                             data-end="7700"
+                             data-endeasing="Power4.easeOut">
+                            <a href="/moviepage/@item.MovieId" class="btn btn-md btn--danger btn--wide slider--btn">learn more</a>
+                        </div>
+
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+    </div>
 
     <!--end slider -->
     <!-- Main content -->
@@ -14,110 +86,183 @@
             <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Günün en iyileri</div>
             <div class="col-sm-12 change--col">
                 <div class="movie-beta__item ">
-                    <img alt='' src="http://placehold.it/380x600">
-                    <span class="best-rate">5.0</span>
+                    @if (Model.BestMovies[0].MBanner != null)
+                    {
+                        <img alt='' style="height:300px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.BestMovies[0].MBanner)">
+                    }
+                    else
+                    {
+                        <img alt='' src="http://placehold.it/380x600">
+                    }
 
-                    <ul class="movie-beta__info">
+                    <span class="best-rate">@Model.BestMovies[0].Stars.Average(x => x.Star)</span>
+
+                    <ul class="movie-beta__info" style="width:100%;">
                         <li>
-                            <span class="best-voted">71 people voted today</span>
+                            <span class="best-voted">@Model.BestMovies[0].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">169 min</p>
-                            <p>Adventure | Drama | Fantasy </p>
-                            <p>38 comments</p>
+                            <p class="movie__time">@Model.BestMovies[0].MMinute min</p>
+                            <p>
+                                @foreach (var item in Model.BestMovies[0].MovieCategory)
+                                {
+                                    @item.Categories.CName<span> | </span>
+                                }
+                            </p>
+                            <p>@Model.BestMovies[0].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="moviepage" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[0].MovieId" class="slide__link">more</a>
                         </li>
                     </ul>
                 </div>
                 <div class="movie-beta__item second--item">
-                    <img alt='' src="http://placehold.it/380x600">
-                    <span class="best-rate">5.0</span>
+                    @if (Model.BestMovies[1].MBanner != null)
+                    {
+                        <img alt='' style="height:300px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.BestMovies[1].MBanner)">
+                    }
+                    else
+                    {
+                        <img alt='' src="http://placehold.it/380x600">
+                    }
+                    <span class="best-rate">@Model.BestMovies[1].Stars.Average(x => x.Star)</span>
 
-                    <ul class="movie-beta__info">
+                    <ul class="movie-beta__info" style="width:100%;">
                         <li>
-                            <span class="best-voted">71 people voted today</span>
+                            <span class="best-voted">@Model.BestMovies[1].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">169 min</p>
-                            <p>Adventure | Drama | Fantasy </p>
-                            <p>38 comments</p>
+                            <p class="movie__time">@Model.BestMovies[1].MMinute min</p>
+                            <p>
+                                @foreach (var item in Model.BestMovies[1].MovieCategory)
+                                {
+                                    @item.Categories.CName<span> | </span>
+                                }
+                            </p>
+                            <p>@Model.BestMovies[1].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="moviepage" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[1].MovieId" class="slide__link">more</a>
                         </li>
                     </ul>
                 </div>
                 <div class="movie-beta__item third--item">
-                    <img alt='' src="http://placehold.it/380x600">
-                    <span class="best-rate">5.0</span>
+                    @if (Model.BestMovies[2].MBanner != null)
+                    {
+                        <img alt='' style="height:300px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.BestMovies[2].MBanner)">
+                    }
+                    else
+                    {
+                        <img alt='' src="http://placehold.it/380x600">
+                    }
+                    <span class="best-rate">@Model.BestMovies[2].Stars.Average(x => x.Star)</span>
 
-                    <ul class="movie-beta__info">
+                    <ul class="movie-beta__info" style="width:100%;">
                         <li>
-                            <span class="best-voted">71 people voted today</span>
+                            <span class="best-voted">@Model.BestMovies[2].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">169 min</p>
-                            <p>Adventure | Drama | Fantasy </p>
-                            <p>38 comments</p>
+                            <p class="movie__time">@Model.BestMovies[2].MMinute min</p>
+                            <p>
+                                @foreach (var item in Model.BestMovies[2].MovieCategory)
+                                {
+                                    @item.Categories.CName<span> | </span>
+                                }
+                            </p>
+                            <p>@Model.BestMovies[2].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="moviepage" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[2].MovieId" class="slide__link">more</a>
                         </li>
                     </ul>
                 </div>
                 <div class="movie-beta__item hidden-xs">
-                    <img alt='' src="http://placehold.it/380x600">
-                    <span class="best-rate">5.0</span>
+                    @if (Model.BestMovies[3].MBanner != null)
+                    {
+                        <img alt='' style="height:300px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.BestMovies[3].MBanner)">
+                    }
+                    else
+                    {
+                        <img alt='' src="http://placehold.it/380x600">
+                    }
+                    <span class="best-rate">@Model.BestMovies[3].Stars.Average(x => x.Star)</span>
 
-                    <ul class="movie-beta__info">
+                    <ul class="movie-beta__info" style="width:100%;">
                         <li>
-                            <span class="best-voted">71 people voted today</span>
+                            <span class="best-voted">@Model.BestMovies[3].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">169 min</p>
-                            <p>Adventure | Drama | Fantasy </p>
-                            <p>38 comments</p>
+                            <p class="movie__time">@Model.BestMovies[3].MMinute min</p>
+                            <p>
+                                @foreach (var item in Model.BestMovies[3].MovieCategory)
+                                {
+                                    @item.Categories.CName<span> | </span>
+                                }
+                            </p>
+                            <p>@Model.BestMovies[3].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="moviepage" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[3].MovieId" class="slide__link">more</a>
                         </li>
                     </ul>
                 </div>
                 <div class="movie-beta__item hidden-xs hidden-sm">
-                    <img alt='' src="http://placehold.it/380x600">
-                    <span class="best-rate">5.0</span>
+                    @if (Model.BestMovies[4].MBanner != null)
+                    {
+                        <img alt='' style="height:300px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.BestMovies[4].MBanner)">
+                    }
+                    else
+                    {
+                        <img alt='' src="http://placehold.it/380x600">
+                    }
+                    <span class="best-rate">@Model.BestMovies[4].Stars.Average(x => x.Star)</span>
 
-                    <ul class="movie-beta__info">
+                    <ul class="movie-beta__info" style="width:100%;">
                         <li>
-                            <span class="best-voted">71 people voted today</span>
+                            <span class="best-voted">@Model.BestMovies[4].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">169 min</p>
-                            <p>Adventure | Drama | Fantasy </p>
-                            <p>38 comments</p>
+                            <p class="movie__time">@Model.BestMovies[4].MMinute min</p>
+                            <p>
+                                @foreach (var item in Model.BestMovies[4].MovieCategory)
+                                {
+                                    @item.Categories.CName<span> | </span>
+                                }
+                            </p>
+                            <p>@Model.BestMovies[4].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="moviepage" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[4].MovieId" class="slide__link">more</a>
                         </li>
                     </ul>
                 </div>
                 <div class="movie-beta__item hidden-xs hidden-sm">
-                    <img alt='' src="http://placehold.it/380x600">
-                    <span class="best-rate">5.0</span>
+                    @if (Model.BestMovies[1].MBanner != null)
+                    {
+                        <img alt='' style="height:300px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.BestMovies[5].MBanner)">
+                    }
+                    else
+                    {
+                        <img alt='' src="http://placehold.it/380x600">
+                    }
+                    <span class="best-rate">@Model.BestMovies[5].Stars.Average(x => x.Star)</span>
 
-                    <ul class="movie-beta__info">
+                    <ul class="movie-beta__info" style="width:100%;">
                         <li>
-                            <span class="best-voted">71 people voted today</span>
+                            <span class="best-voted">@Model.BestMovies[5].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">169 min</p>
-                            <p>Adventure | Drama | Fantasy </p>
-                            <p>38 comments</p>
+                            <p class="movie__time">@Model.BestMovies[5].MMinute min</p>
+                            <p>
+                                @foreach (var item in Model.BestMovies[5].MovieCategory)
+                                {
+                                    @item.Categories.CName<span> | </span>
+                                }
+                            </p>
+                            <p>@Model.BestMovies[5].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="moviepage" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[5].MovieId" class="slide__link">more</a>
                         </li>
                     </ul>
                 </div>
@@ -273,212 +418,41 @@
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 ">
                     <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--dark movie--test--left">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
+                    @for (int i = 0; i < Model.LastMovies.Count(); i++)
+                    {
+                        <div class="movie movie--test movie--test--dark movie--test--left">
+                            <div class="movie__images">
+                                <a href="~/moviepage/@Model.LastMovies[i].MovieId" class="movie-beta__link">
+                                    @if (Model.LastMovies[i].MBanner != null)
+                                    {
+                                        <img alt='' style="height:236px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.LastMovies[i].MBanner)">
+                                    }
+                                    else
+                                    {
+                                        <img alt='' src="http://placehold.it/424x424">
+                                    }
+                                </a>
+                            </div>
 
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">Gravity (2013)  </a>
+                            <div class="movie__info">
+                                <a href='~/moviepage/@Model.LastMovies[i].MovieId' class="movie__title">@Model.LastMovies[i].MName (@String.Format("{0:yyyy}", @Model.LastMovies[i].MReleaseDate))  </a>
 
-                            <p class="movie__time">91 min</p>
+                                <p class="movie__time">@Model.LastMovies[i].MMinute min</p>
 
-                            <p class="movie__option">
-                                <a href="#">Sci-Fi</a> |
-                                <a href="#">Thriller</a> |
-                                <a href="#">Drama</a>
-                            </p>
+                                <p class="movie__option">
+                                    @foreach (var category in Model.LastMovies[i].MovieCategory)
+                                    {
+                                        @category.Categories.CName<span> | </span>
+                                    }
+                                </p>
 
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">4.1</span>
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">@Model.LastMovies[i].Stars.Average(x => x.Star)</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--light movie--test--left">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">The Hobbit: The Desolation of Smaug (2013)  </a>
-
-                            <p class="movie__time">169 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Adventure</a> |
-                                <a href="#">Fantasy</a> |
-                                <a href="#">Drama</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">5.0</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--light movie--test--right">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">The Hunger Games: Catching Fire (2013)   </a>
-
-                            <p class="movie__time">146 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Action</a> |
-                                <a href="#">Adventure</a> |
-                                <a href="#">Sci-Fi</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">4.9</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--dark movie--test--right">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">Thor: The Dark World (2013) </a>
-
-                            <p class="movie__time">112 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Action</a> |
-                                <a href="#">Adventure</a> |
-                                <a href="#">Fantasy</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">5.0</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--dark movie--test--left">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">World War Z (2013)  </a>
-
-                            <p class="movie__time">116 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Action</a> |
-                                <a href="#">Adventure</a> |
-                                <a href="#">Horror</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">4.1</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--light movie--test--left">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">Prisoners (2013) </a>
-
-                            <p class="movie__time">153 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Crime</a> |
-                                <a href="#">Thriller</a> |
-                                <a href="#">Drama</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">5.0</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--light movie--test--right">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">This Is the End (2013)   </a>
-
-                            <p class="movie__time">107 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Comedy</a> |
-                                <a href="#">Fantasy</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">4.9</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-                    <!-- Movie variant with time -->
-                    <div class="movie movie--test movie--test--dark movie--test--right">
-                        <div class="movie__images">
-                            <a href="moviepage" class="movie-beta__link">
-                                <img alt='' src="http://placehold.it/424x424">
-                            </a>
-                        </div>
-
-                        <div class="movie__info">
-                            <a href='moviepage' class="movie__title">The Internship (2013)  </a>
-
-                            <p class="movie__time">112 min</p>
-
-                            <p class="movie__option">
-                                <a href="#">Comedy</a>
-                            </p>
-
-                            <div class="movie__rate">
-                                <div class="score"></div>
-                                <span class="movie__rating">5.0</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Movie variant with time -->
-
+                    }
 
                     <div class="row">
                         <div class="social-group">

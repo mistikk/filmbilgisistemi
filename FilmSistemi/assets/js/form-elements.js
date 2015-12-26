@@ -50,7 +50,7 @@ var FormElements = function () {
         $('.date-time-range').daterangepicker({
             timePicker: true,
             timePickerIncrement: 15,
-            format: 'MM/DD/YYYY h:mm A'
+            format: 'DD/MM/YYYY h:mm A'
         });
     };
     //function to initiate bootstrap-colorpicker
