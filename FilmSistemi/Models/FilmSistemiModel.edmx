@@ -48,14 +48,6 @@
           <Property Name="CMessage" Type="nvarchar(max)" />
           <Property Name="CDate" Type="datetime" />
         </EntityType>
-        <EntityType Name="kisitablo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="ad" Type="varchar" MaxLength="50" />
-          <Property Name="soyad" Type="varchar" MaxLength="50" />
-          <Property Name="id" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="MovieCategory">
           <Key>
             <PropertyRef Name="MovieCategoryId" />
@@ -287,7 +279,6 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="kisitablo" EntityType="Self.kisitablo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieCategory" EntityType="Self.MovieCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MoviePicture" EntityType="Self.MoviePicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
@@ -637,7 +628,6 @@
             <End Role="ActorMovie" EntitySet="ActorMovie" />
           </AssociationSet>
           <EntitySet Name="Simage" EntityType="FilmSistemiModel.Simage" />
-          <EntitySet Name="kisitablo" EntityType="FilmSistemiModel.kisitablo" />
           <AssociationSet Name="FK_Simage_Movies" Association="FilmSistemiModel.FK_Simage_Movies">
             <End Role="Movies" EntitySet="Movies" />
             <End Role="Simage" EntitySet="Simage" />
@@ -686,14 +676,6 @@
           <Property Name="MovieId" Type="Int32" />
           <Property Name="Text" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Movies" Relationship="FilmSistemiModel.FK_Simage_Movies" FromRole="Simage" ToRole="Movies" />
-        </EntityType>
-        <EntityType Name="kisitablo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Simage_Movies">
           <End Type="FilmSistemiModel.Movies" Role="Movies" Multiplicity="0..1" />
@@ -861,15 +843,6 @@
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="İmage" ColumnName="İmage" />
                 <ScalarProperty Name="Sid" ColumnName="Sid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="kisitablo">
-            <EntityTypeMapping TypeName="FilmSistemiModel.kisitablo">
-              <MappingFragment StoreEntitySet="kisitablo">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="soyad" ColumnName="soyad" />
-                <ScalarProperty Name="ad" ColumnName="ad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
