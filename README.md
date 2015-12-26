@@ -1,3 +1,6 @@
-# README #
+# Film Bilgi Sitemi #
 
-[filmbilgi.azurewebsites.net](Link URL)
+
+## Projenin Yayınlandığı adres ##
+
+[Demo](http://filmbilgi.azurewebsites.net/)
