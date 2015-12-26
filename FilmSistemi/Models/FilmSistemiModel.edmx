@@ -48,6 +48,14 @@
           <Property Name="CMessage" Type="nvarchar(max)" />
           <Property Name="CDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="kisitablo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="ad" Type="varchar" MaxLength="50" />
+          <Property Name="soyad" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="MovieCategory">
           <Key>
             <PropertyRef Name="MovieCategoryId" />
@@ -225,6 +233,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Simage_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Simage" Type="Self.Simage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Simage">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Stars_Movies">
           <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
           <End Role="Stars" Type="Self.Stars" Multiplicity="*" />
@@ -267,6 +287,7 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kisitablo" EntityType="Self.kisitablo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieCategory" EntityType="Self.MovieCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MoviePicture" EntityType="Self.MoviePicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
@@ -304,6 +325,10 @@
           <AssociationSet Name="FK_NewsPicture_News" Association="Self.FK_NewsPicture_News">
             <End Role="News" EntitySet="News" />
             <End Role="NewsPicture" EntitySet="NewsPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Simage_Movies" Association="Self.FK_Simage_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Simage" EntitySet="Simage" />
           </AssociationSet>
           <AssociationSet Name="FK_Stars_Movies" Association="Self.FK_Stars_Movies">
             <End Role="Movies" EntitySet="Movies" />
@@ -399,6 +424,7 @@
           <NavigationProperty Name="WatchLists" Relationship="Self.FK_WatchLists_Movies" FromRole="Movies" ToRole="WatchLists" />
           <Property Name="MBanner" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ActorMovie" Relationship="FilmSistemiModel.FK_ActorMovie_Movies" FromRole="Movies" ToRole="ActorMovie" />
+          <NavigationProperty Name="Simage" Relationship="FilmSistemiModel.FK_Simage_Movies" FromRole="Movies" ToRole="Simage" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -417,7 +443,6 @@
           <Property Name="NewsPictureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NewsId" Type="Int32" />
           <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="NPDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="News" Relationship="Self.FK_NewsPicture_News" FromRole="NewsPicture" ToRole="News" />
         </EntityType>
         <EntityType Name="Stars">
@@ -611,6 +636,10 @@
             <End Role="ActorMovie" EntitySet="ActorMovie" />
           </AssociationSet>
           <EntitySet Name="Simage" EntityType="FilmSistemiModel.Simage" />
+          <AssociationSet Name="FK_Simage_Movies" Association="FilmSistemiModel.FK_Simage_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Simage" EntitySet="Simage" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="ActorMovie">
           <Key>
@@ -654,7 +683,20 @@
           <Property Name="İmage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="MovieId" Type="Int32" />
           <Property Name="Text" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Movies" Relationship="FilmSistemiModel.FK_Simage_Movies" FromRole="Simage" ToRole="Movies" />
         </EntityType>
+        <Association Name="FK_Simage_Movies">
+          <End Type="FilmSistemiModel.Movies" Role="Movies" Multiplicity="0..1" />
+          <End Type="FilmSistemiModel.Simage" Role="Simage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Simage">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -749,7 +791,6 @@
                 <ScalarProperty Name="NewsPictureId" ColumnName="NewsPictureId" />
                 <ScalarProperty Name="NewsId" ColumnName="NewsId" />
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="NPDate" ColumnName="NPDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -11,9 +11,10 @@ namespace FilmSistemi.Areas.Admin.Models
         public Actors Actors { get; set; }
         public Categories Categories { get; set; }
         public MovieCategory MovieCategory { get; set; }
-        //public MoviePicture Picture { get; set; }
+        public News News { get; set; }
+        public NewsPicture NewsPicture { get; set; }
+        public MoviePicture MoviePicture { get; set; }
+       // public IEnumerable<HttpPostedFileBase> MoviePicture { get; set; }
 
-        //, FilmModel actor
-        //  Actors artiz = new Actors();
     }
 }

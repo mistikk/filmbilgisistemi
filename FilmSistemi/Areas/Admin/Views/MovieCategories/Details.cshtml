@@ -1,0 +1,35 @@
+﻿@model FilmSistemi.Models.MovieCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MovieCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Categories.CName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categories.CName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movies.MName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movies.MName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieCategoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

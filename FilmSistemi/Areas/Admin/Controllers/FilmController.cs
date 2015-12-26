@@ -28,6 +28,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
         public ActionResult FilmEkle()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CName");
+            
             return View();
         }
 
@@ -125,9 +126,9 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic, int CategoryId)
+        public ActionResult FilmEkle(FilmModel model, HttpPostedFileBase pic, int CategoryId, HttpPostedFileBase moviepic)
         {
-            Actors artiz = new Actors();
+        
             //validation eklendi basic modal
             if (true)
             {
@@ -153,7 +154,6 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 var names = model.Actors.ActorName.Split(',');
 
                 var catid = CategoryId;
-
                 if (catid != null)
                 {
 
@@ -170,6 +170,17 @@ namespace FilmSistemi.Areas.Admin.Controllers
                         var iteminactor = db.Actors.Add(new Actors { ActorName = item });
                         db.ActorMovie.Add(new ActorMovie { MovieId = r.MovieId, ActorId = iteminactor.ActorId });
                         db.SaveChanges();
+                    }
+                }
+
+                MoviePicture moviepicture = new MoviePicture();
+                
+                if (moviepic != null)
+                {
+                    var don = moviepic.ContentLength;
+                    foreach (var item in names)
+                    {
+
                     }
                 }
 

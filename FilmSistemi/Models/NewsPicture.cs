@@ -17,7 +17,6 @@ namespace FilmSistemi.Models
         public int NewsPictureId { get; set; }
         public Nullable<int> NewsId { get; set; }
         public byte[] Picture { get; set; }
-        public Nullable<System.DateTime> NPDate { get; set; }
     
         public virtual News News { get; set; }
     }
