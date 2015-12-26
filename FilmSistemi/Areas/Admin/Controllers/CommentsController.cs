@@ -36,6 +36,64 @@ namespace FilmSistemi.Areas.Admin.Controllers
             return View(comments);
         }
 
+        // GET: Admin/Comments/Create
+        public ActionResult Create()
+        {
+            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "MName");
+            return View();
+        }
+
+        // POST: Admin/Comments/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "CommentId,MovieId,CContent,CDate,NewUserId,UserName")] Comments comments)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Comments.Add(comments);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "MName", comments.MovieId);
+            return View(comments);
+        }
+
+        // GET: Admin/Comments/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Comments comments = db.Comments.Find(id);
+            if (comments == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "MName", comments.MovieId);
+            return View(comments);
+        }
+
+        // POST: Admin/Comments/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "CommentId,MovieId,CContent,CDate,NewUserId,UserName")] Comments comments)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(comments).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.MovieId = new SelectList(db.Movies, "MovieId", "MName", comments.MovieId);
+            return View(comments);
+        }
+
         // GET: Admin/Comments/Delete/5
         public ActionResult Delete(int? id)
         {

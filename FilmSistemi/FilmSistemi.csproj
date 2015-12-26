@@ -564,9 +564,6 @@
     <Content Include="Areas\Admin\Views\News\Details.cshtml" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\News\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Actors\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Actors\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Actors\Details.cshtml" />
@@ -582,6 +579,11 @@
     <Content Include="Areas\Admin\Views\ActorMovies\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ActorMovies\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ActorMovies\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\video\53170154.ogv" />
     <Content Include="Content\video\53170154.webm" />

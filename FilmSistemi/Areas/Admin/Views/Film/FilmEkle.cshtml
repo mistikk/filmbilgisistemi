@@ -113,6 +113,14 @@
 
                         </div>
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MBanner, new { @class = "col-sm-3 control-label" })
+
+                        <div class="col-sm-7">
+                            @Html.TextAreaFor(m => m.Movies.MBanner, new { @class = "form-control", rows = "10", placeholder = "Film Acıklaması" })
+
+                        </div>
+                    </div>
 
                     <div class="form-group">
 

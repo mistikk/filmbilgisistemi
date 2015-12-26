@@ -89,7 +89,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
             //categorisi movi aydi le aynı olan categorymoviden siliyor
             //mal diilsen anlarsın m*
-            if (category == null)
+            if (category != null)
             {
                 var silcat = db.MovieCategory.Where(n => n.MovieId == id);
                 foreach (var item in silcat)
@@ -98,7 +98,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 }
             }
 
-            if (actor == null)
+            if (actor != null)
             {
                 var silid = db.ActorMovie.Where(n => n.MovieId == id);
                 foreach (var item in silid)
@@ -109,6 +109,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 }
 
             }
+       
             db.SaveChanges();
             return RedirectToAction("Listele");
         }
