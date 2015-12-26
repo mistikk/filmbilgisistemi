@@ -16,6 +16,7 @@ namespace FilmSistemi.Controllers
             FilmIndexModel dto = new FilmIndexModel();
             dto.LastMovies = db.Movies.OrderByDescending(x => x.MovieId).Take(8).ToList();
             dto.BestMovies = db.Movies.OrderByDescending(x => x.Stars.Average(y => y.Star)).Take(6).ToList();
+            dto.Slider = db.Simage.OrderBy(x => x.Sid).Take(4).ToList();
             return View(dto);
         }
         [ChildActionOnly]

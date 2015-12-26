@@ -9,6 +9,6 @@ namespace FilmSistemi.Models
     {
         public List<Movies> BestMovies { get; set; }
         public List<Movies> LastMovies { get; set; }
-        public int MyProperty { get; set; }
+        public List<Simage> Slider { get; set; }
     }
 }

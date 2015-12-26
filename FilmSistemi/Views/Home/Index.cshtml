@@ -351,7 +351,7 @@
                     {
                         <div class="movie movie--test movie--test--dark movie--test--left">
                             <div class="movie__images">
-                                <a href="moviepage/@Model.LastMovies[i].MovieId" class="movie-beta__link">
+                                <a href="~/moviepage/@Model.LastMovies[i].MovieId" class="movie-beta__link">
                                     @if (Model.LastMovies[i].MBanner != null)
                                     {
                                         <img alt='' style="height:236px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.LastMovies[i].MBanner)">
@@ -364,7 +364,7 @@
                             </div>
 
                             <div class="movie__info">
-                                <a href='moviepage/@Model.LastMovies[i].MovieId' class="movie__title">@Model.LastMovies[i].MName (@String.Format("{0:yyyy}", @Model.LastMovies[i].MReleaseDate))  </a>
+                                <a href='~/moviepage/@Model.LastMovies[i].MovieId' class="movie__title">@Model.LastMovies[i].MName (@String.Format("{0:yyyy}", @Model.LastMovies[i].MReleaseDate))  </a>
 
                                 <p class="movie__time">@Model.LastMovies[i].MMinute min</p>
 
