@@ -179,7 +179,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MovieListController.cs" />
     <Compile Include="Controllers\MoviePageController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1463,8 +1462,8 @@
     <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Scripts\version.json" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\HomeNews\Index.cshtml" />
+    <Content Include="Views\HomeNews\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

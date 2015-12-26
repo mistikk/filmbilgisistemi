@@ -21,5 +21,10 @@ namespace FilmSistemi.Controllers
 
             return View(dto);
         }
+
+        public ActionResult News(int id)
+        {
+            return View(db.News.FirstOrDefault(x => x.NewsId == id));
+        }
     }
 }

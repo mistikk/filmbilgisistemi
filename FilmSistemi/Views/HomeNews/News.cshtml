@@ -1,0 +1,33 @@
+﻿@model FilmSistemi.Models.News
+@{
+    ViewBag.Title = "News";
+}
+
+<div class="col-sm-12">
+
+    <div class="post">
+        <div class="post__preview">
+            <div class="swiper-slide" data-text='Mauris gravida ipsum vitae libero eget dignissim ipsum egestas.'>
+                @if (Model.NewsPicture.Count() == 0)
+                {
+                    <img alt='' src="http://placehold.it/1600x600">
+                }
+                else
+                {
+                    <img alt='' style="width:100%;height:100%;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.NewsPicture.Last().Picture)">
+                }
+            </div>
+
+        </div>
+
+        <h1>@Model.NTitle</h1>
+        <p class="post__date">@String.Format("{0:d}", @Model.NDate) </p>
+
+        <div class="wave-devider"></div>
+
+        <p>@Model.NContent</p>
+
+
+
+    </div>
+</div>
