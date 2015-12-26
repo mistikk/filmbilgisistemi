@@ -1,0 +1,53 @@
+﻿@model FilmSistemi.Models.NewsModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Main content -->
+<section class="container">
+    <div class="overflow-wrapper">
+        <div class="col-sm-12">
+
+            <h2 class="page-heading">News</h2>
+
+            @foreach (var item in Model.News)
+            {
+                    <!-- News post article-->
+                <article class="post post--news">
+
+                    <a href='single-page-full.html' class="post__image-link">
+                        <img alt='' src="http://placehold.it/1600x600">
+                    </a>
+
+                    <h1><a href="single-page-full.html" class="post__title-link">@item.NTitle</a></h1>
+                    <p class="post__date">@String.Format("{0:d}",@item.NDate)</p>
+                   
+                    <div class="wave-devider"></div>
+
+                    <p class="post__text">@item.NContent.Substring(0, item.NContent.Length > 240 ? 240 : item.NContent.Length)</p>
+                   
+
+                    <div class="tags">
+                        <ul>
+                            <li class="item-wrap"><a href="#" class="tags__item">news</a></li>
+                            <li class="item-wrap"><a href="#" class="tags__item">movie</a></li>
+                            <li class="item-wrap"><a href="#" class="tags__item">ceremony</a></li>
+                            <li class="item-wrap"><a href="#" class="tags__item">award</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="devider-huge"></div>
+                </article>
+            <!-- end news post article-->
+            }
+          
+        
+            <div class="pagination">
+                <a href='#' class="pagination__prev">prev</a>
+                <a href='#' class="pagination__next">next</a>
+            </div>
+
+        </div>
+    </div>
+</section>
