@@ -187,6 +187,7 @@
     <Compile Include="Models\Categories.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CommentListModel.cs" />
     <Compile Include="Models\Comments.cs">
       <DependentUpon>FilmSistemiModel.tt</DependentUpon>
     </Compile>

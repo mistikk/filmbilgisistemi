@@ -22,7 +22,9 @@ namespace FilmSistemi.Controllers
             List<MovieCategory> MovieCategoryTemp = new List<MovieCategory>();
             List<MovieCategory> MovieCategoryList = new List<MovieCategory>();
             List<StarListModel> StarsTemp = new List<StarListModel>();
-            
+            List<CommentListModel> CommentTemp = new List<CommentListModel>();
+
+
             //Veritabanından filmler çekiliyor
             dto.Movies = db.Movies.Where(x => x.MMinute > 0).OrderByDescending(x => x.MovieId);
 
@@ -65,13 +67,28 @@ namespace FilmSistemi.Controllers
               //  dto.Comments.Add(db.Comments.Where(x => x.MovieId == item.MovieId));
 
 
-          dto.Comments =  db.Comments.Where(x => x.MovieId == item.MovieId).ToList();
+                CommentListModel CommentArray = new CommentListModel();
+
+                if (db.Comments.Where(x => x.MovieId == item.MovieId).Count() != 0)
+                {
+                    CommentArray.CommentCount = db.Comments.Where(x => x.MovieId == item.MovieId).Count();
+                    CommentArray.MovieId = item.MovieId;
+                    CommentTemp.Add(CommentArray);
+                }
+                else
+                {
+                    CommentArray.MovieId = item.MovieId;
+                    CommentArray.CommentCount = 0;
+                    CommentTemp.Add(CommentArray);
+                }
+         
 
               
             }
             dto.ActorMovie = ActorMovieList;
             dto.MovieCategory = MovieCategoryList;
             dto.Stars = StarsTemp;
+            dto.Comments = CommentTemp;
             return View(dto);
         }
     }
