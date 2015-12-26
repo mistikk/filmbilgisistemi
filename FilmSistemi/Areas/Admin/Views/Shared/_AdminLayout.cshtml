@@ -13,6 +13,7 @@
     <meta content="" name="author" />
     <!-- end: META -->
     <!-- start: MAIN CSS -->
+
     <link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/assets/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/assets/fonts/style.css">
@@ -35,7 +36,7 @@
     <link rel="stylesheet" href="~/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
     <link rel="stylesheet" href="~/assets/plugins/jQuery-Tags-Input/jquery.tagsinput.css">
     <link rel="stylesheet" href="~/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
-    <link rel="stylesheet" href="~/assets/plugins/summernote/build/summernote.css">
+
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="favicon.ico" />
     @RenderSection("styleFilmEkle", required:false)
@@ -292,9 +293,7 @@
                                         <li>
                                             <a href="javascript:;">
                                                 <div class="clearfix">
-                                                    <div class="thread-image">
-                                                        <img alt="" src="./assets/images/avatar-2.jpg">
-                                                    </div>
+                                          
                                                     <div class="thread-content">
                                                         <span class="author">Nicole Bell</span>
                                                         <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
@@ -306,9 +305,7 @@
                                         <li>
                                             <a href="javascript:;">
                                                 <div class="clearfix">
-                                                    <div class="thread-image">
-                                                        <img alt="" src="./assets/images/avatar-1.jpg">
-                                                    </div>
+                                               
                                                     <div class="thread-content">
                                                         <span class="author">Uğur Erdal</span>
                                                         <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
@@ -320,9 +317,7 @@
                                         <li>
                                             <a href="javascript:;">
                                                 <div class="clearfix">
-                                                    <div class="thread-image">
-                                                        <img alt="" src="./assets/images/avatar-3.jpg">
-                                                    </div>
+                                           
                                                     <div class="thread-content">
                                                         <span class="author">Steven Thompson</span>
                                                         <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
@@ -334,9 +329,7 @@
                                         <li>
                                             <a href="javascript:;">
                                                 <div class="clearfix">
-                                                    <div class="thread-image">
-                                                        <img alt="" src="./assets/images/avatar-1.jpg">
-                                                    </div>
+                                            
                                                     <div class="thread-content">
                                                         <span class="author">Peter Clark</span>
                                                         <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
@@ -348,9 +341,7 @@
                                         <li>
                                             <a href="javascript:;">
                                                 <div class="clearfix">
-                                                    <div class="thread-image">
-                                                        <img alt="" src="./assets/images/avatar-5.jpg">
-                                                    </div>
+                                              
                                                     <div class="thread-content">
                                                         <span class="author">Kenneth Ross</span>
                                                         <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
@@ -373,7 +364,7 @@
                     <!-- start: USER DROPDOWN -->
                     <li class="dropdown current-user">
                         <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
-                            <img src="~/assets/images/avatar-1-small.jpg" class="circle-img" alt="">
+                           
                             <span class="username">Peter Clark</span>
                             <i class="clip-chevron-down"></i>
                         </a>
@@ -649,7 +640,7 @@
 
 
 
-    @RenderSection("sicriptFilmEkle", required:false)
+
     <!-- end: RIGHT SIDEBAR -->
     <!-- start: MAIN JAVASCRIPTS -->
     <!--[if lt IE 9]>
@@ -660,6 +651,9 @@
     <!--[if gte IE 9]><!-->
     <script src="~/assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
     <!--<![endif]-->
+
+    @RenderSection("sicriptFilmEkle", required: false)
+    <!--dropzone yukarısı iki script-->
     <script src="~/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
@@ -672,6 +666,7 @@
     <script src="~/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
     <script src="~/assets/js/main.js"></script>
     <!-- end: MAIN JAVASCRIPTS -->
+
     <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script src="~/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
     <script src="~/assets/plugins/autosize/jquery.autosize.min.js"></script>
@@ -686,11 +681,12 @@
     <script src="~/assets/plugins/bootstrap-colorpicker/js/commits.js"></script>
     <script src="~/assets/plugins/jQuery-Tags-Input/jquery.tagsinput.js"></script>
     <script src="~/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
-    <script src="~/assets/plugins/summernote/build/summernote.min.js"></script>
+
     <script src="~/assets/plugins/ckeditor/ckeditor.js"></script>
     <script src="~/assets/plugins/ckeditor/adapters/jquery.js"></script>
     <script src="~/assets/js/form-elements.js"></script>
-    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY     <script src="~/assets/plugins/summernote/build/summernote.min.js"></script> -->
     <script>
         jQuery(document).ready(function () {
             Main.init();

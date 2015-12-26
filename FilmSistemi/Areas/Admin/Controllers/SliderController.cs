@@ -46,16 +46,19 @@ namespace FilmSistemi.Areas.Admin.Controllers
         // POST: Admin/Slider/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        const string imageWay = "~/Content/slider";
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SliderModel model)
         {
             if (ModelState.IsValid)
             {
+                string fileN = string.Empty;
                 if (model.İmage != null)
                 {
-                    var fileN = model.İmage.FileName;
-                    var way =Path.Combine( Server.MapPath("~/Content/slider"), fileN);
+                    fileN = model.İmage.FileName;
+                    var way =Path.Combine( Server.MapPath(imageWay), fileN);
                     model.İmage.SaveAs(way);
                     
                 }
@@ -64,7 +67,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 Simage slider = new Simage();
             
                 slider.MovieId = model.MovieId;
-                slider.İmage = "";
+                slider.İmage = fileN;
                 db.Simage.Add(slider);
                 db.SaveChanges();
             }

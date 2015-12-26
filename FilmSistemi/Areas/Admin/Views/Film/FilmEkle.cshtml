@@ -126,6 +126,30 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Movies.MBanner, new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-7">
+                            @Html.TextBoxFor(m => m.Movies.MBanner, new { @class = "col-sm-3 control-label", type = "file", multiple = "true" })
+                        </div>
+                
+                    </div>
+
+
+                    <!--<form>
+
+                    </form>
+                    <form action="/file-upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+
+                        <div class="dz-message needsclick">
+                            Filme resim eklemek için tıklayınız<br>
+                            <span class="note needsclick">Çoklu seçim yapabilirsiniz</span>
+                        </div>
+
+                    </form>
+                        -->
+
+
+
 
 
                     <div class="form-group">
@@ -136,7 +160,17 @@
                         </div>
                     </div>
 
+
+    
+    
+               
+
                 </div>
+
+
+
+
+
 
             </div>
 
@@ -147,9 +181,9 @@
 
 @section sicriptFilmEkle {
 
-    <script src="~/Scripts/dropzone/dropzone-amd-module.min.js"></script>
+<script src="~/Scripts/dropzone/dropzone.js"></script>
+<script src="~/Scripts/dropzone/dropzone-amd-module.js"></script>
 
-    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
 
 }
 

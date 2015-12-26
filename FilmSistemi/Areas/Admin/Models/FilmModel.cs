@@ -13,5 +13,7 @@ namespace FilmSistemi.Areas.Admin.Models
         public MovieCategory MovieCategory { get; set; }
         public News News { get; set; }
         public NewsPicture NewsPicture { get; set; }
+       // public IEnumerable<HttpPostedFileBase> MoviePicture { get; set; }
+
     }
 }
