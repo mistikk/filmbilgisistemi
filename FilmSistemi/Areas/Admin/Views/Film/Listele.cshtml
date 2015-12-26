@@ -1,6 +1,6 @@
 ﻿@model List<FilmSistemi.Models.Movies>
 @{
-    ViewBag.Title = "Listele";
+    ViewBag.Title = "Film";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -68,15 +68,12 @@
                         <td class="hidden-xs">@item.MCountry</td>
                         <td class="hidden-xs">@item.MDirector</td>
                         <td class="center col-md-1">
-                            <div class="visible-md visible-lg hidden-sm hidden-xs">
+
+                            <div class="visible-md visible-lg">
                                 <a href="@Url.Action("Edit", "Film", new { id = item.MovieId })" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
-                            
+
 
                                 <a href="@Url.Action("Delete", "Film", new { id = item.MovieId })" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Remove"><i class="fa fa-times fa fa-white"></i></a>
-
-             
-                
-
                             </div>
 
                         </td>
