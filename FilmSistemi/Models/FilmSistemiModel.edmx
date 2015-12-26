@@ -33,9 +33,10 @@
           </Key>
           <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MovieId" Type="int" />
-          <Property Name="UserId" Type="int" />
           <Property Name="CContent" Type="nvarchar(max)" />
           <Property Name="CDate" Type="datetime" />
+          <Property Name="NewUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -110,17 +111,7 @@
           <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="İmage" Type="varchar" MaxLength="250" />
           <Property Name="MovieId" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Sliderimg">
-          <Key>
-            <PropertyRef Name="SliderId" />
-            <PropertyRef Name="Picture" />
-          </Key>
-          <Property Name="SliderId" Type="int" Nullable="false" />
-          <Property Name="Picture" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="MovieId" Type="int" />
+          <Property Name="Text" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Stars">
           <Key>
@@ -128,8 +119,8 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           </Key>
           <Property Name="StarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MovieId" Type="int" />
-          <Property Name="UserId" Type="int" />
           <Property Name="Star" Type="int" />
+          <Property Name="NewUserId" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -242,6 +233,18 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Simage_Movies">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="Simage" Type="Self.Simage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Simage">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Stars_Movies">
           <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
           <End Role="Stars" Type="Self.Stars" Multiplicity="*" />
@@ -295,13 +298,6 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WatchLists" EntityType="Self.WatchLists" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sliderimg" EntityType="Self.Sliderimg" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Sliderimg].[SliderId] AS [SliderId], 
-    [Sliderimg].[Picture] AS [Picture], 
-    [Sliderimg].[MovieId] AS [MovieId]
-    FROM [dbo].[Sliderimg] AS [Sliderimg]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_ActorMovie_Actors" Association="Self.FK_ActorMovie_Actors">
             <End Role="Actors" EntitySet="Actors" />
             <End Role="ActorMovie" EntitySet="ActorMovie" />
@@ -329,6 +325,10 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           <AssociationSet Name="FK_NewsPicture_News" Association="Self.FK_NewsPicture_News">
             <End Role="News" EntitySet="News" />
             <End Role="NewsPicture" EntitySet="NewsPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Simage_Movies" Association="Self.FK_Simage_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Simage" EntitySet="Simage" />
           </AssociationSet>
           <AssociationSet Name="FK_Stars_Movies" Association="Self.FK_Stars_Movies">
             <End Role="Movies" EntitySet="Movies" />
@@ -369,10 +369,11 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           </Key>
           <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MovieId" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
           <Property Name="CContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Movies" Relationship="Self.FK_Comments_Movies" FromRole="Comments" ToRole="Movies" />
+          <Property Name="NewUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -423,6 +424,7 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           <NavigationProperty Name="WatchLists" Relationship="Self.FK_WatchLists_Movies" FromRole="Movies" ToRole="WatchLists" />
           <Property Name="MBanner" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ActorMovie" Relationship="FilmSistemiModel.FK_ActorMovie_Movies" FromRole="Movies" ToRole="ActorMovie" />
+          <NavigationProperty Name="Simage" Relationship="FilmSistemiModel.FK_Simage_Movies" FromRole="Movies" ToRole="Simage" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -449,9 +451,9 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           </Key>
           <Property Name="StarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MovieId" Type="Int32" />
-          <Property Name="UserId" Type="Int32" />
           <Property Name="Star" Type="Int32" />
           <NavigationProperty Name="Movies" Relationship="Self.FK_Stars_Movies" FromRole="Stars" ToRole="Movies" />
+          <Property Name="NewUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -633,9 +635,11 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
             <End Role="Movies" EntitySet="Movies" />
             <End Role="ActorMovie" EntitySet="ActorMovie" />
           </AssociationSet>
-          <EntitySet Name="Sliderimg" EntityType="FilmSistemiModel.Sliderimg" />
-          <EntitySet Name="kisitablo" EntityType="FilmSistemiModel.kisitablo" />
           <EntitySet Name="Simage" EntityType="FilmSistemiModel.Simage" />
+          <AssociationSet Name="FK_Simage_Movies" Association="FilmSistemiModel.FK_Simage_Movies">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Simage" EntitySet="Simage" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="ActorMovie">
           <Key>
@@ -671,23 +675,6 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Sliderimg">
-          <Key>
-            <PropertyRef Name="SliderId" />
-            <PropertyRef Name="Picture" />
-          </Key>
-          <Property Name="SliderId" Type="Int32" Nullable="false" />
-          <Property Name="Picture" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="MovieId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="kisitablo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Simage">
           <Key>
             <PropertyRef Name="Sid" />
@@ -695,7 +682,21 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           <Property Name="Sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="İmage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="MovieId" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Movies" Relationship="FilmSistemiModel.FK_Simage_Movies" FromRole="Simage" ToRole="Movies" />
         </EntityType>
+        <Association Name="FK_Simage_Movies">
+          <End Type="FilmSistemiModel.Movies" Role="Movies" Multiplicity="0..1" />
+          <End Type="FilmSistemiModel.Simage" Role="Simage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Simage">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -721,9 +722,10 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="FilmSistemiModel.Comments">
               <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NewUserId" ColumnName="NewUserId" />
                 <ScalarProperty Name="CommentId" ColumnName="CommentId" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="CContent" ColumnName="CContent" />
                 <ScalarProperty Name="CDate" ColumnName="CDate" />
               </MappingFragment>
@@ -795,9 +797,9 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
           <EntitySetMapping Name="Stars">
             <EntityTypeMapping TypeName="FilmSistemiModel.Stars">
               <MappingFragment StoreEntitySet="Stars">
+                <ScalarProperty Name="NewUserId" ColumnName="NewUserId" />
                 <ScalarProperty Name="StarId" ColumnName="StarId" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Star" ColumnName="Star" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -841,27 +843,10 @@ warning 6002: The table/view 'g120910023.dbo.Sliderimg' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sliderimg">
-            <EntityTypeMapping TypeName="FilmSistemiModel.Sliderimg">
-              <MappingFragment StoreEntitySet="Sliderimg">
-                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="SliderId" ColumnName="SliderId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="kisitablo">
-            <EntityTypeMapping TypeName="FilmSistemiModel.kisitablo">
-              <MappingFragment StoreEntitySet="kisitablo">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="soyad" ColumnName="soyad" />
-                <ScalarProperty Name="ad" ColumnName="ad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Simage">
             <EntityTypeMapping TypeName="FilmSistemiModel.Simage">
               <MappingFragment StoreEntitySet="Simage">
+                <ScalarProperty Name="Text" ColumnName="Text" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="İmage" ColumnName="İmage" />
                 <ScalarProperty Name="Sid" ColumnName="Sid" />

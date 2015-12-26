@@ -24,6 +24,7 @@ namespace FilmSistemi.Models
             this.Videos = new HashSet<Videos>();
             this.WatchLists = new HashSet<WatchLists>();
             this.ActorMovie = new HashSet<ActorMovie>();
+            this.Simage = new HashSet<Simage>();
         }
     
         public int MovieId { get; set; }
@@ -49,5 +50,7 @@ namespace FilmSistemi.Models
         public virtual ICollection<WatchLists> WatchLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActorMovie> ActorMovie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Simage> Simage { get; set; }
     }
 }
