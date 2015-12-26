@@ -11,6 +11,7 @@ using System.IO;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class NewsController : Controller
     {
         private FilmSistemiEntities db = new FilmSistemiEntities();

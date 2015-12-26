@@ -7,129 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FilmSistemi.Models;
-using System.IO;
-using FilmSistemi.Areas.Admin.Models;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
-
-    [Authorize(Roles ="admin")]
-    public class SliderController : Controller
+    public class ApplicationUsersController : Controller
     {
-        private FilmSistemiEntities db = new FilmSistemiEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Admin/Slider
+        // GET: Admin/ApplicationUsers
         public ActionResult Index()
         {
-            return View(db.Simage.ToList());
+            return View(db.ApplicationUsers.ToList());
         }
 
-        // GET: Admin/Slider/Details/5
-        public ActionResult Details(int? id)
+        // GET: Admin/ApplicationUsers/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Simage simage = db.Simage.Find(id);
-            if (simage == null)
+            ApplicationUser applicationUser = db.ApplicationUsers.Find(id);
+            if (applicationUser == null)
             {
                 return HttpNotFound();
             }
-            return View(simage);
+            return View(applicationUser);
         }
 
-        // GET: Admin/Slider/Create
+        // GET: Admin/ApplicationUsers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Slider/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-        const string imageWay = "~/Content/slider";
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(SliderModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                string fileN = string.Empty;
-                if (model.İmage != null)
-                {
-                    fileN = model.İmage.FileName;
-                    var way =Path.Combine( Server.MapPath(imageWay), fileN);
-                    model.İmage.SaveAs(way);
-                    
-                }
-                
-
-                Simage slider = new Simage();
-            
-                slider.MovieId = model.MovieId;
-                slider.İmage = fileN;
-                db.Simage.Add(slider);
-                db.SaveChanges();
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        // GET: Admin/Slider/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Simage simage = db.Simage.Find(id);
-            if (simage == null)
-            {
-                return HttpNotFound();
-            }
-            return View(simage);
-        }
-
-        // POST: Admin/Slider/Edit/5
+        // POST: Admin/ApplicationUsers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Sid,İmage,MovieId")] Simage simage)
+        public ActionResult Create([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(simage).State = EntityState.Modified;
+                db.ApplicationUsers.Add(applicationUser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(simage);
+
+            return View(applicationUser);
         }
 
-        // GET: Admin/Slider/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Admin/ApplicationUsers/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Simage simage = db.Simage.Find(id);
-            if (simage == null)
+            ApplicationUser applicationUser = db.ApplicationUsers.Find(id);
+            if (applicationUser == null)
             {
                 return HttpNotFound();
             }
-            return View(simage);
+            return View(applicationUser);
         }
 
-        // POST: Admin/Slider/Delete/5
+        // POST: Admin/ApplicationUsers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(applicationUser).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(applicationUser);
+        }
+
+        // GET: Admin/ApplicationUsers/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser applicationUser = db.ApplicationUsers.Find(id);
+            if (applicationUser == null)
+            {
+                return HttpNotFound();
+            }
+            return View(applicationUser);
+        }
+
+        // POST: Admin/ApplicationUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Simage simage = db.Simage.Find(id);
-            db.Simage.Remove(simage);
+            ApplicationUser applicationUser = db.ApplicationUsers.Find(id);
+            db.ApplicationUsers.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

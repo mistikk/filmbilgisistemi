@@ -10,6 +10,7 @@ using FilmSistemi.Models;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class CategoriesController : Controller
     {
         private FilmSistemiEntities db = new FilmSistemiEntities();

@@ -1,0 +1,15 @@
+﻿@model FilmSistemi.Areas.Admin.Models.RolEkleModel
+@{
+    ViewBag.Title = "RolEkle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+    @using (Html.BeginForm("RolEkle", "RolYonetim", FormMethod.Post))
+    {
+        @Html.TextBoxFor(x => x.RolAd)
+        <input type="submit" />
+    }
+
+
+
+
