@@ -14,6 +14,12 @@ namespace FilmSistemi
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+             name: "Language",
+             url: "{lang}/{controller}/{action}/{id}",
+             defaults: new { controller = UrlParameter.Optional , action = "Index", id = UrlParameter.Optional }
+         );
+
+            routes.MapRoute(
                 name: "MoviePage",
                 url: "MoviePage/{id}",
                 defaults: new { controller = "MoviePage", action = "Index", id = UrlParameter.Optional }

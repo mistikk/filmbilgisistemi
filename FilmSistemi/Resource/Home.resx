@@ -130,7 +130,7 @@
     <value>DAHA FAZLASI</value>
   </data>
   <data name="dk" xml:space="preserve">
-    <value>dak</value>
+    <value>dk</value>
   </data>
   <data name="filmler" xml:space="preserve">
     <value>FİLMLER</value>
@@ -151,16 +151,16 @@
     <value>Kategori</value>
   </data>
   <data name="onceki" xml:space="preserve">
-    <value>Önceki</value>
+    <value>Onceki</value>
   </data>
   <data name="oylar" xml:space="preserve">
-    <value>Oylar</value>
+    <value>Oyunuz</value>
   </data>
   <data name="ozet" xml:space="preserve">
     <value>ÖZET</value>
   </data>
   <data name="paylas" xml:space="preserve">
-    <value>Paylaş</value>
+    <value>Paylas</value>
   </data>
   <data name="selam" xml:space="preserve">
     <value>selam</value>
@@ -190,7 +190,7 @@
     <value>Yorumlar</value>
   </data>
   <data name="yorum_ekle" xml:space="preserve">
-    <value>YORUM EKLE</value>
+    <value>Yorum Ekle</value>
   </data>
   <data name="yıl" xml:space="preserve">
     <value>Yıl</value>

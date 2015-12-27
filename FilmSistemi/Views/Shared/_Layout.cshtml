@@ -166,10 +166,18 @@
                                     </ul>
                                 </li>
                             </ul>
+                           
                         </li>
+                        
+                        <li class="mega-menu__list"><a href="~/tr/Home/@ViewContext.RouteData.Values["action"].ToString()">TR</a></li>
+
+                        <li class="mega-menu__list"><a href="~/en/Home/@ViewContext.RouteData.Values["action"].ToString()">EN</a></li>
+                        
+                        
+                        
                     </ul>
                 </nav>
-
+                
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 @if (Request.IsAuthenticated)
                 {
