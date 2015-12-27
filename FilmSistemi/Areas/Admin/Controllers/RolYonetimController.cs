@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class RolYonetimController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();

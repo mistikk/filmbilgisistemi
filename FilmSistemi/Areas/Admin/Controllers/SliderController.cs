@@ -13,7 +13,7 @@ using FilmSistemi.Areas.Admin.Models;
 namespace FilmSistemi.Areas.Admin.Controllers
 {
 
-    [Authorize(Roles ="admin")]
+    //[Authorize(Roles ="admin")]
     public class SliderController : Controller
     {
         private FilmSistemiEntities db = new FilmSistemiEntities();

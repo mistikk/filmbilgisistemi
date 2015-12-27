@@ -11,7 +11,7 @@ using System.Data.Entity;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class FilmController : Controller
     {
         // Veri tabanını tanımladım
@@ -88,8 +88,7 @@ namespace FilmSistemi.Areas.Admin.Controllers
             ActorMovie actor = new ActorMovie();
             MovieCategory category = new MovieCategory();
 
-            //categorisi movi aydi le aynı olan categorymoviden siliyor
-            //mal diilsen anlarsın m*
+            
             if (category != null)
             {
                 var silcat = db.MovieCategory.Where(n => n.MovieId == id);
@@ -110,7 +109,27 @@ namespace FilmSistemi.Areas.Admin.Controllers
                 }
 
             }
-       
+            var DeleteStar = db.Stars.Where(n => n.MovieId == id);
+            foreach (var item in DeleteStar)
+            {
+
+                db.Stars.Remove(item);
+
+            }
+            var DeleteComment = db.Comments.Where(n => n.MovieId == id);
+            foreach (var item in DeleteComment)
+            {
+
+                db.Comments.Remove(item);
+
+            } 
+            var DeleteSlider = db.Simage.Where(n => n.MovieId == id);
+            foreach (var item in DeleteSlider)
+            {
+
+                db.Simage.Remove(item);
+
+            }
             db.SaveChanges();
             return RedirectToAction("Listele");
         }
@@ -185,16 +204,6 @@ namespace FilmSistemi.Areas.Admin.Controllers
                     }
                 }
 
-                //MoviePicture moviepicture = new MoviePicture();
-                //if (moviepic != null)
-                //{
-                //    var don = moviepic.ContentLength;
-                //    foreach (var item in names)
-                //    {
-
-                //    }
-                //}
-
             }
 
 
@@ -207,7 +216,3 @@ namespace FilmSistemi.Areas.Admin.Controllers
 
 
 }
-
-//var model = db.Movies.OrderByDescending(x => x.ID).ToList();
-//return View(model);
-
