@@ -61,11 +61,110 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktör.
+        /// </summary>
+        public static string aktor {
+            get {
+                return ResourceManager.GetString("aktor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cıkış Tarihi.
+        /// </summary>
+        public static string cikis_tarihi {
+            get {
+                return ResourceManager.GetString("cikis_tarihi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DAHA FAZLASI.
+        /// </summary>
+        public static string daha_fazlasi {
+            get {
+                return ResourceManager.GetString("daha_fazlasi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GÜNÜN EN İYİLERi.
+        /// </summary>
+        public static string gun_en_iyi {
+            get {
+                return ResourceManager.GetString("gun_en_iyi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategori.
+        /// </summary>
+        public static string kategori {
+            get {
+                return ResourceManager.GetString("kategori", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to selam.
         /// </summary>
         public static string selam {
             get {
                 return ResourceManager.GetString("selam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SON HABERLER.
+        /// </summary>
+        public static string son_haberler {
+            get {
+                return ResourceManager.GetString("son_haberler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ŞUAN VİZYONDAKİLERE GÖZ ATIN.
+        /// </summary>
+        public static string suan_oynayan_filmler {
+            get {
+                return ResourceManager.GetString("suan_oynayan_filmler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ulke.
+        /// </summary>
+        public static string ulke {
+            get {
+                return ResourceManager.GetString("ulke", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yıl.
+        /// </summary>
+        public static string yıl {
+            get {
+                return ResourceManager.GetString("yıl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yönetmen.
+        /// </summary>
+        public static string yonetmen {
+            get {
+                return ResourceManager.GetString("yonetmen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yorumlar.
+        /// </summary>
+        public static string yorumlar {
+            get {
+                return ResourceManager.GetString("yorumlar", resourceCulture);
             }
         }
     }

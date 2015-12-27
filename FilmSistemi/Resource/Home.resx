@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aktor" xml:space="preserve">
+    <value>Aktör</value>
+  </data>
+  <data name="cikis_tarihi" xml:space="preserve">
+    <value>Cıkış Tarihi</value>
+  </data>
+  <data name="daha_fazlasi" xml:space="preserve">
+    <value>DAHA FAZLASI</value>
+  </data>
+  <data name="gun_en_iyi" xml:space="preserve">
+    <value>GÜNÜN EN İYİLERi</value>
+  </data>
+  <data name="kategori" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
   <data name="selam" xml:space="preserve">
     <value>selam</value>
+  </data>
+  <data name="son_haberler" xml:space="preserve">
+    <value>SON HABERLER</value>
+  </data>
+  <data name="suan_oynayan_filmler" xml:space="preserve">
+    <value>ŞUAN VİZYONDAKİLERE GÖZ ATIN</value>
+  </data>
+  <data name="ulke" xml:space="preserve">
+    <value>Ulke</value>
+  </data>
+  <data name="yonetmen" xml:space="preserve">
+    <value>Yönetmen</value>
+  </data>
+  <data name="yorumlar" xml:space="preserve">
+    <value>Yorumlar</value>
+  </data>
+  <data name="yıl" xml:space="preserve">
+    <value>Yıl</value>
   </data>
 </root>
