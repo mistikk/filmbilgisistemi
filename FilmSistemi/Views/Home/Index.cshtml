@@ -68,7 +68,7 @@
                              data-endspeed="300"
                              data-end="7700"
                              data-endeasing="Power4.easeOut">
-                            <a href="/moviepage/@item.MovieId" class="btn btn-md btn--danger btn--wide slider--btn">learn more</a>
+                            <a href="/moviepage/@item.MovieId" class="btn btn-md btn--danger btn--wide slider--btn">@Resources.Home.daha_fazlasi</a>
                         </div>
 
                     </li>
@@ -81,9 +81,10 @@
 
     <!--end slider -->
     <!-- Main content -->
+ 
     <section class="container">
         <div class="movie-best">
-            <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Günün en iyileri</div>
+            <div class="col-sm-10 col-sm-offset-1 movie-best__rating">@Resources.Home.gun_en_iyi</div>
             <div class="col-sm-12 change--col">
                 <div class="movie-beta__item ">
                     @if (Model.BestMovies[0].MBanner != null)
@@ -102,7 +103,7 @@
                             <span class="best-voted">@Model.BestMovies[0].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">@Model.BestMovies[0].MMinute min</p>
+                            <p class="movie__time">@Model.BestMovies[0].MMinute @Resources.Home.dk</p>
                             <p>
                                 @foreach (var item in Model.BestMovies[0].MovieCategory)
                                 {
@@ -112,7 +113,7 @@
                             <p>@Model.BestMovies[0].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[0].MovieId" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[0].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -132,7 +133,7 @@
                             <span class="best-voted">@Model.BestMovies[1].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">@Model.BestMovies[1].MMinute min</p>
+                            <p class="movie__time">@Model.BestMovies[1].MMinute @Resources.Home.dk</p>
                             <p>
                                 @foreach (var item in Model.BestMovies[1].MovieCategory)
                                 {
@@ -142,7 +143,7 @@
                             <p>@Model.BestMovies[1].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[1].MovieId" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[1].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -162,7 +163,7 @@
                             <span class="best-voted">@Model.BestMovies[2].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">@Model.BestMovies[2].MMinute min</p>
+                            <p class="movie__time">@Model.BestMovies[2].MMinute @Resources.Home.dk</p>
                             <p>
                                 @foreach (var item in Model.BestMovies[2].MovieCategory)
                                 {
@@ -172,7 +173,7 @@
                             <p>@Model.BestMovies[2].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[2].MovieId" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[2].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -192,7 +193,7 @@
                             <span class="best-voted">@Model.BestMovies[3].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">@Model.BestMovies[3].MMinute min</p>
+                            <p class="movie__time">@Model.BestMovies[3].MMinute @Resources.Home.dk</p>
                             <p>
                                 @foreach (var item in Model.BestMovies[3].MovieCategory)
                                 {
@@ -202,7 +203,7 @@
                             <p>@Model.BestMovies[3].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[3].MovieId" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[3].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -222,7 +223,7 @@
                             <span class="best-voted">@Model.BestMovies[4].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">@Model.BestMovies[4].MMinute min</p>
+                            <p class="movie__time">@Model.BestMovies[4].MMinute @Resources.Home.dk</p>
                             <p>
                                 @foreach (var item in Model.BestMovies[4].MovieCategory)
                                 {
@@ -232,7 +233,7 @@
                             <p>@Model.BestMovies[4].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[4].MovieId" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[4].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -252,7 +253,7 @@
                             <span class="best-voted">@Model.BestMovies[5].MName</span>
                         </li>
                         <li>
-                            <p class="movie__time">@Model.BestMovies[5].MMinute min</p>
+                            <p class="movie__time">@Model.BestMovies[5].MMinute @Resources.Home.dk</p>
                             <p>
                                 @foreach (var item in Model.BestMovies[5].MovieCategory)
                                 {
@@ -262,7 +263,7 @@
                             <p>@Model.BestMovies[5].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[5].MovieId" class="slide__link">more</a>
+                            <a href="~/moviepage/@Model.BestMovies[5].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -272,7 +273,7 @@
 
         <div class="clearfix"></div>
 
-        <h2 id='target' class="page-heading heading--outcontainer">Now in the cinema</h2>
+        <h2 id='target' class="page-heading heading--outcontainer">@Resources.Home.suan_oynayan_filmler</h2>
 
         <div class="col-sm-12">
             <div class="row">
@@ -297,7 +298,7 @@
                             <div class="movie__info">
                                 <a href='~/moviepage/@Model.LastMovies[i].MovieId' class="movie__title">@Model.LastMovies[i].MName (@String.Format("{0:yyyy}", @Model.LastMovies[i].MReleaseDate))  </a>
 
-                                <p class="movie__time">@Model.LastMovies[i].MMinute min</p>
+                                <p class="movie__time">@Model.LastMovies[i].MMinute @Resources.Home.dk</p>
 
                                 <p class="movie__option">
                                     @foreach (var category in Model.LastMovies[i].MovieCategory)
@@ -321,14 +322,14 @@
         </div>
 
         <div class="col-sm-12">
-            <h2 class="page-heading">Latest news</h2>
+            <h2 class="page-heading">@Resources.Home.son_haberler</h2>
 
             <div class="col-sm-4 similar-wrap col--remove">
                 <div class="post post--preview post--preview--wide">
                     <div class="post__image">
                         <img alt='' src="http://placehold.it/270x330">
                         <div class="social social--position social--hide">
-                            <span class="social__name">Share:</span>
+                            <span class="social__name">@Resources.Home.paylas:</span>
                             <a href='#' class="social__variant social--first fa fa-facebook"></a>
                             <a href='#' class="social__variant social--second fa fa-twitter"></a>
                             <a href='#' class="social__variant social--third fa fa-vk"></a>
@@ -336,7 +337,7 @@
                     </div>
                     <p class="post__date">22 October 2013 </p>
                     <a href="SingleNews" class="post__title">"Thor: The Dark World" - World Premiere</a>
-                    <a href="SingleNews" class="btn read-more post--btn">read more</a>
+                    <a href="SingleNews" class="btn read-more post--btn">@Resources.Home.daha_fazlasi</a>
                 </div>
             </div>
             <div class="col-sm-4 similar-wrap col--remove">
@@ -344,7 +345,7 @@
                     <div class="post__image">
                         <img alt='' src="http://placehold.it/270x330">
                         <div class="social social--position social--hide">
-                            <span class="social__name">Share:</span>
+                            <span class="social__name">@Resources.Home.paylas :</span>
                             <a href='#' class="social__variant social--first fa fa-facebook"></a>
                             <a href='#' class="social__variant social--second fa fa-twitter"></a>
                             <a href='#' class="social__variant social--third fa fa-vk"></a>
@@ -352,7 +353,7 @@
                     </div>
                     <p class="post__date">22 October 2013 </p>
                     <a href="SingleNews" class="post__title">30th Annual Night Of Stars Presented By The Fashion Group International</a>
-                    <a href="SingleNews" class="btn read-more post--btn">read more</a>
+                    <a href="SingleNews" class="btn read-more post--btn">@Resources.Home.daha_fazlasi</a>
                 </div>
             </div>
             <div class="col-sm-4 similar-wrap col--remove">
@@ -360,7 +361,7 @@
                     <div class="post__image">
                         <img alt='' src="http://placehold.it/270x330">
                         <div class="social social--position social--hide">
-                            <span class="social__name">Share:</span>
+                            <span class="social__name">@Resources.Home.paylas :</span>
                             <a href='#' class="social__variant social--first fa fa-facebook"></a>
                             <a href='#' class="social__variant social--second fa fa-twitter"></a>
                             <a href='#' class="social__variant social--third fa fa-vk"></a>
@@ -368,7 +369,7 @@
                     </div>
                     <p class="post__date">22 October 2013 </p>
                     <a href="SingleNews" class="post__title">Hollywood Film Awards 2013</a>
-                    <a href="SingleNews" class="btn read-more post--btn">read more</a>
+                    <a href="SingleNews" class="btn read-more post--btn">@Resources.Home.daha_fazlasi</a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
     <!-- Main content -->
     <section class="container">
         <div class="col-sm-12">
-            <h2 class="page-heading">Movies</h2>
+            <h2 class="page-heading">@Resources.Home.filmler</h2>
             
 
             @foreach (var item in Model.Movies)
@@ -43,15 +43,15 @@
                             <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--photo">@item.MoviePicture.Count()</a>
                         </div>
                     </div>
-
+                    
                     <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
                         @Html.ActionLink(@item.MName, "Index", "MoviePage", new { id = item.MovieId }, new { @class = "movie__title link--huge" })
 
-                        <p class="movie__time">@item.MMinute min</p>
+                        <p class="movie__time">@item.MMinute @Resources.Home.dk</p>
 
-                        <p class="movie__option"><strong>Country: </strong><a href="#">@item.MCountry</a></p>
+                        <p class="movie__option"><strong>@Resources.Home.ulke: </strong><a href="#">@item.MCountry</a></p>
                         <p class="movie__option">
-                            <strong>Category: </strong>
+                            <strong>@Resources.Home.kategori: </strong>
                             @foreach (var category in Model.MovieCategory)
                             {
                                 if (category.MovieId == item.MovieId)
@@ -63,10 +63,10 @@
                                 }
                             }
                         </p>
-                        <p class="movie__option"><strong>Release date: </strong>@String.Format("{0:d}", @item.MReleaseDate)</p>
-                        <p class="movie__option"><strong>Director: </strong><a href="#">@item.MDirector</a></p>
+                        <p class="movie__option"><strong>@Resources.Home.cikis_tarihi: </strong>@String.Format("{0:d}", @item.MReleaseDate)</p>
+                        <p class="movie__option"><strong>@Resources.Home.yonetmen: </strong><a href="#">@item.MDirector</a></p>
                         <p class="movie__option">
-                            <strong>Actors: </strong>
+                            <strong>@Resources.Home.aktor: </strong>
                             @foreach (var actor in Model.ActorMovie)
                             {
                                 if (actor.MovieId == item.MovieId)
@@ -115,8 +115,8 @@
 
             <div class="coloum-wrapper">
                 <div class="pagination paginatioon--full">
-                    <a href='#' class="pagination__prev">prev</a>
-                    <a href='#' class="pagination__next">next</a>
+                    <a href='#' class="pagination__prev">@Resources.Home.onceki</a>
+                    <a href='#' class="pagination__next">@Resources.Home.sonraki</a>
                 </div>
             </div>
 
