@@ -126,6 +126,16 @@
   <data name="daha_fazlasi" xml:space="preserve">
     <value>DAHA FAZLASI</value>
   </data>
+  <data name="dk" xml:space="preserve">
+    <value>dk</value>
+  </data>
+  <data name="filmler" xml:space="preserve">
+    <value>FİLMLER</value>
+  </data>
+  <data name="foto_video" xml:space="preserve">
+    <value>FOTOGRAFLAR &amp; VİDEOLAR</value>
+    <comment> </comment>
+  </data>
   <data name="gun_en_iyi" xml:space="preserve">
     <value>GÜNÜN EN İYİLERi</value>
   </data>
@@ -135,8 +145,23 @@
   <data name="kategori" xml:space="preserve">
     <value>Kategori</value>
   </data>
+  <data name="onceki" xml:space="preserve">
+    <value>Onceki</value>
+  </data>
+  <data name="oylar" xml:space="preserve">
+    <value>Oyunuz</value>
+  </data>
+  <data name="ozet" xml:space="preserve">
+    <value>ÖZET</value>
+  </data>
+  <data name="paylas" xml:space="preserve">
+    <value>Paylas</value>
+  </data>
   <data name="selam" xml:space="preserve">
     <value>selam</value>
+  </data>
+  <data name="sonraki" xml:space="preserve">
+    <value>Sonraki</value>
   </data>
   <data name="son_haberler" xml:space="preserve">
     <value>SON HABERLER</value>
@@ -152,6 +177,9 @@
   </data>
   <data name="yorumlar" xml:space="preserve">
     <value>Yorumlar</value>
+  </data>
+  <data name="yorum_ekle" xml:space="preserve">
+    <value>Yorum Ekle</value>
   </data>
   <data name="yıl" xml:space="preserve">
     <value>Yıl</value>
