@@ -17,7 +17,7 @@ namespace FilmSistemi.Controllers
         public ActionResult Index()
         {
 
-            dto.News = db.News.Where(x => x.NTitle != null);
+            dto.News = db.News.Where(x => x.NTitle != null).Take(10);
 
             return View(dto);
         }

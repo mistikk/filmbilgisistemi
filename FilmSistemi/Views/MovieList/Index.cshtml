@@ -30,7 +30,7 @@
 
                         </div>
                         <div class="movie__feature">
-                            <a href="#" class="movie__feature-item movie__feature--comment">
+                            <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--comment">
                                 @foreach (var comment in Model.Comments)
                                 {
                                     if (item.MovieId == comment.MovieId)
@@ -39,8 +39,8 @@
                                     }
                                 }
                             </a>
-                            <a href="#" class="movie__feature-item movie__feature--video">7</a>
-                            <a href="#" class="movie__feature-item movie__feature--photo">352</a>
+                            <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--video">@item.Videos.Count()</a>
+                            <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--photo">@item.MoviePicture.Count()</a>
                         </div>
                     </div>
 
@@ -78,7 +78,7 @@
                                 }
                             }
                         </p>
-                        <p class="movie__option"><strong>Age restriction: </strong><a href="#">13</a></p>
+                        <br />
 
 
                         <div class="movie__rate">
