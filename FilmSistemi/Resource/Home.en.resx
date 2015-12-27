@@ -117,7 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aktor" xml:space="preserve">
+    <value>actor</value>
+  </data>
+  <data name="cikis_tarihi" xml:space="preserve">
+    <value>Relase date</value>
+  </data>
+  <data name="daha_fazlasi" xml:space="preserve">
+    <value>MORE</value>
+  </data>
+  <data name="dk" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="filmler" xml:space="preserve">
+    <value>MOVİES</value>
+  </data>
+  <data name="foto_video" xml:space="preserve">
+    <value>PHOTOS &amp; VIDEOS</value>
+  </data>
+  <data name="gun_en_iyi" xml:space="preserve">
+    <value>BEST CHOICE</value>
+  </data>
+  <data name="haberler" xml:space="preserve">
+    <value>NEWS</value>
+  </data>
+  <data name="kategori" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="onceki" xml:space="preserve">
+    <value>PREV</value>
+  </data>
+  <data name="oylar" xml:space="preserve">
+    <value>Your vote</value>
+  </data>
+  <data name="ozet" xml:space="preserve">
+    <value>THE PLOT</value>
+  </data>
+  <data name="paylas" xml:space="preserve">
+    <value>Share</value>
+  </data>
   <data name="selam" xml:space="preserve">
     <value>hello</value>
+  </data>
+  <data name="selam1" xml:space="preserve">
+    <value>selam</value>
+  </data>
+  <data name="sonraki" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="son_haberler" xml:space="preserve">
+    <value>LATEST NEWS</value>
+  </data>
+  <data name="suan_oynayan_filmler" xml:space="preserve">
+    <value>NOW IN THE CINEMA</value>
+  </data>
+  <data name="ulke" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="yonetmen" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="yorumlar" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="yorum_ekle" xml:space="preserve">
+    <value>ADD COMMENT</value>
+  </data>
+  <data name="yıl" xml:space="preserve">
+    <value>Year</value>
   </data>
 </root>

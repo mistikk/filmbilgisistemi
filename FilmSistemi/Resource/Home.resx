@@ -129,6 +129,9 @@
   <data name="gun_en_iyi" xml:space="preserve">
     <value>GÜNÜN EN İYİLERi</value>
   </data>
+  <data name="haberler" xml:space="preserve">
+    <value>HABERLER</value>
+  </data>
   <data name="kategori" xml:space="preserve">
     <value>Kategori</value>
   </data>

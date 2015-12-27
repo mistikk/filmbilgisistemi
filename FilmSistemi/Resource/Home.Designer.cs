@@ -88,6 +88,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dk.
+        /// </summary>
+        public static string dk {
+            get {
+                return ResourceManager.GetString("dk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FİLMLER.
+        /// </summary>
+        public static string filmler {
+            get {
+                return ResourceManager.GetString("filmler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FOTOGRAFLAR &amp; VİDEOLAR.
+        /// </summary>
+        public static string foto_video {
+            get {
+                return ResourceManager.GetString("foto_video", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GÜNÜN EN İYİLERi.
         /// </summary>
         public static string gun_en_iyi {
@@ -97,11 +124,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HABERLER.
+        /// </summary>
+        public static string haberler {
+            get {
+                return ResourceManager.GetString("haberler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kategori.
         /// </summary>
         public static string kategori {
             get {
                 return ResourceManager.GetString("kategori", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Onceki.
+        /// </summary>
+        public static string onceki {
+            get {
+                return ResourceManager.GetString("onceki", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oyunuz.
+        /// </summary>
+        public static string oylar {
+            get {
+                return ResourceManager.GetString("oylar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ÖZET.
+        /// </summary>
+        public static string ozet {
+            get {
+                return ResourceManager.GetString("ozet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paylas.
+        /// </summary>
+        public static string paylas {
+            get {
+                return ResourceManager.GetString("paylas", resourceCulture);
             }
         }
         
@@ -120,6 +192,15 @@ namespace Resources {
         public static string son_haberler {
             get {
                 return ResourceManager.GetString("son_haberler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sonraki.
+        /// </summary>
+        public static string sonraki {
+            get {
+                return ResourceManager.GetString("sonraki", resourceCulture);
             }
         }
         
@@ -156,6 +237,15 @@ namespace Resources {
         public static string yonetmen {
             get {
                 return ResourceManager.GetString("yonetmen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yorum Ekle.
+        /// </summary>
+        public static string yorum_ekle {
+            get {
+                return ResourceManager.GetString("yorum_ekle", resourceCulture);
             }
         }
         
