@@ -82,7 +82,7 @@
                             <span class="sub-nav-toggle plus"></span>
                             <a href="~/@LangRoute/Homenews/Index">@Resources.Home.haber</a>
                         </li>
-                        @if (Request.IsAuthenticated)
+                        @if (User.IsInRole("admin"))
                         {
                             <li>
                                 <span class="sub-nav-toggle plus"></span>

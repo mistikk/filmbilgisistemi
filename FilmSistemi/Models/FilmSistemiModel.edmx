@@ -112,6 +112,7 @@
           <Property Name="İmage" Type="varchar" MaxLength="250" />
           <Property Name="MovieId" Type="int" />
           <Property Name="Text" Type="nchar" MaxLength="10" />
+          <Property Name="NewText" Type="text" />
         </EntityType>
         <EntityType Name="Stars">
           <Key>
@@ -684,6 +685,7 @@
           <Property Name="MovieId" Type="Int32" />
           <Property Name="Text" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Movies" Relationship="FilmSistemiModel.FK_Simage_Movies" FromRole="Simage" ToRole="Movies" />
+          <Property Name="NewText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Simage_Movies">
           <End Type="FilmSistemiModel.Movies" Role="Movies" Multiplicity="0..1" />
@@ -846,6 +848,7 @@
           <EntitySetMapping Name="Simage">
             <EntityTypeMapping TypeName="FilmSistemiModel.Simage">
               <MappingFragment StoreEntitySet="Simage">
+                <ScalarProperty Name="NewText" ColumnName="NewText" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
                 <ScalarProperty Name="İmage" ColumnName="İmage" />

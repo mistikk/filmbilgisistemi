@@ -11,7 +11,7 @@ using System.Data.Entity;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     public class FilmController : Controller
     {
         // Veri tabanını tanımladım

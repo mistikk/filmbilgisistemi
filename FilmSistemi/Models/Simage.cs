@@ -18,6 +18,7 @@ namespace FilmSistemi.Models
         public string İmage { get; set; }
         public Nullable<int> MovieId { get; set; }
         public string Text { get; set; }
+        public string NewText { get; set; }
     
         public virtual Movies Movies { get; set; }
     }

@@ -1,7 +1,7 @@
-﻿using FilmSistemi.Areas.Admin.Models;
+﻿using AspNet.Identity.MySQL;
+using FilmSistemi.Areas.Admin.Models;
 using FilmSistemi.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +10,18 @@ using System.Web.Mvc;
 
 namespace FilmSistemi.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "superadmin")]
     public class RolYonetimController : Controller
     {
-        ApplicationDbContext context = new ApplicationDbContext();
+        ApplicationDbContext context = new ApplicationDbContext("DefaultConnection");
         // GET: AdminPanel/RolYonetim
         public ActionResult Index()
         {
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
+            //var model = roleManager.;
 
-            var model = roleManager.Roles.ToList();
-
-            return View(model);
+            return View();
         }
 
         public ActionResult RolEkle()
