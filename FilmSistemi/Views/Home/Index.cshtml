@@ -5,7 +5,19 @@
 
 <body>
     <!-- Slider -->
+    
+    @{
+        string LangRoute;
+        if (@ViewContext.RouteData.Values["lang"] == null)
+        {
+            LangRoute = "tr";
+        }
+        else
+        {
+            LangRoute = @ViewContext.RouteData.Values["lang"].ToString();
+        }
 
+    }
     <div class="bannercontainer">
         <div class="banner">
             <ul>
@@ -68,7 +80,7 @@
                              data-endspeed="300"
                              data-end="7700"
                              data-endeasing="Power4.easeOut">
-                            <a href="/moviepage/@item.MovieId" class="btn btn-md btn--danger btn--wide slider--btn">@Resources.Home.daha_fazlasi</a>
+                            <a href="/@LangRoute/moviepage/index/@item.MovieId" class="btn btn-md btn--danger btn--wide slider--btn">@Resources.Home.daha_fazlasi</a>
                         </div>
 
                     </li>
@@ -81,7 +93,7 @@
 
     <!--end slider -->
     <!-- Main content -->
- 
+
     <section class="container">
         <div class="movie-best">
             <div class="col-sm-10 col-sm-offset-1 movie-best__rating">@Resources.Home.gun_en_iyi</div>
@@ -113,7 +125,7 @@
                             <p>@Model.BestMovies[0].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[0].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
+                            <a href="~/@LangRoute/moviepage/index/@Model.BestMovies[0].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -143,7 +155,7 @@
                             <p>@Model.BestMovies[1].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[1].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
+                            <a href="~/@LangRoute/moviepage/index/@Model.BestMovies[1].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -173,7 +185,7 @@
                             <p>@Model.BestMovies[2].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[2].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
+                            <a href="~/@LangRoute/moviepage/index/@Model.BestMovies[2].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -203,7 +215,7 @@
                             <p>@Model.BestMovies[3].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[3].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
+                            <a href="~/@LangRoute/moviepage/index/@Model.BestMovies[3].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -233,7 +245,7 @@
                             <p>@Model.BestMovies[4].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[4].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
+                            <a href="~/@LangRoute/moviepage/index/@Model.BestMovies[4].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -263,7 +275,7 @@
                             <p>@Model.BestMovies[5].Comments.Count() comments</p>
                         </li>
                         <li class="last-block">
-                            <a href="~/moviepage/@Model.BestMovies[5].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
+                            <a href="~/@LangRoute/moviepage/index/@Model.BestMovies[5].MovieId" class="slide__link">@Resources.Home.daha_fazlasi</a>
                         </li>
                     </ul>
                 </div>
@@ -283,7 +295,7 @@
                     {
                         <div class="movie movie--test movie--test--dark movie--test--left">
                             <div class="movie__images">
-                                <a href="~/moviepage/@Model.LastMovies[i].MovieId" class="movie-beta__link">
+                                <a href="~/@LangRoute/moviepage/index/@Model.LastMovies[i].MovieId" class="movie-beta__link">
                                     @if (Model.LastMovies[i].MBanner != null)
                                     {
                                         <img alt='' style="height:236px;" src="data:image/png;base64,@System.Convert.ToBase64String(Model.LastMovies[i].MBanner)">
@@ -296,7 +308,7 @@
                             </div>
 
                             <div class="movie__info">
-                                <a href='~/moviepage/@Model.LastMovies[i].MovieId' class="movie__title">@Model.LastMovies[i].MName (@String.Format("{0:yyyy}", @Model.LastMovies[i].MReleaseDate))  </a>
+                                <a href='~/@LangRoute/moviepage/index/@Model.LastMovies[i].MovieId' class="movie__title">@Model.LastMovies[i].MName (@String.Format("{0:yyyy}", @Model.LastMovies[i].MReleaseDate))  </a>
 
                                 <p class="movie__time">@Model.LastMovies[i].MMinute @Resources.Home.dk</p>
 

@@ -189,4 +189,19 @@
   <data name="cikis" xml:space="preserve">
     <value>LOG OFF</value>
   </data>
+  <data name="admin" xml:space="preserve">
+    <value>Admin Panel</value>
+  </data>
+  <data name="anasayfa" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="film_listesi" xml:space="preserve">
+    <value>Movie List</value>
+  </data>
+  <data name="giris" xml:space="preserve">
+    <value>Sing In</value>
+  </data>
+  <data name="haber" xml:space="preserve">
+    <value>News</value>
+  </data>
 </root>

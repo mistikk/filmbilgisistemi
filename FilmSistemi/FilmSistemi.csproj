@@ -3695,11 +3695,6 @@
     <Content Include="Areas\Admin\Views\RolYonetim\Index.cshtml" />
     <Content Include="Areas\Admin\Views\RolYonetim\RolEkle.cshtml" />
     <Content Include="Areas\Admin\Views\RolYonetim\RolKullaniciEkle.cshtml" />
-    <Content Include="Areas\Admin\Views\ActorMovies\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ActorMovies\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ActorMovies\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\ActorMovies\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ActorMovies\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
@@ -4646,7 +4641,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2696</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2626/</IISUrl>
+          <IISUrl>http://localhost:2727/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

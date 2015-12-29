@@ -36,12 +36,24 @@
 
 </head>
 <body>
+    @{
+        string LangRoute;
+        if (@ViewContext.RouteData.Values["lang"] == null)
+        {
+            LangRoute = "tr";
+        }
+        else
+        {
+            LangRoute = @ViewContext.RouteData.Values["lang"].ToString();
+        }
+
+    }
     <div class="wrapper">
         <!-- Header section -->
         <header class="header-wrapper" style="height:55px;">
             <div class="container">
                 <!-- Logo link-->
-                <a href='~/Home/Index' class="logo">
+                <a href='~/@LangRoute/Home/Index' class="logo">
                     <img alt='logo' src="~/Content/images/logo.png">
                 </a>
 
@@ -60,124 +72,33 @@
                     <ul id="navigation">
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Pages</a>
-                            <ul>
-                                <li class="menu__nav-item"><a href="movie-page-left.html">Single movie (rigth sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="movie-page-right.html">Single movie (left sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="movie-page-full.html">Single movie (full widht)</a></li>
-                                <li class="menu__nav-item"><a href="movie-list-left.html">Movies list (rigth sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="movie-list-right.html">Movies list (left sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="movie-list-full.html">Movies list (full widht)</a></li>
-                                <li class="menu__nav-item"><a href="single-cinema.html">Single cinema</a></li>
-                                <li class="menu__nav-item"><a href="cinema-list.html">Cinemas list</a></li>
-                                <li class="menu__nav-item"><a href="trailer.html">Trailers</a></li>
-                                <li class="menu__nav-item"><a href="rates-left.html">Rates (rigth sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="rates-right.html">Rates (left sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="rates-full.html">Rates (full widht)</a></li>
-                                <li class="menu__nav-item"><a href="offers.html">Offers</a></li>
-                                <li class="menu__nav-item"><a href="contact.html">Contact us</a></li>
-                                <li class="menu__nav-item"><a href="404.html">404 error</a></li>
-                                <li class="menu__nav-item"><a href="coming-soon.html">Coming soon</a></li>
-                                <li class="menu__nav-item"><a href="login.html">Login/Registration</a></li>
-                            </ul>
+                            <a href="~/@LangRoute/Home/Index">@Resources.Home.anasayfa</a>
                         </li>
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="page-elements.html">Features</a>
-                            <ul>
-                                <li class="menu__nav-item"><a href="typography.html">Typography</a></li>
-                                <li class="menu__nav-item"><a href="page-elements.html">Shortcodes</a></li>
-                                <li class="menu__nav-item"><a href="column.html">Columns</a></li>
-                                <li class="menu__nav-item"><a href="icon-font.html">Icons</a></li>
-                            </ul>
+                            <a href="~/@LangRoute/movielist/index">@Resources.Home.film_listesi</a>
                         </li>
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="page-elements.html">Booking steps</a>
-                            <ul>
-                                <li class="menu__nav-item"><a href="book1.html">Booking step 1</a></li>
-                                <li class="menu__nav-item"><a href="book2.html">Booking step 2</a></li>
-                                <li class="menu__nav-item"><a href="book3-buy.html">Booking step 3 (buy)</a></li>
-                                <li class="menu__nav-item"><a href="book3-reserve.html">Booking step 3 (reserve)</a></li>
-                                <li class="menu__nav-item"><a href="book-final.html">Final ticket view</a></li>
-                            </ul>
+                            <a href="~/@LangRoute/Homenews/Index">@Resources.Home.haber</a>
                         </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="gallery-four.html">Gallery</a>
-                            <ul>
-                                <li class="menu__nav-item"><a href="gallery-four.html">4 col gallery</a></li>
-                                <li class="menu__nav-item"><a href="gallery-three.html">3 col gallery</a></li>
-                                <li class="menu__nav-item"><a href="gallery-two.html">2 col gallery</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="news-left.html">News</a>
-                            <ul>
-                                <li class="menu__nav-item"><a href="news-left.html">News (rigth sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="news-right.html">News (left sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="news-full.html">News (full widht)</a></li>
-                                <li class="menu__nav-item"><a href="single-page-left.html">Single post (rigth sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="single-page-right.html">Single post (left sidebar)</a></li>
-                                <li class="menu__nav-item"><a href="single-page-full.html">Single post (full widht)</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Mega menu</a>
-                            <ul class="mega-menu container">
-                                <li class="col-md-3 mega-menu__coloum">
-                                    <h4 class="mega-menu__heading">Now in the cinema</h4>
-                                    <ul class="mega-menu__list">
-                                        <li class="mega-menu__nav-item"><a href="#">The Counselor</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Bad Grandpa</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Blue Is the Warmest Color</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Capital</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Spinning Plates</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Bastards</a></li>
-                                    </ul>
-                                </li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>
+                                <span class="sub-nav-toggle plus"></span>
+                                <a href="~/Admin/HomeAdmin/Index">@Resources.Home.admin</a>
+                            </li>
+                        }
 
-                                <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                                    <ul class="mega-menu__list">
-                                        <li class="mega-menu__nav-item"><a href="#">Gravity</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Captain Phillips</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Carrie</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Cloudy with a Chance of Meatballs 2</a></li>
-                                    </ul>
-                                </li>
 
-                                <li class="col-md-3 mega-menu__coloum">
-                                    <h4 class="mega-menu__heading">Ending soon</h4>
-                                    <ul class="mega-menu__list">
-                                        <li class="mega-menu__nav-item"><a href="#">Escape Plan</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Rush</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Prisoners</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Enough Said</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">The Fifth Estate</a></li>
-                                        <li class="mega-menu__nav-item"><a href="#">Runner Runner</a></li>
-                                    </ul>
-                                </li>
+                        <li class="mega-menu__list pull-right"><a href="~/tr/@ViewContext.RouteData.Values["controller"]/@ViewContext.RouteData.Values["action"].ToString()">TR</a></li>
 
-                                <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                                    <ul class="mega-menu__list">
-                                        <li class="mega-menu__nav-item"><a href="#">Insidious: Chapter 2</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                           
-                        </li>
-                        
-                        <li class="mega-menu__list"><a href="~/tr/Home/@ViewContext.RouteData.Values["action"].ToString()">TR</a></li>
+                        <li class="mega-menu__list pull-right"><a href="~/en/@ViewContext.RouteData.Values["controller"]/@ViewContext.RouteData.Values["action"].ToString()">EN</a></li>
 
-                        <li class="mega-menu__list"><a href="~/en/Home/@ViewContext.RouteData.Values["action"].ToString()">EN</a></li>
-                        
-                        
-                        
+
                     </ul>
                 </nav>
-                
+
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 @if (Request.IsAuthenticated)
                 {
@@ -197,8 +118,7 @@
                 else
                 {
                     <div class="control-panel">
-                        @Html.ActionLink("Sign in","Login","Account",null,new { @class = "btn btn--sign" });
-                        
+                        <a href="/@LangRoute/Account/login" class="btn btn--sign">@Resources.Home.giris</a>
                     </div>
                 }
 
@@ -210,35 +130,35 @@
 
         @*<div class="overlay overlay-hugeinc">
 
-            <section class="container">
+                <section class="container">
 
-                <div class="col-sm-4 col-sm-offset-4" style="margin-top:10%;">
+                    <div class="col-sm-4 col-sm-offset-4" style="margin-top:10%;">
 
-                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="login">
-                            <button type="button" class="overlay-close">Close</button>
-                            <p class="login__title">Giris <br><span class="login-edition">Hosgeldiniz</span></p>
-                            <div class="field-wrap">
-                                @Html.TextBoxFor(m => m.Email, new { @class = "login__input", @placeholder = "Email" })
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                <br />
-                                @Html.PasswordFor(m => m.Password, new { @class = "login__input", @placeholder = "Şifre" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="login">
+                                <button type="button" class="overlay-close">Close</button>
+                                <p class="login__title">Giris <br><span class="login-edition">Hosgeldiniz</span></p>
+                                <div class="field-wrap">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "login__input", @placeholder = "Email" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    <br />
+                                    @Html.PasswordFor(m => m.Password, new { @class = "login__input", @placeholder = "Şifre" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <br /><br /><br />
+                                <div class="login__control">
+                                    <input type="submit" value="Giris" class="btn btn-md btn--warning btn--wider" />
+                                </div>
+
+                                <br /><br /><br />
                             </div>
-                            <br /><br /><br />
-                            <div class="login__control">
-                                <input type="submit" value="Giris" class="btn btn-md btn--warning btn--wider" />
-                            </div>
+                        }
+                    </div>
 
-                            <br /><br /><br />
-                        </div>
-                    }
-                </div>
-
-            </section>
-        </div>*@
+                </section>
+            </div>*@
         <footer class="footer-wrapper">
             <section class="container">
                 <div class="col-xs-4 col-md-2 footer-nav">
@@ -287,7 +207,7 @@
     </div>
     <!--bu assagıdaki swipper.min.js sadece moviepagede kullanılıyor simdilik-->
     <script src="~/Scripts/js/external/idangerous.swiper.min.js"></script>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/angularController")

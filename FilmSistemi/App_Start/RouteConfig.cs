@@ -19,11 +19,6 @@ namespace FilmSistemi
              defaults: new { controller = UrlParameter.Optional , action = "Index", id = UrlParameter.Optional }
          );
 
-            routes.MapRoute(
-                name: "MoviePage",
-                url: "MoviePage/{id}",
-                defaults: new { controller = "MoviePage", action = "Index", id = UrlParameter.Optional }
-            );
 
             routes.MapRoute(
                 name: "Default",

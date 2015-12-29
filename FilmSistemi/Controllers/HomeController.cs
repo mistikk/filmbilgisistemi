@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace FilmSistemi.Controllers
 {
+    [Language]
     public class HomeController : Controller
     {
         FilmSistemiEntities db = new FilmSistemiEntities();

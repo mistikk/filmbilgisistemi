@@ -8,14 +8,25 @@
 <section class="container">
     <div class="overflow-wrapper">
         <div class="col-sm-12">
+            @{
+                string LangRoute;
+                if (@ViewContext.RouteData.Values["lang"] == null)
+                {
+                    LangRoute = "tr";
+                }
+                else
+                {
+                    LangRoute = @ViewContext.RouteData.Values["lang"].ToString();
+                }
 
+            }
             <h2 class="page-heading">@Resources.Home.haberler</h2>
 
             @foreach (var item in Model.News)
             {
                     <!-- News post article-->
                 <article class="post post--news">
-                    <a href='/homenews/news/@item.NewsId' class="post__image-link">
+                    <a href='/@LangRoute/homenews/news/@item.NewsId' class="post__image-link">
                         @if (item.NewsPicture.Count() == 0)
                         {
                             <img alt='' src="http://placehold.it/1600x600">
@@ -26,7 +37,7 @@
                         }
                     </a>
 
-                    <h1><a href="/homenews/news/@item.NewsId" class="post__title-link">@item.NTitle</a></h1>
+                    <h1><a href="/@LangRoute/homenews/news/@item.NewsId" class="post__title-link">@item.NTitle</a></h1>
                     <p class="post__date">@String.Format("{0:d}", @item.NDate)</p>
 
                     <div class="wave-devider"></div>

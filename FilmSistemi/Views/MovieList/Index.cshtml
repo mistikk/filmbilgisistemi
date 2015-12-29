@@ -10,7 +10,18 @@
     <section class="container">
         <div class="col-sm-12">
             <h2 class="page-heading">@Resources.Home.filmler</h2>
-            
+            @{
+                string LangRoute;
+                if (@ViewContext.RouteData.Values["lang"] == null)
+                {
+                    LangRoute = "tr";
+                }
+                else
+                {
+                    LangRoute = @ViewContext.RouteData.Values["lang"].ToString();
+                }
+
+            }
 
             @foreach (var item in Model.Movies)
             {
@@ -30,7 +41,7 @@
 
                         </div>
                         <div class="movie__feature">
-                            <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--comment">
+                            <a href="/@LangRoute/moviepage/index/@item.MovieId" class="movie__feature-item movie__feature--comment">
                                 @foreach (var comment in Model.Comments)
                                 {
                                     if (item.MovieId == comment.MovieId)
@@ -39,8 +50,8 @@
                                     }
                                 }
                             </a>
-                            <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--video">@item.Videos.Count()</a>
-                            <a href="/moviepage/@item.MovieId" class="movie__feature-item movie__feature--photo">@item.MoviePicture.Count()</a>
+                            <a href="/@LangRoute/moviepage/index/@item.MovieId" class="movie__feature-item movie__feature--video">@item.Videos.Count()</a>
+                            <a href="/@LangRoute/moviepage/index/@item.MovieId" class="movie__feature-item movie__feature--photo">@item.MoviePicture.Count()</a>
                         </div>
                     </div>
                     

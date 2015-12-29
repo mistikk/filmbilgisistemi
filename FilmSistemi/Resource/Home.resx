@@ -195,4 +195,19 @@
   <data name="yıl" xml:space="preserve">
     <value>Yıl</value>
   </data>
+  <data name="admin" xml:space="preserve">
+    <value>Admin Paneli</value>
+  </data>
+  <data name="anasayfa" xml:space="preserve">
+    <value>Anasayfa</value>
+  </data>
+  <data name="film_listesi" xml:space="preserve">
+    <value>Film Listesi</value>
+  </data>
+  <data name="giris" xml:space="preserve">
+    <value>Giriş</value>
+  </data>
+  <data name="haber" xml:space="preserve">
+    <value>Haberler</value>
+  </data>
 </root>
